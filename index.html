@@ -341,7 +341,7 @@
     <section id="contactanos" class="bg-gray-100 py-20">
         <div class="container mx-auto text-center">
             <h2 class="text-4xl font-semibold mb-6 text-blue-900">Contáctanos</h2>
-            <form action="contacto.php" method="POST" enctype="multipart/form-data" class="space-y-4" id="contact-form">
+            <form action="/php/contacto.php" method="POST" enctype="multipart/form-data" class="space-y-4" id="contact-form">
                 <input type="text" name="nombre" placeholder="Tu Nombre" required
                     class="px-6 py-3 w-80 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all">
                 
@@ -356,12 +356,13 @@
                 
                 <input type="file" name="archivo"
                     class="px-6 py-3 w-80 border border-gray-300 rounded">
-            
+                
                 <button type="submit"
                     class="px-8 py-3 bg-yellow-400 text-gray-800 font-semibold rounded hover:bg-yellow-500 transition-all transform hover:scale-105">
                     Enviar
                 </button>
             </form>
+            
             
         </div>
     </section>
