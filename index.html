@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportes Río Negro</title>
+    <!-- Agregar enlaces a los estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Estilos adicionales para transiciones y efectos */
+        .transition-all {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hover\:scale-105:hover {
+            transform: scale(1.05);
+        }
+
+
+
+        /* Animación de fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Animación de subida del texto */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 1.2s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header (Encabezado) -->
+    <header class="fixed top-0 left-0 w-full bg-blue-900 text-white py-4 shadow-lg z-50">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <!-- Logo con efecto -->
+            <a href="index.html">
+                <img src="./assets/img/logo-1.png" alt="Transportes Río Negro"
+                    class="h-16 rounded-lg shadow-md hover:scale-110 transition-transform duration-300">
+            </a>
+
+
+
+            <!-- Botón hamburguesa -->
+            <button id="menu-toggle" class="md:hidden focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- Navegación (oculta en móviles, visible en md+) -->
+            <nav id="nav-menu" class="hidden md:flex space-x-6 text-lg">
+                <a href="#nosotros" class="hover:text-yellow-400">Nosotros</a>
+                <a href="#infraestructura" class="hover:text-yellow-400">Infraestructura</a>
+                <a href="#certificados" class="hover:text-yellow-400">Certificados</a>
+                <a href="#clientes" class="hover:text-yellow-400">Clientes</a>
+                <a href="#cobertura" class="hover:text-yellow-400">Cobertura</a>
+                <a href="#contactanos" class="hover:text-yellow-400">Contáctanos</a>
+            </nav>
+        </div>
+
+        <!-- Menú móvil (mostrado al hacer clic) -->
+        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+            <nav class="flex flex-col space-y-2 text-lg">
+                <a href="#nosotros" class="hover:text-yellow-400">Nosotros</a>
+                <a href="#infraestructura" class="hover:text-yellow-400">Infraestructura</a>
+                <a href="#certificados" class="hover:text-yellow-400">Certificados</a>
+                <a href="#clientes" class="hover:text-yellow-400">Clientes</a>
+                <a href="#cobertura" class="hover:text-yellow-400">Cobertura</a>
+                <a href="#contactanos" class="hover:text-yellow-400">Contáctanos</a>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <!-- Espaciado para evitar que el contenido quede oculto debajo del navbar -->
+    <div class="h-20"></div>
+
+
+
+    <!-- Hero Section (Portada) -->
+    <section class="relative w-full h-screen flex items-center justify-center text-center overflow-hidden">
+        <!-- Imagen de fondo con transiciones suaves -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 transform scale-95 animate-fade-in"
+            style="background-image: url('./assets/img/poortada.jpg');">
+            <!-- Degradado para mejorar la visibilidad del texto -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/80"></div>
+        </div>
+
+        <!-- Contenido de la portada -->
+        <div class="relative z-10 text-white px-6 animate-slide-up">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 shadow-lg">
+                Transportes Río Negro
+            </h1>
+            <p class="text-lg md:text-2xl max-w-2xl mx-auto shadow-lg">
+                Comprometidos con el transporte responsable y el cuidado del medio ambiente.
+            </p>
+            <a href="#contacto"
+                class="mt-6 inline-block bg-orange-600 hover:bg-orange-700 text-white py-3 px-6 rounded-full text-lg transition-transform transform hover:scale-105 shadow-lg">
+                Contáctanos
+            </a>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="bg-gray-100 py-20">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+
+            <!-- Columna de texto -->
+            <div class="md:w-1/2 text-center md:text-left px-6">
+                <h2
+                    class="text-4xl font-semibold mb-6 text-blue-900 opacity-0 transform translate-y-10 transition duration-1000 ease-out animate-fade-up">
+                    Nosotros
+                </h2>
+                <p
+                    class="text-lg text-gray-700 mb-6 opacity-0 transform translate-y-10 transition duration-1000 ease-out animate-fade-up">
+                    Transportes Río Negro es una empresa dedicada al transporte de residuos y desechos orgánicos,
+                    comprometida con la sostenibilidad y el cuidado del medio ambiente.
+                </p>
+                <div class="mt-4 space-y-6">
+                    <div
+                        class="bg-white p-6 rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-xl">
+                        <h3 class="text-xl font-semibold text-blue-900">Misión</h3>
+                        <p class="text-gray-600 mt-2">
+                            Proveer un servicio eficiente y seguro en el transporte de residuos, promoviendo prácticas
+                            ecológicas para el bienestar de la comunidad y el planeta.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-xl">
+                        <h3 class="text-xl font-semibold text-blue-900">Visión</h3>
+                        <p class="text-gray-600 mt-2">
+                            Ser la empresa líder en transporte de residuos en la región, ofreciendo soluciones
+                            innovadoras y contribuyendo activamente a la sostenibilidad ambiental.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna de imagen con efecto -->
+            <div class="md:w-1/2 flex justify-center mt-10 md:mt-0 relative">
+                <div
+                    class="relative w-full md:w-4/5 overflow-hidden rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105">
+                    <img src="./assets/img/nosotros.png" alt="Nuestra empresa"
+                        class="w-full h-auto object-cover rounded-lg opacity-0 transform scale-90 transition-all duration-1000 ease-out animate-fade-in">
+                    <!-- Overlay para darle un efecto más llamativo -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-50">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Historia -->
+        <div class="container mx-auto text-center mt-20 px-6">
+            <h3
+                class="text-2xl font-semibold text-blue-900 opacity-0 transform translate-y-10 transition duration-1000 ease-out animate-fade-up">
+                Nuestra Historia
+            </h3>
+            <p
+                class="text-gray-700 max-w-3xl mx-auto mt-4 opacity-0 transform translate-y-10 transition duration-1000 ease-out animate-fade-up">
+                Fundada hace 20 años, Transportes Río Negro comenzó como una pequeña empresa familiar con el objetivo de
+                ofrecer soluciones responsables para el manejo de residuos. Con el tiempo, nos hemos expandido y
+                mejorado nuestras tecnologías, pero siempre con el mismo compromiso con el medio ambiente.
+            </p>
+        </div>
+
+        <!-- CTA (Llamada a la acción) -->
+        <div class="container mx-auto text-center mt-10">
+            <a href="#contacto"
+                class="bg-blue-900 text-white py-3 px-6 rounded-full text-lg hover:bg-blue-800 transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+                Contáctanos para más información
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Estilos de Animación y Transiciones -->
+    <style>
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 1s ease-out forwards;
+        }
+    </style>
+
+
+    <!-- Sección Infraestructura -->
+    <section id="infraestructura" class="py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-6 text-blue-900">Infraestructura</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="camion1.jpg" alt="Camión de Transporte" class="w-full h-48 object-cover rounded-t-lg">
+                    <h3 class="text-xl font-semibold mt-4">Camiones de última tecnología</h3>
+                    <p class="text-gray-600 mt-2">Nuestros camiones están equipados con la última tecnología para
+                        garantizar un servicio rápido y seguro.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="camion1.jpg" alt="Camión de Transporte" class="w-full h-48 object-cover rounded-t-lg">
+                    <h3 class="text-xl font-semibold mt-4">Camiones de última tecnología</h3>
+                    <p class="text-gray-600 mt-2">Nuestros camiones están equipados con la última tecnología para
+                        garantizar un servicio rápido y seguro.</p>
+                </div>
+
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="assets/img/remediacion-suelos.jpg" alt="Remediacion de Suelos"
+                        class="w-full h-48 object-cover rounded-t-lg">
+                    <h3 class="text-xl font-semibold mt-4">Remediación de Suelos</h3>
+                    <p class="text-gray-600 mt-2">Trn transporta y aplica materia orgánica, convertida en abono para
+                        agricultura.</p>
+                </div>
+                <!-- Agregar más elementos para mostrar más infraestructura -->
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Sección Certificados -->
+    <section id="certificados" class="bg-gray-100 py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-6 text-blue-900">Certificados</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="./assets/img/iso.jpg" alt="Certificado ISO" class="w-full h-48 object-cover rounded-t-lg">
+                    <h3 class="text-xl font-semibold mt-4">Certificación ISO 9001</h3>
+                    <p class="text-gray-600 mt-2">Cumplimos con los más altos estándares de calidad en el transporte de
+                        residuos.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="./assets/img/14001.jpeg" alt="Certificado ISO"
+                        class="w-full h-48 object-cover rounded-t-lg">
+                    <h3 class="text-xl font-semibold mt-4">Certificación ISO 14001</h3>
+                    <p class="text-gray-600 mt-2">Gestionamos nuestro impacto ambiental bajo la norma ISO 14001,
+                        promoviendo prácticas sustentables.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="./assets/img/18001.jpeg" alt="Certificado ISO"
+                        class="w-full h-48 object-cover rounded-t-lg">
+                    <h3 class="text-xl font-semibold mt-4">Certificación ISO 9001</h3>
+                    <p class="text-gray-600 mt-2">Garantizamos un entorno de trabajo seguro siguiendo los estándares de
+                        OHSAS 18001.</p>
+                </div>
+                <!-- Agregar más certificados -->
+            </div>
+        </div>
+
+
+    </section>
+    <!-- Sección Clientes -->
+    <section id="clientes" class="py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-6 text-blue-900">Nuestros Clientes</h2>
+
+            <!-- Carrusel de Clientes -->
+            <div class="relative overflow-hidden">
+                <div id="slider" class="flex transition-transform duration-500 ease-in-out">
+                    <!-- Duplicados de las imágenes al principio para el carrusel infinito -->
+                    <img src="./assets/img/rio-blanco.png" alt="Cliente 11" class="w-64 h-28 object-contain mx-4">
+                    <img src="./assets/img/agrosuper-1.png" alt="Cliente 1" class="w-64 h-28 object-contain mx-4">
+                    <img src="./assets/img/ariztia.png" alt="Cliente 2" class="w-64 h-28 object-contain mx-4">
+                    <img src="./assets/img/chilemink.jpg" alt="Cliente 3" class="w-64 h-28 object-contain mx-4">
+                    <img src="./assets/img/delipack.jpg" alt="Cliente 4" class="w-64 h-28 object-contain mx-4">
+                    <img src="./assets/img/ESVAL.png" alt="Cliente 5" class="w-64 h-28 object-contain mx-4">
+                    <img src="./assets/img/invertec.jpg" alt="Cliente 6" class="w-64 h-28 object-contain mx-4">
+                    <img src="./assets/img/logo-aguasandinas-1.png" alt="Cliente 7"
+                        class="w-64 h-28 object-contain mx-4">
+                    <img src="./assets/img/Logo-Elecmetal.png" alt="Cliente 8" class="w-64 h-28 object-contain mx-4">
+                    <img src="./assets/img/misiones.png" alt="Cliente 9" class="w-64 h-28 object-contain mx-4">
+                    <img src="./assets/img/patagonia-fresh.jpg" alt="Cliente 10" class="w-64 h-28 object-contain mx-4">
+
+                    <!-- Duplicado de la primera imagen al final para el carrusel infinito -->
+                    <img src="./assets/img/agrosuper-1.png" alt="Cliente 1" class="w-64 h-28 object-contain mx-4">
+                </div>
+            </div>
+
+            <!-- Controles del Carrusel -->
+            <div class="flex justify-center mt-4 space-x-4">
+                <button onclick="moveSlide(-1)" class="bg-blue-900 text-white px-4 py-2 rounded">←</button>
+                <button onclick="moveSlide(1)" class="bg-blue-900 text-white px-4 py-2 rounded">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Cobertura -->
+    <section id="cobertura" class="bg-gray-100 py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-6 text-blue-900">Cobertura</h2>
+            <img src="mapa-cobertura.jpg" alt="Cobertura" class="w-full h-64 object-cover">
+            <p class="text-lg text-gray-700 mt-4">Cubriendo todo el territorio con nuestros servicios de transporte de
+                residuos.</p>
+        </div>
+    </section>
+
+    <!-- Sección Contáctanos -->
+    <section id="contactanos" class="bg-gray-100 py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-6 text-blue-900">Contáctanos</h2>
+            <form action="contacto.php" method="POST" enctype="multipart/form-data" class="space-y-4" id="contact-form">
+                <input type="text" name="nombre" placeholder="Tu Nombre" required
+                    class="px-6 py-3 w-80 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all">
+                
+                <input type="email" name="email" placeholder="Tu Correo" required
+                    class="px-6 py-3 w-80 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all">
+                
+                <input type="text" name="asunto" placeholder="Asunto" required
+                    class="px-6 py-3 w-80 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all">
+                
+                <textarea name="mensaje" placeholder="Tu Mensaje" required
+                    class="px-6 py-3 w-80 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all"></textarea>
+                
+                <input type="file" name="archivo"
+                    class="px-6 py-3 w-80 border border-gray-300 rounded">
+            
+                <button type="submit"
+                    class="px-8 py-3 bg-yellow-400 text-gray-800 font-semibold rounded hover:bg-yellow-500 transition-all transform hover:scale-105">
+                    Enviar
+                </button>
+            </form>
+            
+        </div>
+    </section>
+
+    <!-- Footer (Pie de Página) -->
+    <footer class="bg-blue-900 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Transportes Río Negro. Todos los derechos reservados.</p>
+            <div class="space-x-6">
+                <a href="#" class="text-yellow-400 hover:text-yellow-500">Facebook</a>
+                <a href="#" class="text-yellow-400 hover:text-yellow-500">Instagram</a>
+                <a href="#" class="text-yellow-400 hover:text-yellow-500">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Agrega el JavaScript para el carrusel -->
+    <script>
+        let currentIndex = 0;
+        const slider = document.getElementById('slider');
+        const itemWidth = 288; // 64 (w-64) + 2*16px (mx-4)
+
+        function moveSlide(direction) {
+            const itemsCount = slider.children.length;
+            currentIndex += direction;
+
+            // Si llegamos al final, vamos al primer grupo de imágenes (infinite scroll)
+            if (currentIndex < 0) {
+                currentIndex = itemsCount - 4; // -4 para dejar 4 elementos visibles
+                slider.style.transition = "none"; // Sin transición para saltar rápidamente
+                slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+                setTimeout(() => {
+                    slider.style.transition = "transform 0.5s ease-in-out"; // Reactivar la transición
+                }, 50);
+            } else if (currentIndex >= itemsCount - 4) {
+                currentIndex = 0; // Volver al inicio
+            }
+
+            slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+
+
+        setInterval(() => {
+            moveSlide(1);
+        }, 3000); // 3000 ms = 3 segundos
+
+
+
+        const toggleBtn = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        toggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

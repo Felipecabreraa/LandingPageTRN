@@ -1,0 +1,113 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+h2 {
+    color: #004c74;
+    transition: color 0.3s ease-in-out;
+}
+
+h2:hover {
+    color: #f39c12;
+}
+
+button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #f39c12;
+    transform: scale(1.05);
+}
+
+input[type="text"], input[type="email"], textarea {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    border-color: #f39c12;
+    box-shadow: 0 0 5px rgba(243, 156, 18, 0.6);
+}
+
+input[type="text"], input[type="email"], textarea {
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="email"], textarea:focus {
+    outline: none;
+}
+
+.message {
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.error {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Estilos para la sección de portada */
+.hero {
+    background-image: url('ruta/a/tu/imagen_de_portada.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Superposición oscura */
+    transition: background-color 0.5s ease;
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 10px 0 0;
+}
+
+/* Efecto de zoom al hacer hover en la sección de portada */
+.hero:hover::before {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.hero:hover .hero-content {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
