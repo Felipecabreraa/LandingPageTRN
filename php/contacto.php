@@ -28,28 +28,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Mover archivo al directorio 'uploads'
         if (move_uploaded_file($archivoRutaTmp, $archivoDestino)) {
-            $archivoInfo = "Archivo adjunto: " . $archivoNombre;
+            $archivoAdjunto = file_get_contents($archivoDestino);
+            $archivoAdjunto = chunk_split(base64_encode($archivoAdjunto));
         } else {
-            $archivoInfo = "Error al cargar el archivo.";
+            die("Error al cargar el archivo.");
         }
     } else {
-        $archivoInfo = "No se adjuntó ningún archivo.";
+        die("No se adjuntó ningún archivo.");
     }
 
     // Dirección a la que se enviará el correo
     $destino = "luis.lagos@trn.cl"; // Cambia esto por tu dirección de correo
 
-    // Contenido del correo
-    $contenido = "Nombre: $nombre\n";
+    // Encabezados y contenido MIME
+    $boundary = md5(uniqid(time())); // Generar un límite único para separar el contenido
+
+    $headers = "From: $nombre <$email>\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
+
+    $contenido = "--$boundary\r\n";
+    $contenido .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $contenido .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+    $contenido .= "Nombre: $nombre\n";
     $contenido .= "Correo: $email\n\n";
     $contenido .= "Asunto: $asunto\n\n";
     $contenido .= "Mensaje:\n$mensaje\n\n";
-    $contenido .= $archivoInfo; // Mostrar información del archivo
-
-    // Encabezados del correo
-    $headers = "From: $nombre <$email>\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    
+    // Archivo adjunto
+    $contenido .= "--$boundary\r\n";
+    $contenido .= "Content-Type: application/octet-stream; name=\"$archivoNombre\"\r\n";
+    $contenido .= "Content-Transfer-Encoding: base64\r\n";
+    $contenido .= "Content-Disposition: attachment; filename=\"$archivoNombre\"\r\n\r\n";
+    $contenido .= $archivoAdjunto . "\r\n\r\n";
+    
+    $contenido .= "--$boundary--";
 
     // Enviar el correo
     if (mail($destino, $asunto, $contenido, $headers)) {
