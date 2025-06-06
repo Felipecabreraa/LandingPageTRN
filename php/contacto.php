@@ -8,11 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validación básica
     if (empty($nombre) || empty($email) || empty($asunto) || empty($mensaje)) {
-        die("Por favor completa todos los campos.");
+        echo "<script>alert('Por favor completa todos los campos.'); window.location.href='/';</script>";
+        exit;
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        die("Correo electrónico no válido.");
+        echo "<script>alert('Correo electrónico no válido.'); window.location.href='/';</script>";
+        exit;
     }
 
     // Procesar el archivo adjunto
@@ -31,10 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $archivoAdjunto = file_get_contents($archivoDestino);
             $archivoAdjunto = chunk_split(base64_encode($archivoAdjunto));
         } else {
-            die("Error al cargar el archivo.");
+            echo "<script>alert('Error al cargar el archivo.'); window.location.href='/';</script>";
+            exit;
         }
     } else {
-        die("No se adjuntó ningún archivo.");
+        echo "<script>alert('No se adjuntó ningún archivo.'); window.location.href='/';</script>";
+        exit;
     }
 
     // Dirección a la que se enviará el correo
@@ -67,9 +71,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Enviar el correo
     if (mail($destino, $asunto, $contenido, $headers)) {
-        echo "Mensaje enviado correctamente.";
+        echo "<script>
+            alert('Mensaje enviado correctamente.');
+            window.location.href = '/'; // Redirigir al formulario limpio
+        </script>";
     } else {
-        echo "Error al enviar el mensaje.";
+        echo "<script>alert('Error al enviar el mensaje.'); window.location.href='/';</script>";
     }
 } else {
     echo "Acceso no permitido.";
