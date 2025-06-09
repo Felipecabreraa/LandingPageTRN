@@ -86,6 +86,7 @@
                 <a href="#clientes" class="hover:text-yellow-400">Clientes</a>
                 <a href="#cobertura" class="hover:text-yellow-400">Cobertura</a>
                 <a href="#contactanos" class="hover:text-yellow-400">Contáctanos</a>
+                <a href="#canal-denuncia">Canal de Denuncia</a>
             </nav>
         </div>
 
@@ -450,6 +451,45 @@
 </section>
 
 
+<!-- Sección Canal de Denuncia -->
+<section id="canal-denuncia" class="py-20 bg-white">
+    <div class="container mx-auto max-w-3xl px-6">
+      <h2 class="text-4xl font-semibold text-blue-900 mb-6 text-center">Canal de Denuncia</h2>
+      <p class="text-gray-700 text-lg mb-8 text-center">
+        Este canal está disponible para reportar actos que puedan infringir la ley, violar el código de ética o poner en riesgo a la organización. La denuncia puede ser anónima y se manejará con estricta confidencialidad.
+      </p>
+  
+      <form action="/php/canal_denuncia.php" method="POST" class="space-y-6 bg-gray-100 p-8 rounded-xl shadow-lg">
+        <!-- Nombre (opcional) -->
+        <input type="text" name="nombre" placeholder="Tu nombre (opcional)"
+          class="w-full px-5 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-yellow-500 shadow-sm">
+  
+        <!-- Correo (opcional) -->
+        <input type="email" name="email" placeholder="Tu correo (opcional)"
+          class="w-full px-5 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-yellow-500 shadow-sm">
+  
+        <!-- Asunto -->
+        <input type="text" name="asunto" placeholder="Asunto de la denuncia" required
+          class="w-full px-5 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-yellow-500 shadow-sm">
+  
+        <!-- Mensaje -->
+        <textarea name="mensaje" placeholder="Describe los hechos" required
+          class="w-full px-5 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-yellow-500 shadow-sm h-40 resize-none"></textarea>
+  
+        <!-- Botón -->
+        <button type="submit"
+          class="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-md shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
+          Enviar Denuncia
+        </button>
+      </form>
+  
+      <p class="text-sm text-gray-500 mt-4 text-center">
+        Toda información será tratada con confidencialidad y conforme a la ley.
+      </p>
+    </div>
+  </section>
+  
+
 
 
 
@@ -462,7 +502,7 @@
             <div class="space-x-6">
                 <a href="#" class="text-yellow-400 hover:text-yellow-500">Facebook</a>
                 <a href="#" class="text-yellow-400 hover:text-yellow-500">Instagram</a>
-                <a href="#" class="text-yellow-400 hover:text-yellow-500">LinkedIn</a>
+                <a href="https://www.linkedin.com/company/transportes-rio-negro-s-a/" class="text-yellow-400 hover:text-yellow-500">LinkedIn</a>
             </div>
         </div>
     </footer>

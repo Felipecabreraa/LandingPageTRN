@@ -8,16 +8,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validación básica
     if (empty($nombre) || empty($email) || empty($asunto) || empty($mensaje)) {
-        echo "<script>alert('Por favor completa todos los campos.'); window.location.href='/';</script>";
-        exit;
+        die("Por favor completa todos los campos.");
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<script>alert('Correo electrónico no válido.'); window.location.href='/';</script>";
-        exit;
+        die("Correo electrónico no válido.");
     }
 
-    // Procesar el archivo adjunto
+    // Procesar el archivo adjunto si se ha subido uno
+    $archivoAdjunto = null;
     if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] == 0) {
         $archivoNombre = basename($_FILES['archivo']['name']);
         $archivoRutaTmp = $_FILES['archivo']['tmp_name'];
@@ -33,12 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $archivoAdjunto = file_get_contents($archivoDestino);
             $archivoAdjunto = chunk_split(base64_encode($archivoAdjunto));
         } else {
-            echo "<script>alert('Error al cargar el archivo.'); window.location.href='/';</script>";
-            exit;
+            die("Error al cargar el archivo.");
         }
-    } else {
-        echo "<script>alert('No se adjuntó ningún archivo.'); window.location.href='/';</script>";
-        exit;
     }
 
     // Dirección a la que se enviará el correo
@@ -60,23 +55,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contenido .= "Asunto: $asunto\n\n";
     $contenido .= "Mensaje:\n$mensaje\n\n";
     
-    // Archivo adjunto
-    $contenido .= "--$boundary\r\n";
-    $contenido .= "Content-Type: application/octet-stream; name=\"$archivoNombre\"\r\n";
-    $contenido .= "Content-Transfer-Encoding: base64\r\n";
-    $contenido .= "Content-Disposition: attachment; filename=\"$archivoNombre\"\r\n\r\n";
-    $contenido .= $archivoAdjunto . "\r\n\r\n";
-    
+    // Si hay un archivo adjunto, lo agregamos al contenido
+    if ($archivoAdjunto) {
+        $contenido .= "--$boundary\r\n";
+        $contenido .= "Content-Type: application/octet-stream; name=\"$archivoNombre\"\r\n";
+        $contenido .= "Content-Transfer-Encoding: base64\r\n";
+        $contenido .= "Content-Disposition: attachment; filename=\"$archivoNombre\"\r\n\r\n";
+        $contenido .= $archivoAdjunto . "\r\n\r\n";
+    }
+
     $contenido .= "--$boundary--";
 
     // Enviar el correo
     if (mail($destino, $asunto, $contenido, $headers)) {
-        echo "<script>
-            alert('Mensaje enviado correctamente.');
-            window.location.href = '/'; // Redirigir al formulario limpio
-        </script>";
+        echo "<script>alert('Mensaje enviado correctamente.');</script>";
     } else {
-        echo "<script>alert('Error al enviar el mensaje.'); window.location.href='/';</script>";
+        echo "<script>alert('Error al enviar el mensaje.');</script>";
     }
 } else {
     echo "Acceso no permitido.";
