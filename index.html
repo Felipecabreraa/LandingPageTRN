@@ -656,6 +656,12 @@
             mobileMenu.classList.toggle('hidden');
         });
 
+
+        function cerrarBanner() {
+            document.getElementById("trabajaBanner").style.display = "none";
+        }
+
+
         // 🔽 Mueve esta función FUERA del addEventListener
         function enviarDenuncia() {
             const form = document.getElementById('form-denuncia');
@@ -682,9 +688,6 @@
                     console.error(error);
                 });
 
-            function cerrarBanner() {
-                document.getElementById("trabajaBanner").style.display = "none";
-            }
 
 
 
