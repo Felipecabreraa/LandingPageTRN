@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabaja con Nosotros - TRN</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+  /* Estilos Generales */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+h1, h2, h3 {
+  color: #2c3e50;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Botones */
+.btn-primary, .btn-secondary {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+.btn-secondary {
+  background-color: #ecf0f1;
+  color: #3498db;
+  border: 2px solid #3498db;
+}
+
+.btn-secondary:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Sección Hero */
+.hero {
+  background: url('https://source.unsplash.com/1600x900/?team,office') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* Beneficios */
+.benefits {
+  background-color: #ecf0f1;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.benefit-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 22%;
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1rem;
+}
+
+/* Vacantes */
+.vacancies {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.vacancy-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.vacancy-cards .card {
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 22%;
+  text-align: center;
+}
+
+.vacancy-cards .card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.vacancy-cards .card p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Testimonios */
+.testimonials {
+  background-color: #ecf0f1;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.testimonial-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.testimonial-cards .card {
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 45%;
+  text-align: center;
+}
+
+.testimonial-cards .card p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Formulario de Postulación */
+.application-form {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.application-form form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.application-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.application-form input, .application-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.application-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.application-form button:hover {
+  background-color: #2980b9;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+</style>
+<body>
+
+  <!-- Sección Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Únete a nuestro equipo</h1>
+      <p>Transforma el futuro del transporte con nosotros.</p>
+      <a href="#vacantes" class="btn-primary">Ver Vacantes</a>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="benefits">
+    <h2>¿Por qué trabajar en TRN?</h2>
+    <div class="benefit-cards">
+      <div class="card">
+        <h3>🌍 Trabajo Remoto</h3>
+        <p>Flexibilidad para trabajar desde cualquier lugar.</p>
+      </div>
+      <div class="card">
+        <h3>📈 Crecimiento Profesional</h3>
+        <p>Oportunidades de desarrollo y capacitación continua.</p>
+      </div>
+      <div class="card">
+        <h3>💰 Beneficios Competitivos</h3>
+        <p>Salarios atractivos y beneficios adicionales.</p>
+      </div>
+      <div class="card">
+        <h3>👥 Cultura Inclusiva</h3>
+        <p>Un ambiente de trabajo diverso y colaborativo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vacantes -->
+  <section id="vacantes" class="vacancies">
+    <h2>Vacantes Disponibles</h2>
+    <div class="vacancy-cards">
+      <div class="card">
+        <h3>Desarrollador Frontend</h3>
+        <p>Ubicación: Remoto</p>
+        <p>Tipo: Tiempo Completo</p>
+        <a href="#" class="btn-secondary">Aplicar Ahora</a>
+      </div>
+      <div class="card">
+        <h3>Diseñador UX/UI</h3>
+        <p>Ubicación: Santiago, Chile</p>
+        <p>Tipo: Híbrido</p>
+        <a href="#" class="btn-secondary">Aplicar Ahora</a>
+      </div>
+      <div class="card">
+        <h3>Especialista en Marketing Digital</h3>
+        <p>Ubicación: Bogotá, Colombia</p>
+        <p>Tipo: Medio Tiempo</p>
+        <a href="#" class="btn-secondary">Aplicar Ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="testimonials">
+    <h2>Lo que dicen nuestros empleados</h2>
+    <div class="testimonial-cards">
+      <div class="card">
+        <p>"Trabajar en TRN ha sido una experiencia increíble. El ambiente es colaborativo y siempre hay oportunidades para crecer."</p>
+        <p>- Juan Pérez, Desarrollador Backend</p>
+      </div>
+      <div class="card">
+        <p>"Me encanta la flexibilidad que me ofrece la empresa. Puedo equilibrar mi vida personal y profesional sin problemas."</p>
+        <p>- María López, Diseñadora UX/UI</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario de Postulación -->
+  <section class="application-form">
+    <h2>Postúlate Ahora</h2>
+    <form action="enviar_postulacion.php" method="POST">
+      <label for="nombre">Nombre Completo</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="email">Correo Electrónico</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="cv">Adjuntar CV</label>
+      <input type="file" id="cv" name="cv" required>
+
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+      <button type="submit" class="btn-primary">Enviar Postulación</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TRN. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

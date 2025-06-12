@@ -53,6 +53,77 @@
         .animate-slide-up {
             animation: slideUp 1.2s ease-out forwards;
         }
+
+
+        .trabaja-banner {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #004080;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.8s ease-out;
+            z-index: 9999;
+            max-width: 320px;
+        }
+
+        .trabaja-contenido {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .trabaja-icono {
+            font-size: 1.8rem;
+        }
+
+        .trabaja-btn {
+            background: #00bfff;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .trabaja-btn:hover {
+            background-color: #0099cc;
+        }
+
+        .cerrar-banner {
+            margin-left: auto;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .trabaja-banner {
+                flex-direction: column;
+                bottom: 10px;
+                right: 10px;
+                max-width: 90%;
+            }
+        }
     </style>
 </head>
 
@@ -116,6 +187,8 @@
 
 
 
+
+
     <!-- Hero Section (Portada) -->
     <section class="relative w-full h-screen flex items-center justify-center text-center overflow-hidden">
         <!-- Imagen de fondo con transiciones suaves -->
@@ -139,6 +212,26 @@
             </a>
         </div>
     </section>
+
+
+
+
+
+
+    <!-- Banner Llamativo Fijo -->
+    <div class="trabaja-banner" id="trabajaBanner">
+        <div class="trabaja-contenido">
+            <div class="trabaja-icono">🧑‍💼</div>
+            <div>
+                <strong>¡Estamos contratando!</strong><br>
+                <small>Forma parte del futuro del transporte</small>
+            </div>
+        </div>
+        <a href="/trabaja-con.html" class="trabaja-btn">Ver Vacantes</a>
+        <span class="cerrar-banner" onclick="cerrarBanner()">✕</span>
+    </div>
+
+
 
 
 
@@ -529,84 +622,76 @@
     </footer>
 
 
-    <!-- Agrega el JavaScript para el carrusel -->
     <script>
         let currentIndex = 0;
         const slider = document.getElementById('slider');
-        const itemWidth = 288; // 64 (w-64) + 2*16px (mx-4)
+        const itemWidth = 288;
 
         function moveSlide(direction) {
             const itemsCount = slider.children.length;
             currentIndex += direction;
 
-            // Si llegamos al final, vamos al primer grupo de imágenes (infinite scroll)
             if (currentIndex < 0) {
-                currentIndex = itemsCount - 4; // -4 para dejar 4 elementos visibles
-                slider.style.transition = "none"; // Sin transición para saltar rápidamente
+                currentIndex = itemsCount - 4;
+                slider.style.transition = "none";
                 slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
                 setTimeout(() => {
-                    slider.style.transition = "transform 0.5s ease-in-out"; // Reactivar la transición
+                    slider.style.transition = "transform 0.5s ease-in-out";
                 }, 50);
             } else if (currentIndex >= itemsCount - 4) {
-                currentIndex = 0; // Volver al inicio
+                currentIndex = 0;
             }
 
             slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
         }
 
-
         setInterval(() => {
             moveSlide(1);
-        }, 3000); // 3000 ms = 3 segundos
-
-
+        }, 3000);
 
         const toggleBtn = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 
         toggleBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-
-
-
-
-         //Script para manejar el envío -->...
-
-
-            function enviarDenuncia() {
-                const form = document.getElementById('form-denuncia');
-                const formData = new FormData(form);
-
-                fetch('/php/canal_denuncia.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                    .then(res => res.text())
-                    .then(data => {
-                        if (data.includes("Denuncia enviada correctamente")) {
-                            alert("Denuncia enviada correctamente. Gracias por tu reporte.");
-                            form.reset();
-                            grecaptcha.reset();
-                            window.location.href = '/'; // Página principal
-                        } else {
-                            alert("Error: " + data);
-                            grecaptcha.reset();
-                        }
-                    })
-                    .catch(error => {
-                        alert("Error al enviar la denuncia. Intenta más tarde.");
-                        console.error(error);
-                    });
-            }
         });
 
+        // 🔽 Mueve esta función FUERA del addEventListener
+        function enviarDenuncia() {
+            const form = document.getElementById('form-denuncia');
+            const formData = new FormData(form);
+
+            fetch('/php/canal_denuncia.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(res => res.text())
+                .then(data => {
+                    if (data.includes("Denuncia enviada correctamente")) {
+                        alert("Denuncia enviada correctamente. Gracias por tu reporte.");
+                        form.reset();
+                        grecaptcha.reset();
+                        window.location.href = '/';
+                    } else {
+                        alert("Error: " + data);
+                        grecaptcha.reset();
+                    }
+                })
+                .catch(error => {
+                    alert("Error al enviar la denuncia. Intenta más tarde.");
+                    console.error(error);
+                });
+
+            function cerrarBanner() {
+                document.getElementById("trabajaBanner").style.display = "none";
+            }
 
 
 
 
-
-
+        }
     </script>
+
 
 </body>
 
