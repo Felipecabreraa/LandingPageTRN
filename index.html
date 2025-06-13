@@ -8,6 +8,12 @@
     <!-- Agregar enlaces a los estilos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+
     <style>
         /* Estilos adicionales para transiciones y efectos */
         .transition-all {
@@ -124,10 +130,121 @@
                 max-width: 90%;
             }
         }
+
+
+        /* Estilo de la línea de ruta */
+        .path-animation {
+            width: 0%;
+            height: 100%;
+            background-size: 200% 100%;
+            background-position: left;
+            animation: drawLine 4s linear infinite;
+        }
+
+        /* Animación de la línea */
+        @keyframes drawLine {
+            0% {
+                width: 0%;
+            }
+
+            50% {
+                width: 50%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        /* Efecto de camión en movimiento */
+        .truck-animation {
+            animation: moveTruck 5s linear infinite;
+        }
+
+        /* Animación de movimiento del camión */
+        @keyframes moveTruck {
+            0% {
+                left: 0;
+            }
+
+            50% {
+                left: 50%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Media Queries para Responsividad */
+        @media (max-width: 1024px) {
+            .path-animation {
+                width: 100%;
+            }
+
+            .truck-animation {
+                width: 60px;
+                height: 60px;
+            }
+
+            .text-4xl {
+                font-size: 2rem;
+            }
+
+            .text-lg {
+                font-size: 1rem;
+            }
+
+            .flex-wrap {
+                flex-wrap: wrap;
+            }
+
+            .flex-col {
+                flex-direction: column;
+            }
+
+            .w-5 {
+                width: 30px;
+                height: 30px;
+            }
+
+            .text-sm {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .truck-animation {
+                width: 50px;
+                height: 50px;
+            }
+
+            .w-5 {
+                width: 25px;
+                height: 25px;
+            }
+
+            .text-sm {
+                font-size: 0.75rem;
+            }
+
+            .text-lg {
+                font-size: 0.875rem;
+            }
+
+            .max-w-6xl {
+                max-width: 100%;
+            }
+
+            .flex-col {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100">
 
     <!-- Header (Encabezado) -->
     <header class="fixed top-0 left-0 w-full bg-blue-900 text-white py-4 shadow-lg z-50">
@@ -429,77 +546,67 @@
     </section>
 
     <!-- Sección Cobertura -->
-
-    <!-- Asegúrate de tener Font Awesome en tu <head> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <section id="cobertura" class="bg-gray-100 py-20">
-        <div class="container mx-auto text-center">
+        <div class="container mx-auto text-center px-4">
             <h2 class="text-4xl font-semibold mb-10 text-blue-900">Cobertura</h2>
 
-            <!-- Línea vertical simulando Chile -->
-            <div class="flex flex-col items-center space-y-6 relative">
-                <div class="absolute h-full w-1 bg-blue-300 top-0 left-1/2 transform -translate-x-1/2 z-0"></div>
-
-                <!-- Regiones con animación y camión como ícono -->
-                <div class="relative z-10">
+            <!-- Ruta horizontal con puntos -->
+            <div class="relative overflow-x-hidden py-20">
+                <!-- Línea de fondo con animación -->
+                <div
+                    class="absolute top-1/2 left-0 right-0 h-2 bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700 z-0 transform -translate-y-1/2">
                     <div
-                        class="group bg-white px-6 py-3 rounded-lg shadow-md text-blue-900 font-medium flex items-center space-x-2 transform transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg">
-                        <i class="fas fa-truck text-blue-500 transition duration-300 group-hover:text-blue-700"></i>
-                        <span class="transition duration-300 group-hover:text-blue-800">Valparaíso</span>
+                        class="path-animation w-full h-full absolute top-0 left-0 bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-line">
                     </div>
                 </div>
 
-                <div class="relative z-10">
-                    <div
-                        class="group bg-white px-6 py-3 rounded-lg shadow-md text-blue-900 font-medium flex items-center space-x-2 transform transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg">
-                        <i class="fas fa-truck text-blue-500 transition duration-300 group-hover:text-blue-700"></i>
-                        <span class="transition duration-300 group-hover:text-blue-800">Metropolitana</span>
-                    </div>
+                <!-- Camión en movimiento -->
+                <div class="absolute -top-4 z-10 truck-animation" style="width: 80px; height: 80px;">
+                    <i class="fas fa-truck-moving text-6xl text-blue-700"></i>
                 </div>
 
-                <div class="relative z-10">
-                    <div
-                        class="group bg-white px-6 py-3 rounded-lg shadow-md text-blue-900 font-medium flex items-center space-x-2 transform transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg">
-                        <i class="fas fa-truck text-blue-500 transition duration-300 group-hover:text-blue-700"></i>
-                        <span class="transition duration-300 group-hover:text-blue-800">O’Higgins</span>
+                <!-- Puntos fijos de regiones -->
+                <div class="relative flex flex-wrap justify-between w-full max-w-6xl mx-auto px-10 z-10">
+                    <!-- Cada punto de cobertura -->
+                    <div class="flex flex-col items-center">
+                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
+                        <span class="text-sm text-blue-900 font-medium">Valparaíso</span>
                     </div>
-                </div>
 
-                <div class="relative z-10">
-                    <div
-                        class="group bg-white px-6 py-3 rounded-lg shadow-md text-blue-900 font-medium flex items-center space-x-2 transform transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg">
-                        <i class="fas fa-truck text-blue-500 transition duration-300 group-hover:text-blue-700"></i>
-                        <span class="transition duration-300 group-hover:text-blue-800">Maule</span>
+                    <div class="flex flex-col items-center">
+                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
+                        <span class="text-sm text-blue-900 font-medium">Metropolitana</span>
                     </div>
-                </div>
 
-                <div class="relative z-10">
-                    <div
-                        class="group bg-white px-6 py-3 rounded-lg shadow-md text-blue-900 font-medium flex items-center space-x-2 transform transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg">
-                        <i class="fas fa-truck text-blue-500 transition duration-300 group-hover:text-blue-700"></i>
-                        <span class="transition duration-300 group-hover:text-blue-800">Ñuble</span>
+                    <div class="flex flex-col items-center">
+                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
+                        <span class="text-sm text-blue-900 font-medium">O’Higgins</span>
                     </div>
-                </div>
 
-                <div class="relative z-10">
-                    <div
-                        class="group bg-white px-6 py-3 rounded-lg shadow-md text-blue-900 font-medium flex items-center space-x-2 transform transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg">
-                        <i class="fas fa-truck text-blue-500 transition duration-300 group-hover:text-blue-700"></i>
-                        <span class="transition duration-300 group-hover:text-blue-800">Biobío</span>
+                    <div class="flex flex-col items-center">
+                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
+                        <span class="text-sm text-blue-900 font-medium">Maule</span>
                     </div>
-                </div>
 
-                <div class="relative z-10">
-                    <div
-                        class="group bg-white px-6 py-3 rounded-lg shadow-md text-blue-900 font-medium flex items-center space-x-2 transform transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg">
-                        <i class="fas fa-truck text-blue-500 transition duration-300 group-hover:text-blue-700"></i>
-                        <span class="transition duration-300 group-hover:text-blue-800">La Araucanía</span>
+                    <div class="flex flex-col items-center">
+                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
+                        <span class="text-sm text-blue-900 font-medium">Ñuble</span>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
+                        <span class="text-sm text-blue-900 font-medium">Biobío</span>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
+                        <span class="text-sm text-blue-900 font-medium">La Araucanía</span>
                     </div>
                 </div>
             </div>
 
-            <p class="text-lg text-gray-700 mt-10 max-w-xl mx-auto">
+            <!-- Descripción -->
+            <p class="text-lg text-gray-700 mt-10 max-w-2xl mx-auto">
                 Operamos activamente desde la Región de Valparaíso hasta La Araucanía, asegurando cobertura continua en
                 todo el trayecto sur del país.
             </p>
@@ -534,9 +641,6 @@
                     <textarea name="mensaje" placeholder="Tu Mensaje" required
                         class="px-6 py-4 w-full md:w-96 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all resize-none h-40 hover:shadow-xl"></textarea>
 
-                    <!-- Archivo -->
-                    <input type="file" name="archivo"
-                        class="px-6 py-4 w-full md:w-96 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all hover:shadow-xl">
 
                     <!-- Botón de Enviar -->
                     <button type="submit"
