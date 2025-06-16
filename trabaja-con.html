@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,253 +10,317 @@
 
 <style>
   /* Estilos Generales */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  color: #333;
-}
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
 
-h1, h2, h3 {
-  color: #2c3e50;
-}
+  h1,
+  h2,
+  h3 {
+    color: #2c3e50;
+  }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
-/* Botones */
-.btn-primary, .btn-secondary {
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bold;
-  text-align: center;
-  display: inline-block;
-  cursor: pointer;
-}
+  /* Botones */
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+  }
 
-.btn-primary {
-  background-color: #3498db;
-  color: white;
-}
+  .btn-primary {
+    background-color: #3498db;
+    color: white;
+  }
 
-.btn-primary:hover {
-  background-color: #2980b9;
-}
+  .btn-primary:hover {
+    background-color: #2980b9;
+  }
 
-.btn-secondary {
-  background-color: #ecf0f1;
-  color: #3498db;
-  border: 2px solid #3498db;
-}
+  .btn-secondary {
+    background-color: #ecf0f1;
+    color: #3498db;
+    border: 2px solid #3498db;
+  }
 
-.btn-secondary:hover {
-  background-color: #3498db;
-  color: white;
-}
+  .btn-secondary:hover {
+    background-color: #3498db;
+    color: white;
+  }
 
-/* Sección Hero */
-.hero {
-  background: url('https://source.unsplash.com/1600x900/?team,office') no-repeat center center/cover;
-  color: rgb(28, 184, 219);
-  text-align: center;
-  padding: 100px 20px;
-}
+  /* Sección Hero */
+  .hero {
+    background: url('https://source.unsplash.com/1600x900/?team,office') no-repeat center center/cover;
+    color: rgb(28, 184, 219);
+    text-align: center;
+    padding: 100px 20px;
+  }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
 
-/* Beneficios */
-.benefits {
-  background-color: #ecf0f1;
-  padding: 50px 20px;
-  text-align: center;
-}
+  /* Beneficios */
+  .benefits {
+    background-color: #ecf0f1;
+    padding: 50px 20px;
+    text-align: center;
+  }
 
-.benefit-cards {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
+  .benefit-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 
-.card {
-  background-color: white;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 22%;
-  text-align: center;
-}
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    text-align: center;
+  }
 
-.card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
 
-.card p {
-  font-size: 1rem;
-}
+  .card p {
+    font-size: 1rem;
+  }
 
-/* Vacantes */
-.vacancies {
-  padding: 50px 20px;
-  text-align: center;
-}
+  /* Vacantes */
+  .vacancies {
+    padding: 50px 20px;
+    text-align: center;
+  }
 
-.vacancy-cards {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
+  .vacancy-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 
-.vacancy-cards .card {
-  background-color: white;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 22%;
-  text-align: center;
-}
+  .vacancy-cards .card {
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    text-align: center;
+  }
 
-.vacancy-cards .card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
+  .vacancy-cards .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
 
-.vacancy-cards .card p {
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
+  .vacancy-cards .card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
 
-/* Testimonios */
-.testimonials {
-  background-color: #ecf0f1;
-  padding: 50px 20px;
-  text-align: center;
-}
+  /* Testimonios */
+  .testimonials {
+    background-color: #ecf0f1;
+    padding: 50px 20px;
+    text-align: center;
+  }
 
-.testimonial-cards {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
+  .testimonial-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 
-.testimonial-cards .card {
-  background-color: white;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 45%;
-  text-align: center;
-}
+  .testimonial-cards .card {
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    text-align: center;
+  }
 
-.testimonial-cards .card p {
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
+  .testimonial-cards .card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
 
-/* Formulario de Postulación */
-.application-form {
-  padding: 50px 20px;
-  text-align: center;
-}
+  /* Formulario de Postulación */
+  .application-form {
+    padding: 50px 20px;
+    text-align: center;
+  }
 
-.application-form form {
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+  .application-form form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-.application-form label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
+  .application-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
 
-.application-form input, .application-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+  .application-form input,
+  .application-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
 
-.application-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
+  .application-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
 
-.application-form button:hover {
-  background-color: #2980b9;
-}
+  .application-form button:hover {
+    background-color: #2980b9;
+  }
 
-/* Footer */
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
 
 
-@media (max-width: 600px) {
+  @media (max-width: 600px) {
     .trabaja-banner {
-        flex-direction: column;
-        align-items: flex-start;
-        bottom: 15px;
-        right: 10px;
-        max-width: 90%;
-        padding: 12px 14px;
-        font-size: 0.85rem;
+      flex-direction: column;
+      align-items: flex-start;
+      bottom: 15px;
+      right: 10px;
+      max-width: 90%;
+      padding: 12px 14px;
+      font-size: 0.85rem;
     }
 
     .trabaja-contenido {
-        flex-direction: row;
-        gap: 8px;
-        font-size: 0.85rem;
+      flex-direction: row;
+      gap: 8px;
+      font-size: 0.85rem;
     }
 
     .trabaja-icono {
-        font-size: 1.4rem;
+      font-size: 1.4rem;
     }
 
     .trabaja-btn {
-        font-size: 0.8rem;
-        padding: 6px 10px;
-        margin-top: 8px;
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      margin-top: 8px;
     }
 
     .cerrar-banner {
-        align-self: flex-end;
-        font-size: 1rem;
-        margin-top: 5px;
+      align-self: flex-end;
+      font-size: 1rem;
+      margin-top: 5px;
     }
+  }
+
+  /* Header/Navbar */
+  header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+  }
+
+  .logo a {
+    font-size: 1.5rem;
+    color: #3498db;
+    font-weight: bold;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav-links li a {
+    color: #2c3e50;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav-links li a:hover {
+    color: #3498db;
+  }
+
+  .logo-img {
+  height: 50px;
+  width: auto;
 }
 
-
 </style>
+
 <body>
+
+<header>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="/">
+        <img src="assets/img/logo-1.png" alt="Logo TRN" class="logo-img">
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#vacantes">Vacantes</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+      <li><a href="#formulario">Postulación</a></li>
+    </ul>
+  </nav>
+</header>
 
   <!-- Sección Hero -->
   <section class="hero">
@@ -319,11 +384,13 @@ footer {
     <h2>Lo que dicen nuestros empleados</h2>
     <div class="testimonial-cards">
       <div class="card">
-        <p>"Trabajar en TRN ha sido una experiencia increíble. El ambiente es colaborativo y siempre hay oportunidades para crecer."</p>
+        <p>"Trabajar en TRN ha sido una experiencia increíble. El ambiente es colaborativo y siempre hay oportunidades
+          para crecer."</p>
         <p>- Juan Pérez, Desarrollador Backend</p>
       </div>
       <div class="card">
-        <p>"Me encanta la flexibilidad que me ofrece la empresa. Puedo equilibrar mi vida personal y profesional sin problemas."</p>
+        <p>"Me encanta la flexibilidad que me ofrece la empresa. Puedo equilibrar mi vida personal y profesional sin
+          problemas."</p>
         <p>- María López, Diseñadora UX/UI</p>
       </div>
     </div>
@@ -354,4 +421,5 @@ footer {
   </footer>
 
 </body>
+
 </html>

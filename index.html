@@ -9,13 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 
 
     <style>
-        /* Estilos adicionales para transiciones y efectos */
+        /* --- Transiciones y Animaciones Generales --- */
         .transition-all {
             transition: all 0.3s ease-in-out;
         }
@@ -24,9 +22,7 @@
             transform: scale(1.05);
         }
 
-
-
-        /* Animación de fade-in */
+        /* Animación fade-in */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -39,7 +35,7 @@
             }
         }
 
-        /* Animación de subida del texto */
+        /* Animación slide-up */
         @keyframes slideUp {
             from {
                 opacity: 0;
@@ -60,7 +56,7 @@
             animation: slideUp 1.2s ease-out forwards;
         }
 
-
+        /* --- Banner Trabaja con Nosotros --- */
         .trabaja-banner {
             position: fixed;
             bottom: 20px;
@@ -98,6 +94,7 @@
             font-weight: bold;
             text-decoration: none;
             font-size: 0.85rem;
+            transition: background-color 0.3s ease;
         }
 
         .trabaja-btn:hover {
@@ -131,8 +128,7 @@
             }
         }
 
-
-        /* Estilo de la línea de ruta */
+        /* --- Animaciones para línea y camión --- */
         .path-animation {
             width: 0%;
             height: 100%;
@@ -141,7 +137,6 @@
             animation: drawLine 4s linear infinite;
         }
 
-        /* Animación de la línea */
         @keyframes drawLine {
             0% {
                 width: 0%;
@@ -156,112 +151,178 @@
             }
         }
 
-        /* Efecto de camión en movimiento */
-        .truck-animation {
-            animation: moveTruck 5s linear infinite;
+        .truck-crane-animation {
+            animation: moveTruckCrane 10s linear infinite;
+            /* velocidad lenta */
+            position: absolute;
+            top: -2.5rem;
+            left: -200px;
+            /* empieza fuera de la vista */
         }
 
-        /* Animación de movimiento del camión */
-        @keyframes moveTruck {
+        @keyframes moveTruckCrane {
             0% {
-                left: 0;
-            }
-
-            50% {
-                left: 50%;
+                transform: translateX(0);
             }
 
             100% {
-                left: 100%;
+                transform: translateX(150vw);
+                /* va más allá del ancho total */
             }
         }
 
-        /* Media Queries para Responsividad */
-        @media (max-width: 1024px) {
-            .path-animation {
-                width: 100%;
-            }
 
-            .truck-animation {
-                width: 60px;
-                height: 60px;
-            }
 
-            .text-4xl {
-                font-size: 2rem;
-            }
 
-            .text-lg {
-                font-size: 1rem;
-            }
 
-            .flex-wrap {
-                flex-wrap: wrap;
-            }
+        /* --- HEADER & SUBHEADER ESTILOS MEJORADOS --- */
 
-            .flex-col {
-                flex-direction: column;
-            }
-
-            .w-5 {
-                width: 30px;
-                height: 30px;
-            }
-
-            .text-sm {
-                font-size: 0.875rem;
-            }
+        /* Subheader (Información pequeña superior) */
+        #subheader {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 40px;
+            /* altura subheader */
+            z-index: 60;
+            transition: top 0.3s ease-in-out;
+            background: rgba(255, 255, 255, 0.9);
         }
 
+        #subheader>div {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            color: #1e40af;
+            /* Azul oscuro */
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        /* Header principal */
+
+
+        #header {
+            position: fixed;
+            top: 40px;
+            /* justo debajo del subheader */
+            width: 100%;
+            height: 60px;
+            /* altura header */
+            z-index: 70;
+            transition: top 0.3s ease-in-out;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+
+        body {
+            padding-top: 50px;
+            /* espacio para subheader + header */
+        }
+
+
+
+
+
+        /* Clase que agregas con JS al hacer scroll */
+        #header.scrolled {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 0 1rem;
+        }
+
+        /* Para que el contenido no quede oculto bajo el header */
+        main {
+            padding-top: calc(2.5rem + 3.5rem);
+            /* Ajusta según altura total subheader + header */
+        }
+
+        /* Responsive subheader */
         @media (max-width: 640px) {
-            .truck-animation {
-                width: 50px;
-                height: 50px;
-            }
-
-            .w-5 {
-                width: 25px;
-                height: 25px;
-            }
-
-            .text-sm {
-                font-size: 0.75rem;
-            }
-
-            .text-lg {
-                font-size: 0.875rem;
-            }
-
-            .max-w-6xl {
-                max-width: 100%;
-            }
-
-            .flex-col {
+            #subheader {
                 flex-direction: column;
-                align-items: center;
+                padding: 0.5rem 0;
             }
+
+            #subheader>div {
+                justify-content: center;
+            }
+        }
+
+
+
+        /* Asegúrate de que el menú móvil esté oculto por defecto */
+        #mobile-menu {
+            display: none;
+        }
+
+        /* Cuando se active, se debe mostrar */
+        #mobile-menu.active {
+            display: block;
         }
     </style>
 </head>
 
 <body class="bg-gray-100">
 
-    <!-- Header (Encabezado) -->
-    <header class="fixed top-0 left-0 w-full bg-blue-900 text-white py-4 shadow-lg z-50">
+    <!-- Subheader Moderno -->
+    <div id="subheader" class="bg-white text-blue-800">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center">
+                <div
+                    class="flex flex-col md:flex-row items-center gap-3 md:gap-8 text-sm rounded-full px-6 py-2 mt-3 shadow-md transition-all duration-300">
+
+                    <!-- Teléfono -->
+                    <div
+                        class="flex items-center gap-2 hover:text-yellow-500 hover:scale-105 transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 5a16 16 0 0016 16h2a2 2 0 002-2v-2c0-.6-.3-1.1-.7-1.5l-3.1-3.1a2 2 0 00-2.6 0l-1.1 1.1a12.9 12.9 0 01-6.3-6.3l1.1-1.1a2 2 0 000-2.6L8.5 3.7A2 2 0 007 3H5a2 2 0 00-2 2v0z" />
+                        </svg>
+                        <span>+56 9 1234 5678</span>
+                    </div>
+
+                    <!-- Correo -->
+                    <div
+                        class="flex items-center gap-2 hover:text-yellow-500 hover:scale-105 transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16 12H8m8 0l-8 0m8 0v4m0-4l-8-4m0 0v8" />
+                        </svg>
+                        <span>contacto@rionegro.cl</span>
+                    </div>
+
+                    <!-- Trabaja con nosotros -->
+                    <a href="#trabaja-con-nosotros"
+                        class="flex items-center gap-2 hover:text-yellow-500 hover:scale-105 transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2m8-10a4 4 0 100-8 4 4 0 000 8zm6 4h4m-2-2v4" />
+                        </svg>
+                        <span>Trabaja con nosotros</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Header principal -->
+    <header class="bg-white py-4 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4">
             <!-- Logo con efecto -->
-            <a href="index.html">
+            <a href="index.html" class="flex-shrink-0">
                 <img src="./assets/img/logo-1.png" alt="Transportes Río Negro"
                     class="h-16 rounded-lg shadow-md hover:scale-110 transition-transform duration-300">
             </a>
 
-
-
-
-
-
-            <!-- Botón hamburguesa -->
-            <button id="menu-toggle" class="md:hidden focus:outline-none">
+            <!-- Botón hamburguesa (solo en móviles) -->
+            <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Toggle Menu">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -269,37 +330,31 @@
                 </svg>
             </button>
 
-            <!-- Navegación (oculta en móviles, visible en md+) -->
-            <nav id="nav-menu" class="hidden md:flex space-x-6 text-lg">
-                <a href="#nosotros" class="hover:text-yellow-400">Nosotros</a>
-                <a href="#infraestructura" class="hover:text-yellow-400">Infraestructura</a>
-                <a href="#certificados" class="hover:text-yellow-400">Certificados</a>
-                <a href="#clientes" class="hover:text-yellow-400">Clientes</a>
-                <a href="#cobertura" class="hover:text-yellow-400">Cobertura</a>
-                <a href="#contactanos" class="hover:text-yellow-400">Contáctanos</a>
-                <a href="#canal-denuncia">Canal de Denuncia</a>
+            <!-- Navegación (visible solo en pantallas grandes) -->
+            <nav id="nav-menu" class="hidden md:flex space-x-6 text-lg text-blue-900 font-medium">
+                <a href="#nosotros" class="hover:text-yellow-400 transition">Nosotros</a>
+                <a href="#infraestructura" class="hover:text-yellow-400 transition">Infraestructura</a>
+                <a href="#certificados" class="hover:text-yellow-400 transition">Certificados</a>
+                <a href="#clientes" class="hover:text-yellow-400 transition">Clientes</a>
+                <a href="#cobertura" class="hover:text-yellow-400 transition">Cobertura</a>
+                <a href="#contactanos" class="hover:text-yellow-400 transition">Contáctanos</a>
+                <a href="#canal-denuncia" class="hover:text-yellow-400 transition">Canal de Denuncia</a>
             </nav>
         </div>
 
-        <!-- Menú móvil (mostrado al hacer clic) -->
-        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
-            <nav class="flex flex-col space-y-2 text-lg">
-                <a href="#nosotros" class="hover:text-yellow-400">Nosotros</a>
-                <a href="#infraestructura" class="hover:text-yellow-400">Infraestructura</a>
-                <a href="#certificados" class="hover:text-yellow-400">Certificados</a>
-                <a href="#clientes" class="hover:text-yellow-400">Clientes</a>
-                <a href="#cobertura" class="hover:text-yellow-400">Cobertura</a>
-                <a href="#contactanos" class="hover:text-yellow-400">Contáctanos</a>
+        <!-- Menú móvil (oculto por defecto) -->
+        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white">
+            <nav class="flex flex-col space-y-2 text-lg text-blue-900 font-medium">
+                <a href="#nosotros" class="hover:text-yellow-400 transition">Nosotros</a>
+                <a href="#infraestructura" class="hover:text-yellow-400 transition">Infraestructura</a>
+                <a href="#certificados" class="hover:text-yellow-400 transition">Certificados</a>
+                <a href="#clientes" class="hover:text-yellow-400 transition">Clientes</a>
+                <a href="#cobertura" class="hover:text-yellow-400 transition">Cobertura</a>
+                <a href="#contactanos" class="hover:text-yellow-400 transition">Contáctanos</a>
             </nav>
         </div>
     </header>
 
-
-
-
-
-    <!-- Espaciado para evitar que el contenido quede oculto debajo del navbar -->
-    <div class="h-20"></div>
 
 
 
@@ -323,10 +378,7 @@
             <p class="text-lg md:text-2xl max-w-2xl mx-auto shadow-lg">
                 Comprometidos con el transporte responsable y el cuidado del medio ambiente.
             </p>
-            <a href="#contacto"
-                class="mt-6 inline-block bg-orange-600 hover:bg-orange-700 text-white py-3 px-6 rounded-full text-lg transition-transform transform hover:scale-105 shadow-lg">
-                Contáctanos
-            </a>
+
         </div>
     </section>
 
@@ -418,13 +470,6 @@
             </p>
         </div>
 
-        <!-- CTA (Llamada a la acción) -->
-        <div class="container mx-auto text-center mt-10">
-            <a href="#contacto"
-                class="bg-blue-900 text-white py-3 px-6 rounded-full text-lg hover:bg-blue-800 transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
-                Contáctanos para más información
-            </a>
-        </div>
     </section>
 
 
@@ -482,6 +527,8 @@
         <div class="container mx-auto text-center">
             <h2 class="text-4xl font-semibold mb-6 text-blue-900">Certificados</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <img src="./assets/img/iso.jpg" alt="Certificado ISO" class="w-full h-48 object-cover rounded-t-lg">
                     <h3 class="text-xl font-semibold mt-4">Certificación ISO 9001</h3>
@@ -489,21 +536,7 @@
                         residuos.</p>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="./assets/img/14001.jpeg" alt="Certificado ISO"
-                        class="w-full h-48 object-cover rounded-t-lg">
-                    <h3 class="text-xl font-semibold mt-4">Certificación ISO 14001</h3>
-                    <p class="text-gray-600 mt-2">Gestionamos nuestro impacto ambiental bajo la norma ISO 14001,
-                        promoviendo prácticas sustentables.</p>
-                </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="./assets/img/18001.jpeg" alt="Certificado ISO"
-                        class="w-full h-48 object-cover rounded-t-lg">
-                    <h3 class="text-xl font-semibold mt-4">Certificación ISO 9001</h3>
-                    <p class="text-gray-600 mt-2">Garantizamos un entorno de trabajo seguro siguiendo los estándares de
-                        OHSAS 18001.</p>
-                </div>
                 <!-- Agregar más certificados -->
             </div>
         </div>
@@ -511,39 +544,59 @@
 
     </section>
     <!-- Sección Clientes -->
-    <section id="clientes" class="py-20">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-semibold mb-6 text-blue-900">Nuestros Clientes</h2>
+    <section id="clientes" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-10 text-blue-900">Nuestros Clientes</h2>
 
-            <!-- Carrusel de Clientes -->
+            <!-- Carrusel con efecto de máscara -->
             <div class="relative overflow-hidden">
-                <div id="slider" class="flex transition-transform duration-500 ease-in-out">
-                    <!-- Duplicados de las imágenes al principio para el carrusel infinito -->
-                    <img src="./assets/img/rio-blanco.png" alt="Cliente 11" class="w-64 h-28 object-contain mx-4">
-                    <img src="./assets/img/agrosuper-1.png" alt="Cliente 1" class="w-64 h-28 object-contain mx-4">
-                    <img src="./assets/img/ariztia.png" alt="Cliente 2" class="w-64 h-28 object-contain mx-4">
-                    <img src="./assets/img/chilemink.jpg" alt="Cliente 3" class="w-64 h-28 object-contain mx-4">
-                    <img src="./assets/img/delipack.jpg" alt="Cliente 4" class="w-64 h-28 object-contain mx-4">
-                    <img src="./assets/img/ESVAL.png" alt="Cliente 5" class="w-64 h-28 object-contain mx-4">
-                    <img src="./assets/img/invertec.jpg" alt="Cliente 6" class="w-64 h-28 object-contain mx-4">
-                    <img src="./assets/img/logo-aguasandinas-1.png" alt="Cliente 7"
-                        class="w-64 h-28 object-contain mx-4">
-                    <img src="./assets/img/Logo-Elecmetal.png" alt="Cliente 8" class="w-64 h-28 object-contain mx-4">
-                    <img src="./assets/img/misiones.png" alt="Cliente 9" class="w-64 h-28 object-contain mx-4">
-                    <img src="./assets/img/patagonia-fresh.jpg" alt="Cliente 10" class="w-64 h-28 object-contain mx-4">
+                <!-- Fade efecto a los lados -->
+                <div class="absolute top-0 left-0 h-full w-12 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+                <div class="absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
 
-                    <!-- Duplicado de la primera imagen al final para el carrusel infinito -->
-                    <img src="./assets/img/agrosuper-1.png" alt="Cliente 1" class="w-64 h-28 object-contain mx-4">
+                <!-- Carrusel -->
+                <div id="slider" class="flex items-center transition-transform duration-500 ease-in-out space-x-8 px-4">
+                    <img src="./assets/img/rio-blanco.png" alt="Cliente 11"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                    <img src="./assets/img/agrosuper-1.png" alt="Cliente 1"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                    <img src="./assets/img/ariztia.png" alt="Cliente 2"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                    <img src="./assets/img/chilemink.jpg" alt="Cliente 3"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                    <img src="./assets/img/delipack.jpg" alt="Cliente 4"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                    <img src="./assets/img/ESVAL.png" alt="Cliente 5"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                    <img src="./assets/img/invertec.jpg" alt="Cliente 6"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                    <img src="./assets/img/logo-aguasandinas-1.png" alt="Cliente 7"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                    <img src="./assets/img/Logo-Elecmetal.png" alt="Cliente 8"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                    <img src="./assets/img/misiones.png" alt="Cliente 9"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                    <img src="./assets/img/patagonia-fresh.jpg" alt="Cliente 10"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                    <img src="./assets/img/agrosuper-1.png" alt="Cliente 1 (duplicado)"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
                 </div>
             </div>
 
-            <!-- Controles del Carrusel -->
-            <div class="flex justify-center mt-4 space-x-4">
-                <button onclick="moveSlide(-1)" class="bg-blue-900 text-white px-4 py-2 rounded">←</button>
-                <button onclick="moveSlide(1)" class="bg-blue-900 text-white px-4 py-2 rounded">→</button>
+            <!-- Controles -->
+            <div class="flex justify-center mt-8 space-x-6">
+                <button onclick="moveSlide(-1)"
+                    class="bg-blue-900 text-white p-3 rounded-full hover:bg-blue-700 transition shadow-lg">
+                    &#8592;
+                </button>
+                <button onclick="moveSlide(1)"
+                    class="bg-blue-900 text-white p-3 rounded-full hover:bg-blue-700 transition shadow-lg">
+                    &#8594;
+                </button>
             </div>
         </div>
     </section>
+
 
     <!-- Sección Cobertura -->
     <section id="cobertura" class="bg-gray-100 py-20">
@@ -560,10 +613,44 @@
                     </div>
                 </div>
 
-                <!-- Camión en movimiento -->
-                <div class="absolute -top-4 z-10 truck-animation" style="width: 80px; height: 80px;">
-                    <i class="fas fa-truck-moving text-6xl text-blue-700"></i>
+                <!-- Camión con pluma SVG mejorado -->
+                <div class="absolute truck-crane-animation" style="width: 200px; height: 110px; top: -2.5rem; left: 0;">
+                    <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                        <!-- Cuerpo del camión -->
+                        <rect x="10" y="50" width="110" height="35" rx="6" ry="6" fill="#1e40af" stroke="#0c274a"
+                            stroke-width="2" />
+
+                        <!-- Cabina -->
+                        <rect x="120" y="40" width="50" height="45" rx="6" ry="6" fill="#2563eb" stroke="#0c274a"
+                            stroke-width="2" />
+
+                        <!-- Ruedas exteriores -->
+                        <circle cx="35" cy="90" r="12" fill="#0c274a" />
+                        <circle cx="90" cy="90" r="12" fill="#0c274a" />
+                        <circle cx="135" cy="90" r="12" fill="#0c274a" />
+
+                        <!-- Rines interiores -->
+                        <circle cx="35" cy="90" r="6" fill="#3b82f6" />
+                        <circle cx="90" cy="90" r="6" fill="#3b82f6" />
+                        <circle cx="135" cy="90" r="6" fill="#3b82f6" />
+
+                        <!-- Logo dentro del cuerpo del camión -->
+                        <image href="/assets/img/logo-1.png" x="25" y="55" width="70" height="25" />
+
+                        <!-- Base de pluma -->
+                        <rect x="135" y="30" width="10" height="10" fill="#0c274a" />
+
+                        <!-- Pluma horizontal -->
+                        <rect x="145" y="20" width="45" height="10" rx="3" ry="3" fill="#3b82f6" />
+
+
+                    </svg>
                 </div>
+
+
+
+
+
 
                 <!-- Puntos fijos de regiones -->
                 <div class="relative flex flex-wrap justify-between w-full max-w-6xl mx-auto px-10 z-10">
@@ -619,46 +706,46 @@
 
     <!-- Sección Contáctanos -->
     <section id="contactanos" class="bg-gray-100 py-20">
-        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 px-4">
-            <!-- Formulario de contacto -->
-            <div class="space-y-8 p-6 bg-white rounded-xl shadow-lg">
-                <h2 class="text-4xl font-semibold mb-6 text-blue-900">Contáctanos</h2>
-                <form action="/php/contacto.php" method="POST" enctype="multipart/form-data" id="contact-form"
-                    class="space-y-6">
-                    <!-- Nombre -->
-                    <input type="text" name="nombre" placeholder="Tu Nombre" required
-                        class="px-6 py-4 w-full md:w-96 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all hover:shadow-xl">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <!-- Formulario de contacto -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl">
+                    <h2 class="text-4xl font-bold text-blue-900 mb-8">Contáctanos</h2>
+                    <form action="/php/contacto.php" method="POST" enctype="multipart/form-data" id="contact-form"
+                        class="space-y-6">
+                        <!-- Nombre -->
+                        <input type="text" name="nombre" placeholder="Tu Nombre" required
+                            class="px-5 py-4 w-full border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 transition hover:shadow-md">
 
-                    <!-- Correo -->
-                    <input type="email" name="email" placeholder="Tu Correo" required
-                        class="px-6 py-4 w-full md:w-96 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all hover:shadow-xl">
+                        <!-- Correo -->
+                        <input type="email" name="email" placeholder="Tu Correo" required
+                            class="px-5 py-4 w-full border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 transition hover:shadow-md">
 
-                    <!-- Asunto -->
-                    <input type="text" name="asunto" placeholder="Asunto" required
-                        class="px-6 py-4 w-full md:w-96 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all hover:shadow-xl">
+                        <!-- Asunto -->
+                        <input type="text" name="asunto" placeholder="Asunto" required
+                            class="px-5 py-4 w-full border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 transition hover:shadow-md">
 
-                    <!-- Mensaje -->
-                    <textarea name="mensaje" placeholder="Tu Mensaje" required
-                        class="px-6 py-4 w-full md:w-96 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all resize-none h-40 hover:shadow-xl"></textarea>
+                        <!-- Mensaje -->
+                        <textarea name="mensaje" placeholder="Tu Mensaje" required
+                            class="px-5 py-4 w-full border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 transition resize-none h-40 hover:shadow-md"></textarea>
 
+                        <!-- Botón de enviar -->
+                        <button type="submit"
+                            class="w-full px-6 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-lg shadow-md hover:bg-yellow-500 transition transform hover:scale-105 focus:outline-none">
+                            Enviar
+                        </button>
+                    </form>
+                </div>
 
-                    <!-- Botón de Enviar -->
-                    <button type="submit"
-                        class="w-full md:w-auto px-8 py-3 bg-yellow-400 text-gray-800 font-semibold rounded-lg shadow-md hover:bg-yellow-500 transition-all transform hover:scale-105 focus:outline-none">
-                        Enviar
-                    </button>
-                </form>
-            </div>
-
-            <!-- Mapa de la ubicación de la empresa -->
-            <div class="space-y-4">
-                <h3 class="text-2xl font-semibold text-blue-900">Ubicación</h3>
-                <div class="bg-white shadow-lg rounded-lg p-4">
-                    <!-- Mapa responsivo -->
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4053.2553753010134!2d-70.91016471100657!3d-34.348589374561094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9663610046283559%3A0xd7dcc7ea2a37419c!2sTransportes%20R%C3%ADo%20Negro%20S.A!5e1!3m2!1ses!2scl!4v1749221387957!5m2!1ses!2scl"
-                        width="100%" height="450" style="border:0; border-radius: 10px;" allowfullscreen=""
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- Mapa de ubicación -->
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-semibold text-blue-900">Nuestra Ubicación</h3>
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4053.2553753010134!2d-70.91016471100657!3d-34.348589374561094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9663610046283559%3A0xd7dcc7ea2a37419c!2sTransportes%20R%C3%ADo%20Negro%20S.A!5e1!3m2!1ses!2scl!4v1749221387957!5m2!1ses!2scl"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -666,7 +753,6 @@
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-    <!-- Sección Canal de Denuncia -->
 
     <!-- Sección Canal de Denuncia -->
     <section id="canal-denuncia" class="py-20 bg-white">
@@ -727,14 +813,18 @@
 
 
     <script>
+        // ================================
+        // 🎠 Carrusel de Clientes Automático
+        // ================================
         let currentIndex = 0;
         const slider = document.getElementById('slider');
-        const itemWidth = 288;
+        const itemWidth = 288; // Ancho fijo de cada logo incluyendo padding/margin
 
         function moveSlide(direction) {
             const itemsCount = slider.children.length;
             currentIndex += direction;
 
+            // Carrusel Infinito hacia la izquierda
             if (currentIndex < 0) {
                 currentIndex = itemsCount - 4;
                 slider.style.transition = "none";
@@ -742,31 +832,49 @@
                 setTimeout(() => {
                     slider.style.transition = "transform 0.5s ease-in-out";
                 }, 50);
-            } else if (currentIndex >= itemsCount - 4) {
+            }
+
+            // Reiniciar al principio si sobrepasa el límite
+            else if (currentIndex >= itemsCount - 4) {
                 currentIndex = 0;
             }
 
             slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
         }
 
+        // Auto desplazamiento cada 3 segundos
         setInterval(() => {
             moveSlide(1);
         }, 3000);
 
-        const toggleBtn = document.getElementById('menu-toggle');
+
+        // ================================
+        // 📱 Toggle Menú Móvil
+        // ================================
+        // Seleccionamos el botón hamburguesa y el menú móvil
+        const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        toggleBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // Añadimos un evento al botón para mostrar u ocultar el menú
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');  // Activa o desactiva la clase 'active' para mostrar u ocultar el menú
         });
 
 
+        // ================================
+        // ❌ Cerrar Banner de Trabajo
+        // ================================
         function cerrarBanner() {
-            document.getElementById("trabajaBanner").style.display = "none";
+            const banner = document.getElementById("trabajaBanner");
+            if (banner) {
+                banner.style.display = "none";
+            }
         }
 
 
-        // 🔽 Mueve esta función FUERA del addEventListener
+        // ================================
+        // 📨 Enviar Formulario de Denuncia
+        // ================================
         function enviarDenuncia() {
             const form = document.getElementById('form-denuncia');
             const formData = new FormData(form);
@@ -791,12 +899,45 @@
                     alert("Error al enviar la denuncia. Intenta más tarde.");
                     console.error(error);
                 });
-
-
-
-
-
         }
+
+
+
+
+
+        let lastScrollTop = 0;
+        const subheader = document.getElementById('subheader');
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', function () {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll === 0) {
+                // En la parte superior, mostramos solo el subheader y header abajo
+                subheader.style.transition = 'top 0.3s ease';
+                subheader.style.top = '0';
+                header.style.transition = 'top 0.3s ease';
+                header.style.top = '40px'; // justo debajo del subheader
+            } else if (currentScroll > lastScrollTop) {
+                // Scroll hacia abajo → ocultamos subheader, header va arriba
+                subheader.style.transition = 'top 0.3s ease';
+                subheader.style.top = '-60px'; // oculta el subheader
+                header.style.transition = 'top 0.3s ease';
+                header.style.top = '0';
+            } else {
+                // Scroll hacia arriba → mostramos subheader y header abajo
+                subheader.style.transition = 'top 0.3s ease';
+                subheader.style.top = '0';
+                header.style.transition = 'top 0.3s ease';
+                header.style.top = '40px';
+            }
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+
+
+
+
     </script>
 
 
