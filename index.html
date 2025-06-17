@@ -13,16 +13,10 @@
 
 
     <style>
-        /* --- Transiciones y Animaciones Generales --- */
-        .transition-all {
-            transition: all 0.3s ease-in-out;
-        }
-
-        .hover\:scale-105:hover {
-            transform: scale(1.05);
-        }
-
-        /* Animación fade-in */
+        /* ======================
+     ANIMACIONES PERSONALIZADAS 
+     (Tailwind no las incluye)
+  ====================== */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -35,7 +29,6 @@
             }
         }
 
-        /* Animación slide-up */
         @keyframes slideUp {
             from {
                 opacity: 0;
@@ -48,6 +41,55 @@
             }
         }
 
+        @keyframes slideIn {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes drawLine {
+            0% {
+                width: 0%;
+            }
+
+            50% {
+                width: 50%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes moveTruckCrane {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(150vw);
+            }
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ======================
+     CLASES DE ANIMACIÓN
+  ====================== */
         .animate-fade-in {
             animation: fadeIn 1.5s ease-out forwards;
         }
@@ -56,7 +98,14 @@
             animation: slideUp 1.2s ease-out forwards;
         }
 
-        /* --- Banner Trabaja con Nosotros --- */
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+
+        /* ======================
+     BANNER "TRABAJA CON NOSOTROS" 
+     (Mejor dejarlo en CSS por complejidad)
+  ====================== */
         .trabaja-banner {
             position: fixed;
             bottom: 20px;
@@ -82,41 +131,17 @@
             flex-grow: 1;
         }
 
-        .trabaja-icono {
-            font-size: 1.8rem;
-        }
-
         .trabaja-btn {
             background: #00bfff;
             color: white;
             padding: 8px 12px;
             border-radius: 6px;
             font-weight: bold;
-            text-decoration: none;
-            font-size: 0.85rem;
             transition: background-color 0.3s ease;
         }
 
         .trabaja-btn:hover {
             background-color: #0099cc;
-        }
-
-        .cerrar-banner {
-            margin-left: auto;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(120%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
         }
 
         @media (max-width: 600px) {
@@ -128,7 +153,10 @@
             }
         }
 
-        /* --- Animaciones para línea y camión --- */
+        /* ======================
+     ANIMACIÓN LÍNEA Y CAMIÓN 
+     (CSS personalizado necesario)
+  ====================== */
         .path-animation {
             width: 0%;
             height: 100%;
@@ -137,171 +165,208 @@
             animation: drawLine 4s linear infinite;
         }
 
-        @keyframes drawLine {
-            0% {
-                width: 0%;
-            }
-
-            50% {
-                width: 50%;
-            }
-
-            100% {
-                width: 100%;
-            }
-        }
-
         .truck-crane-animation {
             animation: moveTruckCrane 10s linear infinite;
-            /* velocidad lenta */
             position: absolute;
             top: -2.5rem;
             left: -200px;
-            /* empieza fuera de la vista */
         }
 
-        @keyframes moveTruckCrane {
+        /* ======================
+     MENÚ MÓVIL 
+     (Complementa Tailwind)
+  ====================== */
+        #mobile-menu {
+            display: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        #mobile-menu.active {
+            display: block;
+            max-height: 500px;
+        }
+
+        /* ======================
+     AJUSTES ESPECÍFICOS PARA MOBILE 
+     (Donde Tailwind no alcanza)
+  ====================== */
+        @media (max-width: 640px) {
+
+            /* Ajuste fino para hero section */
+            .hero-text {
+                font-size: calc(1.5rem + 1.5vw);
+            }
+
+            /* Corrección de padding en secciones */
+            section {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        /* ======================
+     SECCIÓN COBERTURA MEJORADA
+   ====================== */
+        #cobertura {
+            position: relative;
+            padding: 60px 0;
+        }
+
+        /* Contenedor de la línea y animación */
+        .ruta-container {
+            position: relative;
+            height: 160px;
+            /* Aumentado para dar más espacio */
+            margin: 40px 0;
+        }
+
+        /* Línea horizontal */
+        .ruta-linea {
+            position: absolute;
+            top: 50%;
+            left: 2%;
+            right: 2%;
+            height: 4px;
+            background: linear-gradient(to right, #3b82f6, #1d4ed8, #3b82f6);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        /* Camión animado - POSICIÓN MODIFICADA */
+        .truck-animation {
+            position: absolute;
+            width: 180px;
+            height: 90px;
+            top: 60%;
+            /* Cambiado de 50% a 60% para bajar el camión */
+            left: -180px;
+            transform: translateY(-50%);
+            z-index: 10;
+            /* Reducido para que los puntos queden encima */
+            animation: moveTruck 15s linear infinite;
+        }
+
+        /* Puntos de cobertura */
+        .puntos-cobertura {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            width: 96%;
+            margin: 0 auto;
+            z-index: 20;
+            /* Mayor que el camión */
+        }
+
+        .punto-cobertura {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            min-width: 0;
+        }
+
+        .punto-marcador {
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .punto-texto {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1e40af;
+            text-align: center;
+            position: absolute;
+            bottom: 100%;
+            margin-bottom: 10px;
+            width: max-content;
+            max-width: 120px;
+        }
+
+        /* Animación del camión */
+        @keyframes moveTruck {
             0% {
-                transform: translateX(0);
+                left: 0;
+                transform: translateX(-100%) translateY(-50%);
             }
 
             100% {
-                transform: translateX(150vw);
-                /* va más allá del ancho total */
+                left: 100%;
+                transform: translateX(0) translateY(-50%);
             }
         }
 
-
-
-
-
-        /* --- HEADER & SUBHEADER ESTILOS MEJORADOS --- */
-
-        /* Subheader (Información pequeña superior) */
-        #subheader {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 40px;
-            /* altura subheader */
-            z-index: 60;
-            transition: top 0.3s ease-in-out;
-            background: rgba(255, 255, 255, 0.9);
+ /* Estilos para la versión mobile */
+    .truck-mobile {
+        animation: moveTruckMobile 8s linear infinite;
+    }
+    
+    @keyframes moveTruckMobile {
+        0% {
+            left: 0;
+            transform: translateX(-100%) translateY(-50%);
         }
-
-        #subheader>div {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            color: #1e40af;
-            /* Azul oscuro */
-            font-weight: 600;
-            font-size: 0.875rem;
+        100% {
+            left: 100%;
+            transform: translateX(0) translateY(-50%);
         }
-
-        /* Header principal */
-
-
-        #header {
-            position: fixed;
-            top: 40px;
-            /* justo debajo del subheader */
-            width: 100%;
-            height: 60px;
-            /* altura header */
-            z-index: 70;
-            transition: top 0.3s ease-in-out;
-            background: rgba(255, 255, 255, 0.95);
-        }
-
-
-        body {
-            padding-top: 50px;
-            /* espacio para subheader + header */
-        }
-
-
-
-
-
-        /* Clase que agregas con JS al hacer scroll */
-        #header.scrolled {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 0 1rem;
-        }
-
-        /* Para que el contenido no quede oculto bajo el header */
-        main {
-            padding-top: calc(2.5rem + 3.5rem);
-            /* Ajusta según altura total subheader + header */
-        }
-
-        /* Responsive subheader */
-        @media (max-width: 640px) {
-            #subheader {
-                flex-direction: column;
-                padding: 0.5rem 0;
-            }
-
-            #subheader>div {
-                justify-content: center;
-            }
-        }
-
-
-
-        /* Asegúrate de que el menú móvil esté oculto por defecto */
-        #mobile-menu {
+    }
+    
+    /* Asegurar que la versión desktop no se muestre en mobile */
+    @media (max-width: 767px) {
+        .ruta-container.desktop-version {
             display: none;
         }
-
-        /* Cuando se active, se debe mostrar */
-        #mobile-menu.active {
-            display: block;
-        }
+    }
     </style>
 </head>
 
 <body class="bg-gray-100">
 
     <!-- Subheader Moderno -->
-<div id="subheader" class="bg-white text-blue-800 hidden md:block">
-    <div class="container mx-auto px-4">
-        <div class="flex justify-center">
-            <div class="flex flex-col md:flex-row items-center gap-3 md:gap-8 text-sm rounded-full px-6 py-2 mt-3 shadow-md transition-all duration-300">
-                <!-- Teléfono -->
-                <div class="flex items-center gap-2 hover:text-yellow-500 hover:scale-105 transition-all duration-200">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a16 16 0 0016 16h2a2 2 0 002-2v-2c0-.6-.3-1.1-.7-1.5l-3.1-3.1a2 2 0 00-2.6 0l-1.1 1.1a12.9 12.9 0 01-6.3-6.3l1.1-1.1a2 2 0 000-2.6L8.5 3.7A2 2 0 007 3H5a2 2 0 00-2 2v0z" />
-                    </svg>
-                    <span>+56 9 1234 5678</span>
-                </div>
+    <div id="subheader" class="bg-white text-blue-800 hidden md:block">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center">
+                <div
+                    class="flex flex-col md:flex-row items-center gap-3 md:gap-8 text-sm rounded-full px-6 py-2 mt-3 shadow-md transition-all duration-300">
+                    <!-- Teléfono -->
+                    <div
+                        class="flex items-center gap-2 hover:text-yellow-500 hover:scale-105 transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 5a16 16 0 0016 16h2a2 2 0 002-2v-2c0-.6-.3-1.1-.7-1.5l-3.1-3.1a2 2 0 00-2.6 0l-1.1 1.1a12.9 12.9 0 01-6.3-6.3l1.1-1.1a2 2 0 000-2.6L8.5 3.7A2 2 0 007 3H5a2 2 0 00-2 2v0z" />
+                        </svg>
+                        <span>+56 9 1234 5678</span>
+                    </div>
 
-                <!-- Correo -->
-                <div class="flex items-center gap-2 hover:text-yellow-500 hover:scale-105 transition-all duration-200">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0l-8 0m8 0v4m0-4l-8-4m0 0v8" />
-                    </svg>
-                    <span>contacto@rionegro.cl</span>
-                </div>
+                    <!-- Correo -->
+                    <div
+                        class="flex items-center gap-2 hover:text-yellow-500 hover:scale-105 transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16 12H8m8 0l-8 0m8 0v4m0-4l-8-4m0 0v8" />
+                        </svg>
+                        <span>contacto@trn.cl</span>
+                    </div>
 
-                <!-- Trabaja con nosotros -->
-                <a href="#trabaja-con-nosotros" class="flex items-center gap-2 hover:text-yellow-500 hover:scale-105 transition-all duration-200">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2m8-10a4 4 0 100-8 4 4 0 000 8zm6 4h4m-2-2v4" />
-                    </svg>
-                    <span>Trabaja con nosotros</span>
-                </a>
+                    <!-- Trabaja con nosotros -->
+                    <a href="/trabaja-con.html"
+                        class="flex items-center gap-2 hover:text-yellow-500 hover:scale-105 transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2m8-10a4 4 0 100-8 4 4 0 000 8zm6 4h4m-2-2v4" />
+                        </svg>
+                        <span>Trabaja con nosotros</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-
-
-
 
     <!-- Header principal -->
     <header class="bg-white py-4 shadow-md sticky top-0 z-50">
@@ -346,12 +411,6 @@
         </div>
     </header>
 
-
-
-
-
-
-
     <!-- Hero Section (Portada) -->
     <section class="relative w-full h-screen flex items-center justify-center text-center overflow-hidden">
         <!-- Imagen de fondo con transiciones suaves -->
@@ -369,14 +428,8 @@
             <p class="text-lg md:text-2xl max-w-2xl mx-auto shadow-lg">
                 Comprometidos con el transporte responsable y el cuidado del medio ambiente.
             </p>
-
         </div>
     </section>
-
-
-
-
-
 
     <!-- Banner Llamativo Fijo -->
     <div class="trabaja-banner" id="trabajaBanner">
@@ -390,13 +443,6 @@
         <a href="/trabaja-con.html" class="trabaja-btn">Ver Vacantes</a>
         <span class="cerrar-banner" onclick="cerrarBanner()">✕</span>
     </div>
-
-
-
-
-
-
-
 
     <!-- Sección Nosotros -->
     <section id="nosotros" class="bg-gray-100 py-20">
@@ -460,9 +506,7 @@
                 mejorado nuestras tecnologías, pero siempre con el mismo compromiso con el medio ambiente.
             </p>
         </div>
-
     </section>
-
 
     <!-- Estilos de Animación y Transiciones -->
     <style>
@@ -477,7 +521,6 @@
             animation: fadeUp 1s ease-out forwards;
         }
     </style>
-
 
     <!-- Sección Infraestructura -->
     <section id="infraestructura" class="py-20">
@@ -498,7 +541,6 @@
                         garantizar un servicio rápido y seguro.</p>
                 </div>
 
-
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <img src="assets/img/remediacion-suelos.jpg" alt="Remediacion de Suelos"
                         class="w-full h-48 object-cover rounded-t-lg">
@@ -506,34 +548,25 @@
                     <p class="text-gray-600 mt-2">Trn transporta y aplica materia orgánica, convertida en abono para
                         agricultura.</p>
                 </div>
-                <!-- Agregar más elementos para mostrar más infraestructura -->
             </div>
         </div>
     </section>
-
-
 
     <!-- Sección Certificados -->
     <section id="certificados" class="bg-gray-100 py-20">
         <div class="container mx-auto text-center">
             <h2 class="text-4xl font-semibold mb-6 text-blue-900">Certificados</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <img src="./assets/img/iso.jpg" alt="Certificado ISO" class="w-full h-48 object-cover rounded-t-lg">
                     <h3 class="text-xl font-semibold mt-4">Certificación ISO 9001</h3>
                     <p class="text-gray-600 mt-2">Cumplimos con los más altos estándares de calidad en el transporte de
                         residuos.</p>
                 </div>
-
-
-                <!-- Agregar más certificados -->
             </div>
         </div>
-
-
     </section>
+
     <!-- Sección Clientes -->
     <section id="clientes" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6 text-center">
@@ -588,106 +621,190 @@
         </div>
     </section>
 
+<!-- Sección Cobertura - Versión Mobile Mejorada -->
+<section id="cobertura" class="py-12 md:py-20 bg-gray-100">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-blue-900">Cobertura</h2>
+        <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+            Operamos desde la Región de Valparaíso hasta La Araucanía
+        </p>
 
-    <!-- Sección Cobertura -->
-    <section id="cobertura" class="bg-gray-100 py-20">
-        <div class="container mx-auto text-center px-4">
-            <h2 class="text-4xl font-semibold mb-10 text-blue-900">Cobertura</h2>
-
-            <!-- Ruta horizontal con puntos -->
-            <div class="relative overflow-x-hidden py-20">
-                <!-- Línea de fondo con animación -->
-                <div
-                    class="absolute top-1/2 left-0 right-0 h-2 bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700 z-0 transform -translate-y-1/2">
-                    <div
-                        class="path-animation w-full h-full absolute top-0 left-0 bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-line">
+        <!-- Versión Mobile (Vertical) -->
+        <div class="md:hidden">
+            <!-- Lista vertical de regiones con iconos -->
+            <div class="space-y-6 max-w-md mx-auto">
+                <!-- Cada región como un "paso" en el viaje -->
+                <div class="flex items-start gap-4 relative">
+                    <!-- Línea vertical conectora -->
+                    <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
+                    
+                    <!-- Punto/marcador -->
+                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                        1
+                    </div>
+                    
+                    <!-- Contenido -->
+                    <div class="text-left pt-1">
+                        <h3 class="font-bold text-blue-900 text-lg">Valparaíso</h3>
+                        <p class="text-gray-600 text-sm">Punto de partida de nuestra operación</p>
                     </div>
                 </div>
 
-                <!-- Camión con pluma SVG mejorado -->
-                <div class="absolute truck-crane-animation" style="width: 200px; height: 110px; top: -2.5rem; left: 0;">
-                    <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
-                        <!-- Cuerpo del camión -->
-                        <rect x="10" y="50" width="110" height="35" rx="6" ry="6" fill="#1e40af" stroke="#0c274a"
-                            stroke-width="2" />
-
-                        <!-- Cabina -->
-                        <rect x="120" y="40" width="50" height="45" rx="6" ry="6" fill="#2563eb" stroke="#0c274a"
-                            stroke-width="2" />
-
-                        <!-- Ruedas exteriores -->
-                        <circle cx="35" cy="90" r="12" fill="#0c274a" />
-                        <circle cx="90" cy="90" r="12" fill="#0c274a" />
-                        <circle cx="135" cy="90" r="12" fill="#0c274a" />
-
-                        <!-- Rines interiores -->
-                        <circle cx="35" cy="90" r="6" fill="#3b82f6" />
-                        <circle cx="90" cy="90" r="6" fill="#3b82f6" />
-                        <circle cx="135" cy="90" r="6" fill="#3b82f6" />
-
-                        <!-- Logo dentro del cuerpo del camión -->
-                        <image href="/assets/img/logo-1.png" x="25" y="55" width="70" height="25" />
-
-                        <!-- Base de pluma -->
-                        <rect x="135" y="30" width="10" height="10" fill="#0c274a" />
-
-                        <!-- Pluma horizontal -->
-                        <rect x="145" y="20" width="45" height="10" rx="3" ry="3" fill="#3b82f6" />
-
-
-                    </svg>
+                <div class="flex items-start gap-4 relative">
+                    <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
+                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                        2
+                    </div>
+                    <div class="text-left pt-1">
+                        <h3 class="font-bold text-blue-900 text-lg">Metropolitana</h3>
+                        <p class="text-gray-600 text-sm">Centro logístico principal</p>
+                    </div>
                 </div>
 
-
-
-
-
-
-                <!-- Puntos fijos de regiones -->
-                <div class="relative flex flex-wrap justify-between w-full max-w-6xl mx-auto px-10 z-10">
-                    <!-- Cada punto de cobertura -->
-                    <div class="flex flex-col items-center">
-                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
-                        <span class="text-sm text-blue-900 font-medium">Valparaíso</span>
+                <div class="flex items-start gap-4 relative">
+                    <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
+                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                        3
                     </div>
-
-                    <div class="flex flex-col items-center">
-                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
-                        <span class="text-sm text-blue-900 font-medium">Metropolitana</span>
+                    <div class="text-left pt-1">
+                        <h3 class="font-bold text-blue-900 text-lg">O'Higgins</h3>
+                        <p class="text-gray-600 text-sm">Zona agrícola clave</p>
                     </div>
+                </div>
 
-                    <div class="flex flex-col items-center">
-                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
-                        <span class="text-sm text-blue-900 font-medium">O’Higgins</span>
+                <div class="flex items-start gap-4 relative">
+                    <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
+                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                        4
                     </div>
-
-                    <div class="flex flex-col items-center">
-                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
-                        <span class="text-sm text-blue-900 font-medium">Maule</span>
+                    <div class="text-left pt-1">
+                        <h3 class="font-bold text-blue-900 text-lg">Maule</h3>
+                        <p class="text-gray-600 text-sm">Área de expansión reciente</p>
                     </div>
+                </div>
 
-                    <div class="flex flex-col items-center">
-                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
-                        <span class="text-sm text-blue-900 font-medium">Ñuble</span>
+                <div class="flex items-start gap-4 relative">
+                    <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
+                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                        5
                     </div>
-
-                    <div class="flex flex-col items-center">
-                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
-                        <span class="text-sm text-blue-900 font-medium">Biobío</span>
+                    <div class="text-left pt-1">
+                        <h3 class="font-bold text-blue-900 text-lg">Ñuble</h3>
+                        <p class="text-gray-600 text-sm">Nuevo centro operativo</p>
                     </div>
+                </div>
 
-                    <div class="flex flex-col items-center">
-                        <div class="w-5 h-5 bg-blue-500 rounded-full mb-2"></div>
-                        <span class="text-sm text-blue-900 font-medium">La Araucanía</span>
+                <div class="flex items-start gap-4 relative">
+                    <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
+                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                        6
+                    </div>
+                    <div class="text-left pt-1">
+                        <h3 class="font-bold text-blue-900 text-lg">Biobío</h3>
+                        <p class="text-gray-600 text-sm">Zona industrial importante</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                        7
+                    </div>
+                    <div class="text-left pt-1">
+                        <h3 class="font-bold text-blue-900 text-lg">La Araucanía</h3>
+                        <p class="text-gray-600 text-sm">Límite sur de nuestra cobertura</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Descripción -->
-            <p class="text-lg text-gray-700 mt-10 max-w-2xl mx-auto">
-                Operamos activamente desde la Región de Valparaíso hasta La Araucanía, asegurando cobertura continua en
-                todo el trayecto sur del país.
-            </p>
+            <!-- Camión animado en versión mobile -->
+            <div class="mt-8 relative h-16 overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-2 bg-blue-400 mx-4"></div>
+                <div class="truck-mobile absolute top-0 left-0 w-16 h-16 -translate-y-1/2">
+                    <svg viewBox="0 0 200 100" class="w-full h-full">
+                        <rect x="10" y="50" width="110" height="35" rx="6" fill="#1e40af" />
+                        <rect x="120" y="40" width="50" height="45" rx="6" fill="#2563eb" />
+                        <circle cx="35" cy="90" r="12" fill="#0c274a" />
+                        <circle cx="90" cy="90" r="12" fill="#0c274a" />
+                        <circle cx="135" cy="90" r="12" fill="#0c274a" />
+                        <circle cx="35" cy="90" r="6" fill="#3b82f6" />
+                        <circle cx="90" cy="90" r="6" fill="#3b82f6" />
+                        <circle cx="135" cy="90" r="6" fill="#3b82f6" />
+                        <image href="/assets/img/logo-1.png" x="25" y="55" width="70" height="25" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Versión Desktop (Mantener la original) -->
+        <div class="hidden md:block relative w-full">
+            <!-- Contenedor de la ruta -->
+            <div class="relative min-w-full mx-auto">
+                <!-- Contenedor de la línea y animación -->
+                <div class="ruta-container relative h-24 md:h-32 mx-4 md:mx-0">
+                    <!-- Línea horizontal -->
+                    <div class="ruta-linea absolute top-1/2 left-0 right-0 h-2 md:h-3 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 transform -translate-y-1/2 z-10"></div>
+
+                    <!-- Camión animado (debajo de los puntos) -->
+                    <div class="truck-animation absolute top-1/2 left-0 w-24 md:w-32 h-12 md:h-16 transform -translate-y-1/2 z-20">
+                        <svg viewBox="0 0 200 100" class="w-full h-full">
+                            <rect x="10" y="50" width="110" height="35" rx="6" fill="#1e40af" />
+                            <rect x="120" y="40" width="50" height="45" rx="6" fill="#2563eb" />
+                            <circle cx="35" cy="90" r="12" fill="#0c274a" />
+                            <circle cx="90" cy="90" r="12" fill="#0c274a" />
+                            <circle cx="135" cy="90" r="12" fill="#0c274a" />
+                            <circle cx="35" cy="90" r="6" fill="#3b82f6" />
+                            <circle cx="90" cy="90" r="6" fill="#3b82f6" />
+                            <circle cx="135" cy="90" r="6" fill="#3b82f6" />
+                            <image href="/assets/img/logo-1.png" x="25" y="55" width="70" height="25" />
+                        </svg>
+                    </div>
+
+                    <!-- Puntos de cobertura - versión mejorada -->
+                    <div class="puntos-cobertura absolute top-1/2 left-0 right-0 flex justify-between px-2 md:px-8 transform -translate-y-1/2 z-30">
+                        <!-- Valparaíso -->
+                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
+                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">Valparaíso</span>
+                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
+                        </div>
+
+                        <!-- Metropolitana -->
+                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
+                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">Metropolitana</span>
+                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
+                        </div>
+
+                        <!-- O'Higgins -->
+                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
+                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">O'Higgins</span>
+                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
+                        </div>
+
+                        <!-- Maule -->
+                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
+                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">Maule</span>
+                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
+                        </div>
+
+                        <!-- Ñuble -->
+                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
+                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">Ñuble</span>
+                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
+                        </div>
+
+                        <!-- Biobío -->
+                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
+                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">Biobío</span>
+                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
+                        </div>
+
+                        <!-- La Araucanía -->
+                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
+                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">La Araucanía</span>
+                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -924,6 +1041,16 @@
             }
 
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+
+
+
+        // Ajustar la animación al cambiar el tamaño de la pantalla
+        window.addEventListener('resize', function () {
+            const truck = document.querySelector('.truck-animation');
+            truck.style.animation = 'none';
+            void truck.offsetWidth; /* trigger reflow */
+            truck.style.animation = null;
         });
 
 
