@@ -14,265 +14,272 @@
 
 
 
-<style>
-    /* ======================
+    <style>
+        /* ======================
      ANIMACIONES PERSONALIZADAS 
   ====================== */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
 
-    @keyframes slideUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
 
-    @keyframes slideIn {
-        from {
-            transform: translateX(120%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
 
-    @keyframes drawLine {
-        0% {
-            width: 0%;
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        50% {
-            width: 50%;
-        }
-        100% {
-            width: 100%;
-        }
-    }
 
-    @keyframes moveTruckCrane {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150vw);
-        }
-    }
+        @keyframes slideIn {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
 
-    /* 🎯 Animación logos CLIENTES → DERECHA */
-    @keyframes marquee-right {
-        0% {
-            transform: translateX(-50%);
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
-        100% {
-            transform: translateX(0%);
+
+        @keyframes drawLine {
+            0% {
+                width: 0%;
+            }
+
+            50% {
+                width: 50%;
+            }
+
+            100% {
+                width: 100%;
+            }
         }
-    }
 
-    .animate-marquee-right {
-        animation: marquee-right 30s linear infinite;
-        will-change: transform;
-    }
+        @keyframes moveTruckCrane {
+            0% {
+                transform: translateX(0);
+            }
 
-    /* ======================
+            100% {
+                transform: translateX(150vw);
+            }
+        }
+
+        /* 🎯 Animación logos CLIENTES → DERECHA */
+        @keyframes marquee-right {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        .animate-marquee-right {
+            animation: marquee-right 30s linear infinite;
+            will-change: transform;
+        }
+
+        /* ======================
      CLASES DE ANIMACIÓN
   ====================== */
-    .animate-fade-in {
-        animation: fadeIn 1.5s ease-out forwards;
-    }
+        .animate-fade-in {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
 
-    .animate-slide-up {
-        animation: slideUp 1.2s ease-out forwards;
-    }
+        .animate-slide-up {
+            animation: slideUp 1.2s ease-out forwards;
+        }
 
-    /* ======================
+        /* ======================
      ANIMACIÓN LÍNEA Y CAMIÓN
   ====================== */
-    .path-animation {
-        width: 0%;
-        height: 100%;
-        background-size: 200% 100%;
-        background-position: left;
-        animation: drawLine 4s linear infinite;
-    }
+        .path-animation {
+            width: 0%;
+            height: 100%;
+            background-size: 200% 100%;
+            background-position: left;
+            animation: drawLine 4s linear infinite;
+        }
 
-    .truck-crane-animation {
-        animation: moveTruckCrane 10s linear infinite;
-        position: absolute;
-        top: -2.5rem;
-        left: -200px;
-    }
+        .truck-crane-animation {
+            animation: moveTruckCrane 10s linear infinite;
+            position: absolute;
+            top: -2.5rem;
+            left: -200px;
+        }
 
-    /* ======================
+        /* ======================
      MENÚ MÓVIL 
   ====================== */
-    #mobile-menu {
-        display: none;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-    }
+        #mobile-menu {
+            display: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
 
-    #mobile-menu.active {
-        display: block;
-        max-height: 500px;
-    }
+        #mobile-menu.active {
+            display: block;
+            max-height: 500px;
+        }
 
-    /* ======================
+        /* ======================
      AJUSTES RESPONSIVE EXTRA 
   ====================== */
-    @media (max-width: 640px) {
-        .hero-text {
-            font-size: calc(1.5rem + 1.5vw);
+        @media (max-width: 640px) {
+            .hero-text {
+                font-size: calc(1.5rem + 1.5vw);
+            }
+
+            section {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
         }
 
-        section {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-    }
-
-    /* ======================
+        /* ======================
      SECCIÓN COBERTURA (no tocar)
   ====================== */
-    #cobertura {
-        position: relative;
-        padding: 60px 0;
-    }
-
-    .ruta-container {
-        position: relative;
-        height: 160px;
-        margin: 40px 0;
-    }
-
-    .ruta-linea {
-        position: absolute;
-        top: 50%;
-        left: 2%;
-        right: 2%;
-        height: 4px;
-        background: linear-gradient(to right, #3b82f6, #1d4ed8, #3b82f6);
-        transform: translateY(-50%);
-        z-index: 1;
-    }
-
-    .truck-animation {
-        position: absolute;
-        width: 180px;
-        height: 90px;
-        top: 60%;
-        left: -180px;
-        transform: translateY(-50%);
-        z-index: 10;
-        animation: moveTruck 15s linear infinite;
-    }
-
-    .puntos-cobertura {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        width: 96%;
-        margin: 0 auto;
-        z-index: 20;
-    }
-
-    .punto-cobertura {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        min-width: 0;
-    }
-
-    .punto-marcador {
-        width: 20px;
-        height: 20px;
-        background: #3b82f6;
-        border-radius: 50%;
-        border: 4px solid white;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    .punto-texto {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: #1e40af;
-        text-align: center;
-        position: absolute;
-        bottom: 100%;
-        margin-bottom: 10px;
-        width: max-content;
-        max-width: 120px;
-    }
-
-    @keyframes moveTruck {
-        0% {
-            left: 0;
-            transform: translateX(-100%) translateY(-50%);
+        #cobertura {
+            position: relative;
+            padding: 60px 0;
         }
 
-        100% {
-            left: 100%;
-            transform: translateX(0) translateY(-50%);
-        }
-    }
-
-    @keyframes truck-move-mobile {
-        0% {
-            left: -4rem;
+        .ruta-container {
+            position: relative;
+            height: 160px;
+            margin: 40px 0;
         }
 
-        100% {
-            left: 100%;
-        }
-    }
-
-    .truck-mobile {
-        animation: truck-move-mobile 6s linear infinite;
-    }
-
-    @keyframes truck-move-desktop {
-        0% {
-            left: 0%;
+        .ruta-linea {
+            position: absolute;
+            top: 50%;
+            left: 2%;
+            right: 2%;
+            height: 4px;
+            background: linear-gradient(to right, #3b82f6, #1d4ed8, #3b82f6);
+            transform: translateY(-50%);
+            z-index: 1;
         }
 
-        100% {
-            left: 100%;
+        .truck-animation {
+            position: absolute;
+            width: 180px;
+            height: 90px;
+            top: 60%;
+            left: -180px;
+            transform: translateY(-50%);
+            z-index: 10;
+            animation: moveTruck 15s linear infinite;
         }
-    }
 
-    .truck-animation {
-        animation: truck-move-desktop 8s linear infinite;
-    }
+        .puntos-cobertura {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            width: 96%;
+            margin: 0 auto;
+            z-index: 20;
+        }
 
-    .tooltip {
-        pointer-events: none;
-        user-select: none;
-        transition: opacity 0.2s ease-in-out;
-        z-index: 50;
-        white-space: normal;
-        text-align: center;
-    }
+        .punto-cobertura {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            min-width: 0;
+        }
 
-    .punto-cobertura.group:hover .tooltip {
-        opacity: 1;
-        pointer-events: auto;
-    }
-</style>
+        .punto-marcador {
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .punto-texto {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1e40af;
+            text-align: center;
+            position: absolute;
+            bottom: 100%;
+            margin-bottom: 10px;
+            width: max-content;
+            max-width: 120px;
+        }
+
+        @keyframes moveTruck {
+            0% {
+                left: 0;
+                transform: translateX(-100%) translateY(-50%);
+            }
+
+            100% {
+                left: 100%;
+                transform: translateX(0) translateY(-50%);
+            }
+        }
+
+        @keyframes truck-move-mobile {
+            0% {
+                left: -4rem;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .truck-mobile {
+            animation: truck-move-mobile 6s linear infinite;
+        }
+
+        @keyframes truck-move-desktop {
+            0% {
+                left: 0%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .truck-animation {
+            animation: truck-move-desktop 8s linear infinite;
+        }
+
+        .tooltip {
+            pointer-events: none;
+            user-select: none;
+            transition: opacity 0.2s ease-in-out;
+            z-index: 50;
+            white-space: normal;
+            text-align: center;
+        }
+
+        .punto-cobertura.group:hover .tooltip {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
 
 </head>
 
@@ -339,6 +346,7 @@
             <!-- Navegación (visible solo en pantallas grandes) -->
             <nav id="nav-menu" class="hidden md:flex space-x-6 text-lg text-blue-900 font-medium">
                 <a href="#nosotros" class="hover:text-yellow-400 transition">Nosotros</a>
+                <a href="#servicios" class="hover:text-yellow-400 transition">Servicios</a>
                 <a href="#infraestructura" class="hover:text-yellow-400 transition">Infraestructura</a>
                 <a href="#certificados" class="hover:text-yellow-400 transition">Certificados</a>
                 <a href="#clientes" class="hover:text-yellow-400 transition">Clientes</a>
@@ -352,6 +360,8 @@
         <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white">
             <nav class="flex flex-col space-y-2 text-lg text-blue-900 font-medium">
                 <a href="#nosotros" class="hover:text-yellow-400 transition">Nosotros</a>
+                <a href="#servicios" class="hover:text-yellow-400 transition">Servicios</a>
+
                 <a href="#infraestructura" class="hover:text-yellow-400 transition">Infraestructura</a>
                 <a href="#certificados" class="hover:text-yellow-400 transition">Certificados</a>
                 <a href="#clientes" class="hover:text-yellow-400 transition">Clientes</a>
@@ -571,10 +581,12 @@
                         <img src="/assets/img/ampliroll.jpeg" alt="Camión de Transporte"
                             class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xl font-semibold mt-4">Camiones de última tecnología</h3>
+                    <h3 class="text-xl font-semibold mt-4">Camión Ampliroll</h3>
                     <p class="text-gray-600 mt-2 flex-grow">Nuestros camiones están equipados con la última tecnología
-                        para
-                        garantizar un servicio rápido y seguro.</p>
+                        Versátil y robusto, ideal para el transporte de contenedores de gran volumen. Facilita la carga
+                        y descarga rápida de residuos industriales.
+                    </p>
+                    </p>
                 </div>
 
                 <!-- TARJETA 2 -->
@@ -584,10 +596,10 @@
                         <img src="/assets/img/cama-baja.jpeg" alt="Camión de Transporte"
                             class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xl font-semibold mt-4">Camiones de última tecnología</h3>
-                    <p class="text-gray-600 mt-2 flex-grow">Nuestros camiones están equipados con la última tecnología
-                        para
-                        garantizar un servicio rápido y seguro.</p>
+                    <h3 class="text-xl font-semibold mt-4">Camión Cama Baja</h3>
+                    <p class="text-gray-600 mt-2 flex-grow">
+                        Especializado en el traslado de maquinaria pesada y equipos de gran tamaño, asegurando un
+                        transporte eficiente y seguro en ruta.</p>
                 </div>
 
                 <!-- TARJETA 3 -->
@@ -597,10 +609,9 @@
                         <img src="assets/img/limpia-fosa-Photoroom.png" alt="Remediación de Suelos"
                             class="max-h-48 object-contain">
                     </div>
-                    <h3 class="text-xl font-semibold mt-4">Remediación de Suelos</h3>
-                    <p class="text-gray-600 mt-2 flex-grow">Trn transporta y aplica materia orgánica, convertida en
-                        abono para
-                        agricultura.</p>
+                    <h3 class="text-xl font-semibold mt-4">Camión Limpia Fosas</h3>
+                    <p class="text-gray-600 mt-2 flex-grow"> Diseñado para el mantenimiento de fosas sépticas y redes de
+                        alcantarillado. Garantiza una operación higiénica, rápida y profesional.</p>
                 </div>
 
             </div>
@@ -1082,6 +1093,87 @@
 
 
 
+    <!-- Botón flotante WhatsApp -->
+    <button id="chat-toggle" aria-label="Abrir chat WhatsApp" style="
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+        border: none;
+        border-radius: 50%;
+        width: 64px;
+        height: 64px;
+        cursor: pointer;
+        box-shadow: 0 6px 12px rgba(37, 211, 102, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        z-index: 10000;
+    " onmouseover="this.style.boxShadow='0 10px 20px rgba(37, 211, 102, 0.6)'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.boxShadow='0 6px 12px rgba(37, 211, 102, 0.4)'; this.style.transform='scale(1)';">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
+            style="width: 32px; height: 32px;" />
+    </button>
+
+    <!-- Caja de chat oculta inicialmente -->
+    <div id="whatsapp-chat" style="
+        position: fixed;
+        bottom: 100px;
+        right: 24px;
+        width: 300px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        padding: 20px 24px 24px;
+        z-index: 10000;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #222;
+    ">
+        <button id="close-chat" style="
+            background: none;
+            border: none;
+            font-size: 22px;
+            font-weight: bold;
+            color: #888;
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        " onmouseover="this.style.color='#25d366';" onmouseout="this.style.color='#888';"
+            aria-label="Cerrar chat">×</button>
+
+        <h3 style="color: #25d366; margin-bottom: 14px; font-weight: 700; font-size: 20px;">
+            ¿Quieres chatear con nosotros?
+        </h3>
+
+        <p style="font-size: 15px; margin-bottom: 22px; line-height: 1.5;">
+            Haz clic en el botón para iniciar una conversación por WhatsApp.
+        </p>
+
+        <a href="https://wa.me/56934224423" target="_blank" rel="noopener noreferrer" style="
+         display: block;
+         background: #25d366;
+         color: white;
+         padding: 14px 0;
+         border-radius: 8px;
+         font-weight: 700;
+         text-align: center;
+         text-decoration: none;
+         box-shadow: 0 4px 10px rgba(37, 211, 102, 0.5);
+         transition: background-color 0.3s ease;
+       " onmouseover="this.style.backgroundColor='#128c7e';" onmouseout="this.style.backgroundColor='#25d366';">
+            Iniciar WhatsApp
+        </a>
+    </div>
+
+
+
 
 
 
@@ -1222,9 +1314,45 @@
         }
 
 
+        const chatToggle = document.getElementById("chat-toggle");
+        const chatBox = document.getElementById("whatsapp-chat");
+        const closeChat = document.getElementById("close-chat");
+
+        chatToggle.addEventListener("click", () => {
+            const isOpen = chatBox.style.opacity === '1';
+            if (isOpen) {
+                chatBox.style.opacity = '0';
+                chatBox.style.pointerEvents = 'none';
+                chatBox.style.transform = 'translateY(20px)';
+            } else {
+                chatBox.style.opacity = '1';
+                chatBox.style.pointerEvents = 'auto';
+                chatBox.style.transform = 'translateY(0)';
+            }
+        });
+
+        closeChat.addEventListener("click", () => {
+            chatBox.style.opacity = '0';
+            chatBox.style.pointerEvents = 'none';
+            chatBox.style.transform = 'translateY(20px)';
+        });
+
+
     </script>
 
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
+
+
+
+
+
 
 
 
