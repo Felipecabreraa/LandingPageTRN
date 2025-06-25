@@ -9,10 +9,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
 
 
 
     <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-50%));
+            }
+        }
+
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+        }
+
         /* ======================
      ANIMACIONES PERSONALIZADAS 
      (Tailwind no las incluye)
@@ -106,7 +123,7 @@
      BANNER "TRABAJA CON NOSOTROS" 
      (Mejor dejarlo en CSS por complejidad)
   ====================== */
-        .trabaja-banner {
+        /*       .trabaja-banner {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -152,6 +169,11 @@
                 max-width: 90%;
             }
         }
+
+
+ */
+
+
 
         /* ======================
      ANIMACIÓN LÍNEA Y CAMIÓN 
@@ -301,28 +323,51 @@
             }
         }
 
- /* Estilos para la versión mobile */
-    .truck-mobile {
-        animation: moveTruckMobile 8s linear infinite;
-    }
-    
-    @keyframes moveTruckMobile {
-        0% {
-            left: 0;
-            transform: translateX(-100%) translateY(-50%);
+        /* Animación camión mobile */
+        @keyframes truck-move-mobile {
+            0% {
+                left: -4rem;
+            }
+
+            100% {
+                left: 100%;
+            }
         }
-        100% {
-            left: 100%;
-            transform: translateX(0) translateY(-50%);
+
+        .truck-mobile {
+            animation: truck-move-mobile 6s linear infinite;
         }
-    }
-    
-    /* Asegurar que la versión desktop no se muestre en mobile */
-    @media (max-width: 767px) {
-        .ruta-container.desktop-version {
-            display: none;
+
+        /* Animación camión desktop */
+        @keyframes truck-move-desktop {
+            0% {
+                left: 0%;
+            }
+
+            100% {
+                left: 100%;
+            }
         }
-    }
+
+        .truck-animation {
+            animation: truck-move-desktop 8s linear infinite;
+        }
+
+        /* Tooltip estilo */
+        .tooltip {
+            pointer-events: none;
+            user-select: none;
+            transition: opacity 0.2s ease-in-out;
+            z-index: 50;
+            white-space: normal;
+            text-align: center;
+        }
+
+        /* Mostrar tooltip cuando el cursor está sobre el grupo */
+        .punto-cobertura.group:hover .tooltip {
+            opacity: 1;
+            pointer-events: auto;
+        }
     </style>
 </head>
 
@@ -431,7 +476,9 @@
         </div>
     </section>
 
-    <!-- Banner Llamativo Fijo -->
+
+
+    <!-- Banner Llamativo Fijo 
     <div class="trabaja-banner" id="trabajaBanner">
         <div class="trabaja-contenido">
             <div class="trabaja-icono">🧑‍💼</div>
@@ -442,7 +489,11 @@
         </div>
         <a href="/trabaja-con.html" class="trabaja-btn">Ver Vacantes</a>
         <span class="cerrar-banner" onclick="cerrarBanner()">✕</span>
-    </div>
+    </div> -->
+
+
+
+
 
     <!-- Sección Nosotros -->
     <section id="nosotros" class="bg-gray-100 py-20">
@@ -522,230 +573,359 @@
         }
     </style>
 
+    <!-- Sección SERVICIOS -->
+    <section id="servicios" class="py-20 bg-gray-50">
+        <div class="container mx-auto text-center px-4">
+            <h2 class="text-4xl font-semibold mb-12 text-blue-900">Servicios</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+                <!-- Servicio 1: TRANSPORTE -->
+                <div
+                    class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center transform transition-transform duration-300 hover:-translate-y-3 hover:shadow-2xl">
+
+                    <!-- Icono moderno y limpio de Camión -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-blue-700 mb-6" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <rect x="3" y="9" width="13" height="6" rx="1" ry="1" stroke-linejoin="round"
+                            stroke-linecap="round" />
+                        <path stroke-linejoin="round" stroke-linecap="round" d="M16 9l4 0 0 5" />
+                        <circle cx="7.5" cy="16.5" r="1.5" />
+                        <circle cx="18" cy="16.5" r="1.5" />
+                        <path stroke-linejoin="round" stroke-linecap="round" d="M3 15v-3" />
+                    </svg>
+
+                    <!-- Imagen opcional
+        <img src="ruta-a-tu-imagen.jpg" alt="Transporte" class="w-24 h-24 object-cover rounded-full mb-6 shadow-md">
+        -->
+
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">TRANSPORTE</h3>
+                    <p class="text-gray-600">Contamos con una flota moderna y eficiente para el transporte seguro de
+                        residuos y materiales.</p>
+                </div>
+
+                <!-- Servicio 2: DISPOSICIÓN -->
+                <div
+                    class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center transform transition-transform duration-300 hover:-translate-y-3 hover:shadow-2xl">
+
+                    <!-- Icono Heroicon (Basura) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-600 mb-6" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-4h4a1 1 0 011 1v1H9V4a1 1 0 011-1z" />
+                    </svg>
+
+                    <!-- Imagen opcional
+        <img src="ruta-a-tu-imagen.jpg" alt="Aplicación residuos orgánicos" class="w-24 h-24 object-cover rounded-full mb-6 shadow-md">
+        -->
+
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">DISPOSICIÓN</h3>
+                    <p class="text-gray-600">Realizamos la disposición final adecuada, cumpliendo con las normativas
+                        ambientales vigentes.</p>
+                </div>
+
+                <!-- Servicio 3: APLICACIÓN DE RESIDUOS ORGÁNICOS -->
+                <div
+                    class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center transform transition-transform duration-300 hover:-translate-y-3 hover:shadow-2xl">
+
+                    <!-- Icono moderno de Hoja / planta -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-emerald-600 mb-6" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 2c4 3 5 6 5 9a5 5 0 01-5 5 5 5 0 01-5-5c0-3 1-6 5-9z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 12v7" />
+                    </svg>
+
+                    <!-- Imagen opcional
+        <img src="ruta-a-tu-imagen.jpg" alt="Aplicación residuos orgánicos" class="w-24 h-24 object-cover rounded-full mb-6 shadow-md">
+        -->
+
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">APLICACIÓN DE RESIDUOS ORGÁNICOS EN SUELO</h3>
+                    <p class="text-gray-600">Aplicamos residuos orgánicos transformados como abono para mejorar la
+                        calidad y fertilidad del suelo.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
     <!-- Sección Infraestructura -->
     <section id="infraestructura" class="py-20">
         <div class="container mx-auto text-center">
             <h2 class="text-4xl font-semibold mb-6 text-blue-900">Infraestructura</h2>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="camion1.jpg" alt="Camión de Transporte" class="w-full h-48 object-cover rounded-t-lg">
+
+                <!-- TARJETA 1 -->
+                <div
+                    class="bg-white p-6 rounded-lg shadow-lg flex flex-col h-full transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="h-56 w-full rounded-t-lg overflow-hidden">
+                        <img src="/assets/img/ampliroll.jpeg" alt="Camión de Transporte"
+                            class="w-full h-full object-cover">
+                    </div>
                     <h3 class="text-xl font-semibold mt-4">Camiones de última tecnología</h3>
-                    <p class="text-gray-600 mt-2">Nuestros camiones están equipados con la última tecnología para
+                    <p class="text-gray-600 mt-2 flex-grow">Nuestros camiones están equipados con la última tecnología
+                        para
                         garantizar un servicio rápido y seguro.</p>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="camion1.jpg" alt="Camión de Transporte" class="w-full h-48 object-cover rounded-t-lg">
+                <!-- TARJETA 2 -->
+                <div
+                    class="bg-white p-6 rounded-lg shadow-lg flex flex-col h-full transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="h-56 w-full rounded-t-lg overflow-hidden">
+                        <img src="/assets/img/cama-baja.jpeg" alt="Camión de Transporte"
+                            class="w-full h-full object-cover">
+                    </div>
                     <h3 class="text-xl font-semibold mt-4">Camiones de última tecnología</h3>
-                    <p class="text-gray-600 mt-2">Nuestros camiones están equipados con la última tecnología para
+                    <p class="text-gray-600 mt-2 flex-grow">Nuestros camiones están equipados con la última tecnología
+                        para
                         garantizar un servicio rápido y seguro.</p>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="assets/img/remediacion-suelos.jpg" alt="Remediacion de Suelos"
-                        class="w-full h-48 object-cover rounded-t-lg">
+                <!-- TARJETA 3 -->
+                <div
+                    class="bg-white p-6 rounded-lg shadow-lg flex flex-col h-full transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="h-56 w-full bg-gray-100 rounded-t-lg flex items-center justify-center overflow-hidden">
+                        <img src="assets/img/limpia-fosa-Photoroom.png" alt="Remediación de Suelos"
+                            class="max-h-48 object-contain">
+                    </div>
                     <h3 class="text-xl font-semibold mt-4">Remediación de Suelos</h3>
-                    <p class="text-gray-600 mt-2">Trn transporta y aplica materia orgánica, convertida en abono para
+                    <p class="text-gray-600 mt-2 flex-grow">Trn transporta y aplica materia orgánica, convertida en
+                        abono para
                         agricultura.</p>
                 </div>
+
             </div>
         </div>
     </section>
+
+
 
     <!-- Sección Certificados -->
     <section id="certificados" class="bg-gray-100 py-20">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-semibold mb-6 text-blue-900">Certificados</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="./assets/img/iso.jpg" alt="Certificado ISO" class="w-full h-48 object-cover rounded-t-lg">
-                    <h3 class="text-xl font-semibold mt-4">Certificación ISO 9001</h3>
-                    <p class="text-gray-600 mt-2">Cumplimos con los más altos estándares de calidad en el transporte de
-                        residuos.</p>
+        <div class="container mx-auto text-center px-4 max-w-xl">
+            <h2 class="text-4xl font-semibold mb-12 text-blue-900">Certificados</h2>
+
+            <div
+                class="bg-white rounded-xl shadow-2xl p-8 flex flex-col items-center transform transition-transform duration-300 hover:scale-105">
+
+                <div
+                    class="w-48 h-48 mb-6 flex items-center justify-center border-4 border-blue-700 rounded-full overflow-hidden shadow-lg bg-white">
+                    <img src="./assets/img/iso.jpg" alt="Certificado ISO" class="object-contain w-full h-full">
                 </div>
+
+                <h3 class="text-3xl font-bold mb-4 text-gray-900">Certificación ISO 9001</h3>
+
+                <p class="text-gray-700 text-lg max-w-md">
+                    Cumplimos con los más altos estándares de calidad en el transporte de residuos, garantizando
+                    seguridad y confianza en cada servicio.
+                </p>
+
             </div>
         </div>
     </section>
+
 
     <!-- Sección Clientes -->
     <section id="clientes" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-4xl font-bold mb-10 text-blue-900">Nuestros Clientes</h2>
 
-            <!-- Carrusel con efecto de máscara -->
             <div class="relative overflow-hidden">
-                <!-- Fade efecto a los lados -->
-                <div class="absolute top-0 left-0 h-full w-12 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
-                <div class="absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
-
-                <!-- Carrusel -->
-                <div id="slider" class="flex items-center transition-transform duration-500 ease-in-out space-x-8 px-4">
+                <div id="slider" class="flex space-x-8 w-max animate-marquee" style="will-change: transform;">
+                    <!-- Lista original + clon para loop seamless -->
                     <img src="./assets/img/rio-blanco.png" alt="Cliente 11"
-                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
                     <img src="./assets/img/agrosuper-1.png" alt="Cliente 1"
-                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
                     <img src="./assets/img/ariztia.png" alt="Cliente 2"
-                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
                     <img src="./assets/img/chilemink.jpg" alt="Cliente 3"
-                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
                     <img src="./assets/img/delipack.jpg" alt="Cliente 4"
-                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
                     <img src="./assets/img/ESVAL.png" alt="Cliente 5"
-                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
                     <img src="./assets/img/invertec.jpg" alt="Cliente 6"
-                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
                     <img src="./assets/img/logo-aguasandinas-1.png" alt="Cliente 7"
-                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
                     <img src="./assets/img/Logo-Elecmetal.png" alt="Cliente 8"
-                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
                     <img src="./assets/img/misiones.png" alt="Cliente 9"
-                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
                     <img src="./assets/img/patagonia-fresh.jpg" alt="Cliente 10"
-                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
-                    <img src="./assets/img/agrosuper-1.png" alt="Cliente 1 (duplicado)"
-                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2">
-                </div>
-            </div>
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
 
-            <!-- Controles -->
-            <div class="flex justify-center mt-8 space-x-6">
-                <button onclick="moveSlide(-1)"
-                    class="bg-blue-900 text-white p-3 rounded-full hover:bg-blue-700 transition shadow-lg">
-                    &#8592;
-                </button>
-                <button onclick="moveSlide(1)"
-                    class="bg-blue-900 text-white p-3 rounded-full hover:bg-blue-700 transition shadow-lg">
-                    &#8594;
-                </button>
+                    <!-- Clones para efecto loop -->
+                    <img src="./assets/img/rio-blanco.png" alt="Cliente 11"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
+                    <img src="./assets/img/agrosuper-1.png" alt="Cliente 1"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
+                    <img src="./assets/img/ariztia.png" alt="Cliente 2"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
+                    <img src="./assets/img/chilemink.jpg" alt="Cliente 3"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
+                    <img src="./assets/img/delipack.jpg" alt="Cliente 4"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
+                    <img src="./assets/img/ESVAL.png" alt="Cliente 5"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
+                    <img src="./assets/img/invertec.jpg" alt="Cliente 6"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
+                    <img src="./assets/img/logo-aguasandinas-1.png" alt="Cliente 7"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
+                    <img src="./assets/img/Logo-Elecmetal.png" alt="Cliente 8"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
+                    <img src="./assets/img/misiones.png" alt="Cliente 9"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
+                    <img src="./assets/img/patagonia-fresh.jpg" alt="Cliente 10"
+                        class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
+                </div>
             </div>
         </div>
     </section>
 
-<!-- Sección Cobertura - Versión Mobile Mejorada -->
-<section id="cobertura" class="py-12 md:py-20 bg-gray-100">
-    <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-blue-900">Cobertura</h2>
-        <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-            Operamos desde la Región de Valparaíso hasta La Araucanía
-        </p>
+    <!-- Sección Cobertura - Versión Mobile Mejorada -->
+    <section id="cobertura" class="py-12 md:py-20 bg-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-blue-900">Cobertura</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                Operamos desde la Región de Valparaíso hasta La Araucanía
+            </p>
 
-        <!-- Versión Mobile (Vertical) -->
-        <div class="md:hidden">
-            <!-- Lista vertical de regiones con iconos -->
-            <div class="space-y-6 max-w-md mx-auto">
-                <!-- Cada región como un "paso" en el viaje -->
-                <div class="flex items-start gap-4 relative">
-                    <!-- Línea vertical conectora -->
-                    <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
-                    
-                    <!-- Punto/marcador -->
-                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
-                        1
+            <!-- Versión Mobile: lista de comunas debajo de cada región -->
+            <div class="md:hidden">
+                <div class="space-y-6 max-w-md mx-auto">
+
+                    <!-- Región Valparaíso -->
+                    <div class="flex items-start gap-4 relative">
+                        <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
+                        <div
+                            class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                            1
+                        </div>
+                        <div class="text-left pt-1 relative">
+                            <h3 class="font-bold text-blue-900 text-lg">Valparaíso</h3>
+                            <ul class="text-gray-600 text-sm mt-1 ml-1 list-disc list-inside">
+                                <li>Valparaíso</li>
+                                <li>Viña del Mar</li>
+                                <li>Quilpué</li>
+                                <li>Villa Alemana</li>
+                            </ul>
+                        </div>
                     </div>
-                    
-                    <!-- Contenido -->
-                    <div class="text-left pt-1">
-                        <h3 class="font-bold text-blue-900 text-lg">Valparaíso</h3>
-                        <p class="text-gray-600 text-sm">Punto de partida de nuestra operación</p>
+
+                    <!-- Región Metropolitana -->
+                    <div class="flex items-start gap-4 relative">
+                        <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
+                        <div
+                            class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                            2
+                        </div>
+                        <div class="text-left pt-1 relative">
+                            <h3 class="font-bold text-blue-900 text-lg">Metropolitana</h3>
+                            <ul class="text-gray-600 text-sm mt-1 ml-1 list-disc list-inside">
+                                <li>Santiago</li>
+                                <li>Puente Alto</li>
+                                <li>Maipú</li>
+                                <li>La Florida</li>
+                            </ul>
+                        </div>
                     </div>
+
+                    <!-- Región O'Higgins -->
+                    <div class="flex items-start gap-4 relative">
+                        <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
+                        <div
+                            class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                            3
+                        </div>
+                        <div class="text-left pt-1 relative">
+                            <h3 class="font-bold text-blue-900 text-lg">O'Higgins</h3>
+                            <ul class="text-gray-600 text-sm mt-1 ml-1 list-disc list-inside">
+                                <li>Rancagua</li>
+                                <li>San Fernando</li>
+                                <li>Machalí</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Región Maule -->
+                    <div class="flex items-start gap-4 relative">
+                        <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
+                        <div
+                            class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                            4
+                        </div>
+                        <div class="text-left pt-1 relative">
+                            <h3 class="font-bold text-blue-900 text-lg">Maule</h3>
+                            <ul class="text-gray-600 text-sm mt-1 ml-1 list-disc list-inside">
+                                <li>Talca</li>
+                                <li>Curicó</li>
+                                <li>Constitución</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Región Ñuble -->
+                    <div class="flex items-start gap-4 relative">
+                        <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
+                        <div
+                            class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                            5
+                        </div>
+                        <div class="text-left pt-1 relative">
+                            <h3 class="font-bold text-blue-900 text-lg">Ñuble</h3>
+                            <ul class="text-gray-600 text-sm mt-1 ml-1 list-disc list-inside">
+                                <li>Chillán</li>
+                                <li>Coihueco</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Región Biobío -->
+                    <div class="flex items-start gap-4 relative">
+                        <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
+                        <div
+                            class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                            6
+                        </div>
+                        <div class="text-left pt-1 relative">
+                            <h3 class="font-bold text-blue-900 text-lg">Biobío</h3>
+                            <ul class="text-gray-600 text-sm mt-1 ml-1 list-disc list-inside">
+                                <li>Concepción</li>
+                                <li>Talcahuano</li>
+                                <li>Los Ángeles</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Región La Araucanía -->
+                    <div class="flex items-start gap-4 relative">
+                        <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
+                        <div
+                            class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
+                            7
+                        </div>
+                        <div class="text-left pt-1 relative">
+                            <h3 class="font-bold text-blue-900 text-lg">La Araucanía</h3>
+                            <ul class="text-gray-600 text-sm mt-1 ml-1 list-disc list-inside">
+                                <li>Temuco</li>
+                                <li>Villarrica</li>
+                                <li>Pitrufquén</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="flex items-start gap-4 relative">
-                    <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
-                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
-                        2
-                    </div>
-                    <div class="text-left pt-1">
-                        <h3 class="font-bold text-blue-900 text-lg">Metropolitana</h3>
-                        <p class="text-gray-600 text-sm">Centro logístico principal</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4 relative">
-                    <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
-                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
-                        3
-                    </div>
-                    <div class="text-left pt-1">
-                        <h3 class="font-bold text-blue-900 text-lg">O'Higgins</h3>
-                        <p class="text-gray-600 text-sm">Zona agrícola clave</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4 relative">
-                    <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
-                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
-                        4
-                    </div>
-                    <div class="text-left pt-1">
-                        <h3 class="font-bold text-blue-900 text-lg">Maule</h3>
-                        <p class="text-gray-600 text-sm">Área de expansión reciente</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4 relative">
-                    <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
-                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
-                        5
-                    </div>
-                    <div class="text-left pt-1">
-                        <h3 class="font-bold text-blue-900 text-lg">Ñuble</h3>
-                        <p class="text-gray-600 text-sm">Nuevo centro operativo</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4 relative">
-                    <div class="absolute left-5 top-8 bottom-0 w-0.5 bg-blue-400 z-0"></div>
-                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
-                        6
-                    </div>
-                    <div class="text-left pt-1">
-                        <h3 class="font-bold text-blue-900 text-lg">Biobío</h3>
-                        <p class="text-gray-600 text-sm">Zona industrial importante</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4">
-                    <div class="relative z-10 flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-white shadow-md">
-                        7
-                    </div>
-                    <div class="text-left pt-1">
-                        <h3 class="font-bold text-blue-900 text-lg">La Araucanía</h3>
-                        <p class="text-gray-600 text-sm">Límite sur de nuestra cobertura</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Camión animado en versión mobile -->
-            <div class="mt-8 relative h-16 overflow-hidden">
-                <div class="absolute top-0 left-0 right-0 h-2 bg-blue-400 mx-4"></div>
-                <div class="truck-mobile absolute top-0 left-0 w-16 h-16 -translate-y-1/2">
-                    <svg viewBox="0 0 200 100" class="w-full h-full">
-                        <rect x="10" y="50" width="110" height="35" rx="6" fill="#1e40af" />
-                        <rect x="120" y="40" width="50" height="45" rx="6" fill="#2563eb" />
-                        <circle cx="35" cy="90" r="12" fill="#0c274a" />
-                        <circle cx="90" cy="90" r="12" fill="#0c274a" />
-                        <circle cx="135" cy="90" r="12" fill="#0c274a" />
-                        <circle cx="35" cy="90" r="6" fill="#3b82f6" />
-                        <circle cx="90" cy="90" r="6" fill="#3b82f6" />
-                        <circle cx="135" cy="90" r="6" fill="#3b82f6" />
-                        <image href="/assets/img/logo-1.png" x="25" y="55" width="70" height="25" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <!-- Versión Desktop (Mantener la original) -->
-        <div class="hidden md:block relative w-full">
-            <!-- Contenedor de la ruta -->
-            <div class="relative min-w-full mx-auto">
-                <!-- Contenedor de la línea y animación -->
-                <div class="ruta-container relative h-24 md:h-32 mx-4 md:mx-0">
-                    <!-- Línea horizontal -->
-                    <div class="ruta-linea absolute top-1/2 left-0 right-0 h-2 md:h-3 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 transform -translate-y-1/2 z-10"></div>
-
-                    <!-- Camión animado (debajo de los puntos) -->
-                    <div class="truck-animation absolute top-1/2 left-0 w-24 md:w-32 h-12 md:h-16 transform -translate-y-1/2 z-20">
+                <!-- Camión animado para mobile -->
+                <div class="mt-8 relative h-16 overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-blue-400 mx-4"></div>
+                    <div class="truck-mobile absolute top-0 left-0 w-16 h-16 -translate-y-1/2">
                         <svg viewBox="0 0 200 100" class="w-full h-full">
                             <rect x="10" y="50" width="110" height="35" rx="6" fill="#1e40af" />
                             <rect x="120" y="40" width="50" height="45" rx="6" fill="#2563eb" />
@@ -758,55 +938,148 @@
                             <image href="/assets/img/logo-1.png" x="25" y="55" width="70" height="25" />
                         </svg>
                     </div>
+                </div>
+            </div>
 
-                    <!-- Puntos de cobertura - versión mejorada -->
-                    <div class="puntos-cobertura absolute top-1/2 left-0 right-0 flex justify-between px-2 md:px-8 transform -translate-y-1/2 z-30">
-                        <!-- Valparaíso -->
-                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
-                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">Valparaíso</span>
-                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
+            <!-- Versión Desktop con tooltip -->
+            <div class="hidden md:block relative w-full">
+                <div class="relative min-w-full mx-auto">
+                    <div class="ruta-container relative h-24 md:h-32 mx-4 md:mx-0">
+                        <div
+                            class="ruta-linea absolute top-1/2 left-0 right-0 h-2 md:h-3 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 transform -translate-y-1/2 z-10">
                         </div>
 
-                        <!-- Metropolitana -->
-                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
-                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">Metropolitana</span>
-                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
+                        <div
+                            class="truck-animation absolute top-1/2 left-0 w-24 md:w-32 h-12 md:h-16 transform -translate-y-1/2 z-20">
+                            <svg viewBox="0 0 200 100" class="w-full h-full">
+                                <rect x="10" y="50" width="110" height="35" rx="6" fill="#1e40af" />
+                                <rect x="120" y="40" width="50" height="45" rx="6" fill="#2563eb" />
+                                <circle cx="35" cy="90" r="12" fill="#0c274a" />
+                                <circle cx="90" cy="90" r="12" fill="#0c274a" />
+                                <circle cx="135" cy="90" r="12" fill="#0c274a" />
+                                <circle cx="35" cy="90" r="6" fill="#3b82f6" />
+                                <circle cx="90" cy="90" r="6" fill="#3b82f6" />
+                                <circle cx="135" cy="90" r="6" fill="#3b82f6" />
+                                <image href="/assets/img/logo-1.png" x="25" y="55" width="70" height="25" />
+                            </svg>
                         </div>
 
-                        <!-- O'Higgins -->
-                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
-                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">O'Higgins</span>
-                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
-                        </div>
+                        <div
+                            class="puntos-cobertura absolute top-1/2 left-0 right-0 flex justify-between px-2 md:px-8 transform -translate-y-1/2 z-30">
+                            <!-- Punto Valparaíso -->
+                            <div class="punto-cobertura relative flex flex-col items-center group" style="flex: 1 0 0;">
+                                <span
+                                    class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap cursor-pointer">Valparaíso</span>
 
-                        <!-- Maule -->
-                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
-                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">Maule</span>
-                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
-                        </div>
+                                <div
+                                    class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md">
+                                </div>
 
-                        <!-- Ñuble -->
-                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
-                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">Ñuble</span>
-                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
-                        </div>
+                                <div class="tooltip absolute bottom-full mb-2 w-56 bg-white text-gray-800 text-xs rounded-md shadow-lg p-2 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity"
+                                    style="left: 50%; transform: translateX(-50%);">
+                                    Valparaíso, Viña del Mar, Quilpué, Villa Alemana
+                                </div>
+                            </div>
 
-                        <!-- Biobío -->
-                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
-                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">Biobío</span>
-                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
-                        </div>
+                            <!-- Punto Metropolitana -->
+                            <div class="punto-cobertura relative flex flex-col items-center group" style="flex: 1 0 0;">
+                                <span
+                                    class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap cursor-pointer">Metropolitana</span>
 
-                        <!-- La Araucanía -->
-                        <div class="punto-cobertura flex flex-col items-center" style="flex: 1 0 0;">
-                            <span class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap">La Araucanía</span>
-                            <div class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md"></div>
+                                <div
+                                    class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md">
+                                </div>
+
+                                <div class="tooltip absolute bottom-full mb-2 w-52 bg-white text-gray-800 text-xs rounded-md shadow-lg p-2 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity"
+                                    style="left: 50%; transform: translateX(-50%);">
+                                    Santiago, Puente Alto, Maipú, La Florida
+                                </div>
+                            </div>
+
+                            <!-- Punto O'Higgins -->
+                            <div class="punto-cobertura relative flex flex-col items-center group" style="flex: 1 0 0;">
+                                <span
+                                    class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap cursor-pointer">O'Higgins</span>
+
+                                <div
+                                    class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md">
+                                </div>
+
+                                <div class="tooltip absolute bottom-full mb-2 w-44 bg-white text-gray-800 text-xs rounded-md shadow-lg p-2 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity"
+                                    style="left: 50%; transform: translateX(-50%);">
+                                    Rancagua, San Fernando, Machalí
+                                </div>
+                            </div>
+
+                            <!-- Punto Maule -->
+                            <div class="punto-cobertura relative flex flex-col items-center group" style="flex: 1 0 0;">
+                                <span
+                                    class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap cursor-pointer">Maule</span>
+
+                                <div
+                                    class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md">
+                                </div>
+
+                                <div class="tooltip absolute bottom-full mb-2 w-44 bg-white text-gray-800 text-xs rounded-md shadow-lg p-2 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity"
+                                    style="left: 50%; transform: translateX(-50%);">
+                                    Talca, Curicó, Constitución
+                                </div>
+                            </div>
+
+                            <!-- Punto Ñuble -->
+                            <div class="punto-cobertura relative flex flex-col items-center group" style="flex: 1 0 0;">
+                                <span
+                                    class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap cursor-pointer">Ñuble</span>
+
+                                <div
+                                    class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md">
+                                </div>
+
+                                <div class="tooltip absolute bottom-full mb-2 w-40 bg-white text-gray-800 text-xs rounded-md shadow-lg p-2 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity"
+                                    style="left: 50%; transform: translateX(-50%);">
+                                    Chillán, Coihueco
+                                </div>
+                            </div>
+
+                            <!-- Punto Biobío -->
+                            <div class="punto-cobertura relative flex flex-col items-center group" style="flex: 1 0 0;">
+                                <span
+                                    class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap cursor-pointer">Biobío</span>
+
+                                <div
+                                    class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md">
+                                </div>
+
+                                <div class="tooltip absolute bottom-full mb-2 w-48 bg-white text-gray-800 text-xs rounded-md shadow-lg p-2 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity"
+                                    style="left: 50%; transform: translateX(-50%);">
+                                    Concepción, Talcahuano, Los Ángeles
+                                </div>
+                            </div>
+
+                            <!-- Punto La Araucanía -->
+                            <div class="punto-cobertura relative flex flex-col items-center group" style="flex: 1 0 0;">
+                                <span
+                                    class="punto-texto text-xs md:text-sm font-medium text-blue-800 mb-2 whitespace-nowrap cursor-pointer">La
+                                    Araucanía</span>
+
+                                <div
+                                    class="punto-marcador w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full border-2 border-white shadow-md">
+                                </div>
+
+                                <div class="tooltip absolute bottom-full mb-2 w-52 bg-white text-gray-800 text-xs rounded-md shadow-lg p-2 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity"
+                                    style="left: 50%; transform: translateX(-50%);">
+                                    Temuco, Villarrica, Pitrufquén
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
 
 
 
@@ -921,40 +1194,6 @@
 
 
     <script>
-        // ================================
-        // 🎠 Carrusel de Clientes Automático
-        // ================================
-        let currentIndex = 0;
-        const slider = document.getElementById('slider');
-        const itemWidth = 288; // Ancho fijo de cada logo incluyendo padding/margin
-
-        function moveSlide(direction) {
-            const itemsCount = slider.children.length;
-            currentIndex += direction;
-
-            // Carrusel Infinito hacia la izquierda
-            if (currentIndex < 0) {
-                currentIndex = itemsCount - 4;
-                slider.style.transition = "none";
-                slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-                setTimeout(() => {
-                    slider.style.transition = "transform 0.5s ease-in-out";
-                }, 50);
-            }
-
-            // Reiniciar al principio si sobrepasa el límite
-            else if (currentIndex >= itemsCount - 4) {
-                currentIndex = 0;
-            }
-
-            slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-        }
-
-        // Auto desplazamiento cada 3 segundos
-        setInterval(() => {
-            moveSlide(1);
-        }, 3000);
-
 
         // ================================
         // 📱 Toggle Menú Móvil
@@ -972,12 +1211,18 @@
         // ================================
         // ❌ Cerrar Banner de Trabajo
         // ================================
+
+
+        /*
         function cerrarBanner() {
             const banner = document.getElementById("trabajaBanner");
             if (banner) {
                 banner.style.display = "none";
             }
         }
+
+        */
+
 
 
         // ================================
@@ -1055,8 +1300,25 @@
 
 
 
+        function showTooltip(id) {
+            const tooltip = document.getElementById(id);
+            if (tooltip) {
+                tooltip.classList.remove("hidden");
+            }
+        }
+
+        function hideTooltip(id) {
+            const tooltip = document.getElementById(id);
+            if (tooltip) {
+                tooltip.classList.add("hidden");
+            }
+        }
+
 
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 
 
 </body>
