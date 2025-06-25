@@ -14,361 +14,266 @@
 
 
 
-
-    <style>
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(calc(-50%));
-            }
-        }
-
-        .animate-marquee {
-            animation: marquee 20s linear infinite;
-        }
-
-        /* ======================
+<style>
+    /* ======================
      ANIMACIONES PERSONALIZADAS 
-     (Tailwind no las incluye)
   ====================== */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
         }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        to {
+            opacity: 1;
+            transform: scale(1);
         }
+    }
 
-        @keyframes slideIn {
-            from {
-                transform: translateX(120%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
         }
-
-        @keyframes drawLine {
-            0% {
-                width: 0%;
-            }
-
-            50% {
-                width: 50%;
-            }
-
-            100% {
-                width: 100%;
-            }
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
+    }
 
-        @keyframes moveTruckCrane {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(150vw);
-            }
+    @keyframes slideIn {
+        from {
+            transform: translateX(120%);
+            opacity: 0;
         }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
+        to {
+            transform: translateX(0);
+            opacity: 1;
         }
+    }
 
-        /* ======================
+    @keyframes drawLine {
+        0% {
+            width: 0%;
+        }
+        50% {
+            width: 50%;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+
+    @keyframes moveTruckCrane {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(150vw);
+        }
+    }
+
+    /* 🎯 Animación logos CLIENTES → DERECHA */
+    @keyframes marquee-right {
+        0% {
+            transform: translateX(-50%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    .animate-marquee-right {
+        animation: marquee-right 30s linear infinite;
+        will-change: transform;
+    }
+
+    /* ======================
      CLASES DE ANIMACIÓN
   ====================== */
-        .animate-fade-in {
-            animation: fadeIn 1.5s ease-out forwards;
-        }
+    .animate-fade-in {
+        animation: fadeIn 1.5s ease-out forwards;
+    }
 
-        .animate-slide-up {
-            animation: slideUp 1.2s ease-out forwards;
-        }
+    .animate-slide-up {
+        animation: slideUp 1.2s ease-out forwards;
+    }
 
-        .animate-marquee {
-            animation: marquee 30s linear infinite;
-        }
-
-        /* ======================
-     BANNER "TRABAJA CON NOSOTROS" 
-     (Mejor dejarlo en CSS por complejidad)
+    /* ======================
+     ANIMACIÓN LÍNEA Y CAMIÓN
   ====================== */
-        /*       .trabaja-banner {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #004080;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            animation: slideIn 0.8s ease-out;
-            z-index: 9999;
-            max-width: 320px;
-        }
+    .path-animation {
+        width: 0%;
+        height: 100%;
+        background-size: 200% 100%;
+        background-position: left;
+        animation: drawLine 4s linear infinite;
+    }
 
-        .trabaja-contenido {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
-            flex-grow: 1;
-        }
+    .truck-crane-animation {
+        animation: moveTruckCrane 10s linear infinite;
+        position: absolute;
+        top: -2.5rem;
+        left: -200px;
+    }
 
-        .trabaja-btn {
-            background: #00bfff;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .trabaja-btn:hover {
-            background-color: #0099cc;
-        }
-
-        @media (max-width: 600px) {
-            .trabaja-banner {
-                flex-direction: column;
-                bottom: 10px;
-                right: 10px;
-                max-width: 90%;
-            }
-        }
-
-
- */
-
-
-
-        /* ======================
-     ANIMACIÓN LÍNEA Y CAMIÓN 
-     (CSS personalizado necesario)
-  ====================== */
-        .path-animation {
-            width: 0%;
-            height: 100%;
-            background-size: 200% 100%;
-            background-position: left;
-            animation: drawLine 4s linear infinite;
-        }
-
-        .truck-crane-animation {
-            animation: moveTruckCrane 10s linear infinite;
-            position: absolute;
-            top: -2.5rem;
-            left: -200px;
-        }
-
-        /* ======================
+    /* ======================
      MENÚ MÓVIL 
-     (Complementa Tailwind)
   ====================== */
-        #mobile-menu {
-            display: none;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
+    #mobile-menu {
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
 
-        #mobile-menu.active {
-            display: block;
-            max-height: 500px;
-        }
+    #mobile-menu.active {
+        display: block;
+        max-height: 500px;
+    }
 
-        /* ======================
-     AJUSTES ESPECÍFICOS PARA MOBILE 
-     (Donde Tailwind no alcanza)
+    /* ======================
+     AJUSTES RESPONSIVE EXTRA 
   ====================== */
-        @media (max-width: 640px) {
-
-            /* Ajuste fino para hero section */
-            .hero-text {
-                font-size: calc(1.5rem + 1.5vw);
-            }
-
-            /* Corrección de padding en secciones */
-            section {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
+    @media (max-width: 640px) {
+        .hero-text {
+            font-size: calc(1.5rem + 1.5vw);
         }
 
-        /* ======================
-     SECCIÓN COBERTURA MEJORADA
-   ====================== */
-        #cobertura {
-            position: relative;
-            padding: 60px 0;
+        section {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+
+    /* ======================
+     SECCIÓN COBERTURA (no tocar)
+  ====================== */
+    #cobertura {
+        position: relative;
+        padding: 60px 0;
+    }
+
+    .ruta-container {
+        position: relative;
+        height: 160px;
+        margin: 40px 0;
+    }
+
+    .ruta-linea {
+        position: absolute;
+        top: 50%;
+        left: 2%;
+        right: 2%;
+        height: 4px;
+        background: linear-gradient(to right, #3b82f6, #1d4ed8, #3b82f6);
+        transform: translateY(-50%);
+        z-index: 1;
+    }
+
+    .truck-animation {
+        position: absolute;
+        width: 180px;
+        height: 90px;
+        top: 60%;
+        left: -180px;
+        transform: translateY(-50%);
+        z-index: 10;
+        animation: moveTruck 15s linear infinite;
+    }
+
+    .puntos-cobertura {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        width: 96%;
+        margin: 0 auto;
+        z-index: 20;
+    }
+
+    .punto-cobertura {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        min-width: 0;
+    }
+
+    .punto-marcador {
+        width: 20px;
+        height: 20px;
+        background: #3b82f6;
+        border-radius: 50%;
+        border: 4px solid white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .punto-texto {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #1e40af;
+        text-align: center;
+        position: absolute;
+        bottom: 100%;
+        margin-bottom: 10px;
+        width: max-content;
+        max-width: 120px;
+    }
+
+    @keyframes moveTruck {
+        0% {
+            left: 0;
+            transform: translateX(-100%) translateY(-50%);
         }
 
-        /* Contenedor de la línea y animación */
-        .ruta-container {
-            position: relative;
-            height: 160px;
-            /* Aumentado para dar más espacio */
-            margin: 40px 0;
+        100% {
+            left: 100%;
+            transform: translateX(0) translateY(-50%);
+        }
+    }
+
+    @keyframes truck-move-mobile {
+        0% {
+            left: -4rem;
         }
 
-        /* Línea horizontal */
-        .ruta-linea {
-            position: absolute;
-            top: 50%;
-            left: 2%;
-            right: 2%;
-            height: 4px;
-            background: linear-gradient(to right, #3b82f6, #1d4ed8, #3b82f6);
-            transform: translateY(-50%);
-            z-index: 1;
+        100% {
+            left: 100%;
+        }
+    }
+
+    .truck-mobile {
+        animation: truck-move-mobile 6s linear infinite;
+    }
+
+    @keyframes truck-move-desktop {
+        0% {
+            left: 0%;
         }
 
-        /* Camión animado - POSICIÓN MODIFICADA */
-        .truck-animation {
-            position: absolute;
-            width: 180px;
-            height: 90px;
-            top: 60%;
-            /* Cambiado de 50% a 60% para bajar el camión */
-            left: -180px;
-            transform: translateY(-50%);
-            z-index: 10;
-            /* Reducido para que los puntos queden encima */
-            animation: moveTruck 15s linear infinite;
+        100% {
+            left: 100%;
         }
+    }
 
-        /* Puntos de cobertura */
-        .puntos-cobertura {
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            width: 96%;
-            margin: 0 auto;
-            z-index: 20;
-            /* Mayor que el camión */
-        }
+    .truck-animation {
+        animation: truck-move-desktop 8s linear infinite;
+    }
 
-        .punto-cobertura {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            min-width: 0;
-        }
+    .tooltip {
+        pointer-events: none;
+        user-select: none;
+        transition: opacity 0.2s ease-in-out;
+        z-index: 50;
+        white-space: normal;
+        text-align: center;
+    }
 
-        .punto-marcador {
-            width: 20px;
-            height: 20px;
-            background: #3b82f6;
-            border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
+    .punto-cobertura.group:hover .tooltip {
+        opacity: 1;
+        pointer-events: auto;
+    }
+</style>
 
-        .punto-texto {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #1e40af;
-            text-align: center;
-            position: absolute;
-            bottom: 100%;
-            margin-bottom: 10px;
-            width: max-content;
-            max-width: 120px;
-        }
-
-        /* Animación del camión */
-        @keyframes moveTruck {
-            0% {
-                left: 0;
-                transform: translateX(-100%) translateY(-50%);
-            }
-
-            100% {
-                left: 100%;
-                transform: translateX(0) translateY(-50%);
-            }
-        }
-
-        /* Animación camión mobile */
-        @keyframes truck-move-mobile {
-            0% {
-                left: -4rem;
-            }
-
-            100% {
-                left: 100%;
-            }
-        }
-
-        .truck-mobile {
-            animation: truck-move-mobile 6s linear infinite;
-        }
-
-        /* Animación camión desktop */
-        @keyframes truck-move-desktop {
-            0% {
-                left: 0%;
-            }
-
-            100% {
-                left: 100%;
-            }
-        }
-
-        .truck-animation {
-            animation: truck-move-desktop 8s linear infinite;
-        }
-
-        /* Tooltip estilo */
-        .tooltip {
-            pointer-events: none;
-            user-select: none;
-            transition: opacity 0.2s ease-in-out;
-            z-index: 50;
-            white-space: normal;
-            text-align: center;
-        }
-
-        /* Mostrar tooltip cuando el cursor está sobre el grupo */
-        .punto-cobertura.group:hover .tooltip {
-            opacity: 1;
-            pointer-events: auto;
-        }
-    </style>
 </head>
 
 <body class="bg-gray-100">
@@ -735,8 +640,8 @@
             <h2 class="text-4xl font-bold mb-10 text-blue-900">Nuestros Clientes</h2>
 
             <div class="relative overflow-hidden">
-                <div id="slider" class="flex space-x-8 w-max animate-marquee" style="will-change: transform;">
-                    <!-- Lista original + clon para loop seamless -->
+                <div id="slider" class="flex space-x-8 w-max animate-marquee-right" style="will-change: transform;">
+                    <!-- Lista original -->
                     <img src="./assets/img/rio-blanco.png" alt="Cliente 11"
                         class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
                     <img src="./assets/img/agrosuper-1.png" alt="Cliente 1"
@@ -760,7 +665,7 @@
                     <img src="./assets/img/patagonia-fresh.jpg" alt="Cliente 10"
                         class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
 
-                    <!-- Clones para efecto loop -->
+                    <!-- Clones para loop seamless -->
                     <img src="./assets/img/rio-blanco.png" alt="Cliente 11"
                         class="w-48 h-24 object-contain shadow-md bg-white rounded-lg p-2" />
                     <img src="./assets/img/agrosuper-1.png" alt="Cliente 1"
@@ -787,6 +692,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- Sección Cobertura - Versión Mobile Mejorada -->
     <section id="cobertura" class="py-12 md:py-20 bg-gray-100">
