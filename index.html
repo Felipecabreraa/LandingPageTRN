@@ -282,6 +282,7 @@
     </style>
 
 </head>
+<link rel="icon" href="/assets/img/logo-1.png" type="image/x-icon">
 
 <body class="bg-gray-100">
 
@@ -1060,10 +1061,10 @@
             </p>
 
             <form id="form-denuncia" class="space-y-6 bg-gray-100 p-8 rounded-xl shadow-lg">
-                <input type="text" name="nombre" placeholder="Tu nombre (opcional)"
+                <input type="text" name="nombre" placeholder="Tu nombre"
                     class="w-full px-5 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-yellow-500 shadow-sm">
 
-                <input type="email" name="email" placeholder="Tu correo (opcional)"
+                <input type="email" name="email" placeholder="Tu correo"
                     class="w-full px-5 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-yellow-500 shadow-sm">
 
                 <input type="text" name="asunto" placeholder="Asunto de la denuncia" required
@@ -1243,7 +1244,7 @@
                     if (data.status === 'success') {
                         form.reset();
                         // Redirigir a index.html y ancla #contactanos (puedes ajustar la ruta si usas otra)
-                        window.location.href = '/index.html#contactanos';
+                        window.location.href = '/';
                     }
                 })
                 .catch(error => {
