@@ -1,78 +1,49 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recibir los datos del formulario
-    $nombre = strip_tags(trim($_POST['nombre']));
-    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-    $asunto = strip_tags(trim($_POST['asunto']));
-    $mensaje = trim($_POST['mensaje']);
+header('Content-Type: application/json');
 
-    // Validación básica
-    if (empty($nombre) || empty($email) || empty($asunto) || empty($mensaje)) {
-        die("Por favor completa todos los campos.");
-    }
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    echo json_encode(['status' => 'error', 'message' => 'Acceso no permitido.']);
+    exit;
+}
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        die("Correo electrónico no válido.");
-    }
+$nombre = strip_tags(trim($_POST['nombre'] ?? ''));
+$email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
+$asunto = strip_tags(trim($_POST['asunto'] ?? ''));
+$mensaje = trim($_POST['mensaje'] ?? '');
 
-    // Procesar el archivo adjunto si se ha subido uno
-    $archivoAdjunto = null;
-    if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] == 0) {
-        $archivoNombre = basename($_FILES['archivo']['name']);
-        $archivoRutaTmp = $_FILES['archivo']['tmp_name'];
-        $archivoDestino = "uploads/" . $archivoNombre;
+if (empty($nombre) || empty($email) || empty($asunto) || empty($mensaje)) {
+    echo json_encode(['status' => 'error', 'message' => 'Por favor completa todos los campos.']);
+    exit;
+}
 
-        // Crear carpeta 'uploads' si no existe
-        if (!is_dir("uploads")) {
-            mkdir("uploads", 0777, true);
-        }
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(['status' => 'error', 'message' => 'Correo electrónico no válido.']);
+    exit;
+}
 
-        // Mover archivo al directorio 'uploads'
-        if (move_uploaded_file($archivoRutaTmp, $archivoDestino)) {
-            $archivoAdjunto = file_get_contents($archivoDestino);
-            $archivoAdjunto = chunk_split(base64_encode($archivoAdjunto));
-        } else {
-            die("Error al cargar el archivo.");
-        }
-    }
+$destino = "luis.lagos@trn.cl";
+$boundary = md5(uniqid(time()));
 
-    // Dirección a la que se enviará el correo
-    $destino = "luis.lagos@trn.cl"; // Cambia esto por tu dirección de correo
+$headers = "From: $nombre <$email>\r\n";
+$headers .= "Reply-To: $email\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
 
-    // Encabezados y contenido MIME
-    $boundary = md5(uniqid(time())); // Generar un límite único para separar el contenido
+$contenido = "--$boundary\r\n";
+$contenido .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$contenido .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+$contenido .= "Nombre: $nombre\n";
+$contenido .= "Correo: $email\n\n";
+$contenido .= "Asunto: $asunto\n\n";
+$contenido .= "Mensaje:\n$mensaje\n\n";
 
-    $headers = "From: $nombre <$email>\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
+// Si tienes adjuntos (opcional) - lo omito para simplificar aquí
 
-    $contenido = "--$boundary\r\n";
-    $contenido .= "Content-Type: text/plain; charset=UTF-8\r\n";
-    $contenido .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-    $contenido .= "Nombre: $nombre\n";
-    $contenido .= "Correo: $email\n\n";
-    $contenido .= "Asunto: $asunto\n\n";
-    $contenido .= "Mensaje:\n$mensaje\n\n";
-    
-    // Si hay un archivo adjunto, lo agregamos al contenido
-    if ($archivoAdjunto) {
-        $contenido .= "--$boundary\r\n";
-        $contenido .= "Content-Type: application/octet-stream; name=\"$archivoNombre\"\r\n";
-        $contenido .= "Content-Transfer-Encoding: base64\r\n";
-        $contenido .= "Content-Disposition: attachment; filename=\"$archivoNombre\"\r\n\r\n";
-        $contenido .= $archivoAdjunto . "\r\n\r\n";
-    }
+$contenido .= "--$boundary--";
 
-    $contenido .= "--$boundary--";
-
-    // Enviar el correo
-    if (mail($destino, $asunto, $contenido, $headers)) {
-        echo "<script>alert('Mensaje enviado correctamente.');</script>";
-    } else {
-        echo "<script>alert('Error al enviar el mensaje.');</script>";
-    }
+if (mail($destino, $asunto, $contenido, $headers)) {
+    echo json_encode(['status' => 'success', 'message' => 'Mensaje enviado correctamente.']);
 } else {
-    echo "Acceso no permitido.";
+    echo json_encode(['status' => 'error', 'message' => 'Error al enviar el mensaje.']);
 }
 ?>
