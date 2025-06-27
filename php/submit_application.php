@@ -67,7 +67,7 @@ $fileContentEncoded = chunk_split(base64_encode($fileContent));
 $fileName = basename($cv['name']);
 
 $to = 'postulaciones@trn.cl';
-$subject = "Nueva Postulación - $name";
+$subject = "Nuevo Postulante - $name";
 
 // Boundary para multipart
 $boundary = md5(time());
