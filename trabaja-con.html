@@ -510,16 +510,29 @@
 
     const form = document.getElementById('applicationForm');
 
-    form.addEventListener('submit', function (event) {
-      // Validar cada campo
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const phone = form.phone.value.trim();
-      const cv = form.cv.files.length;
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
 
-      if (!name || !email || !phone || cv === 0) {
-        event.preventDefault(); // Evita que se envíe el formulario
-        alert('Por favor, completa todos los campos obligatorios y adjunta tu CV en formato PDF.');
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          alert('¡Solicitud enviada correctamente!');
+          form.reset();
+          window.location.href = 'trabaja-con.html';
+        } else {
+          alert('Error: ' + result.message);
+        }
+      } catch (error) {
+        console.error(error);
+        alert('Error al enviar el formulario. Intenta nuevamente.');
       }
     });
 
