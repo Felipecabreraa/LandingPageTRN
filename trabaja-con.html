@@ -2,423 +2,550 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Trabaja con Nosotros - TRN</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
+  <style>
+    /* Reset y Estilos Base */
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      color: #1e293b;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header/Navbar */
+    header {
+      background-color: #fff;
+      box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo img.logo-img {
+      height: 50px;
+      width: auto;
+      display: block;
+    }
+
+    .btn-index {
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 0.5rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .btn-index:hover {
+      background-color: #2563eb;
+    }
+
+    /* Sección Hero */
+    .hero {
+      background: url('https://source.unsplash.com/1600x900/?office,team') no-repeat center center/cover;
+      color: #0f172a;
+      text-align: center;
+      padding: 6rem 1rem 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      min-height: 70vh;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #2563eb;
+      text-shadow: 0 1px 5px rgba(37, 99, 235, 0.7);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      color: #334155;
+      margin: 0 auto;
+    }
+
+    .hero a.btn-primary {
+      margin-top: 1.5rem;
+      background-color: #2563eb;
+      color: white;
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 15px rgba(37, 99, 235, 0.3);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+    }
+
+    .hero a.btn-primary:hover {
+      background-color: #1e40af;
+      box-shadow: 0 12px 24px rgba(30, 64, 175, 0.5);
+    }
+
+    /* Beneficios */
+    section.benefits {
+      background-color: #e0e7ff;
+      padding: 4rem 1rem 3rem;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgb(0 0 0 / 0.05);
+      margin-bottom: 3rem;
+    }
+
+    .benefits h2 {
+      font-size: 2.75rem;
+      color: #2563eb;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+
+    .benefit-cards {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .benefit-cards .card {
+      background-color: white;
+      border-radius: 14px;
+      padding: 2rem;
+      width: 260px;
+      box-shadow: 0 5px 10px rgb(0 0 0 / 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .benefit-cards .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgb(0 0 0 / 0.12);
+    }
+
+    .benefit-cards .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+
+    .benefit-cards .card p {
+      font-size: 1rem;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    /* Vacantes */
+    section.vacancies {
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    section.vacancies h2 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: #2563eb;
+      margin-bottom: 2rem;
+    }
+
+    .vacancy-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .vacancy-cards .card {
+      background: white;
+      width: 280px;
+      border-radius: 14px;
+      padding: 2rem;
+      box-shadow: 0 6px 12px rgb(0 0 0 / 0.08);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .vacancy-cards .card:hover {
+      box-shadow: 0 12px 24px rgb(0 0 0 / 0.14);
+      transform: translateY(-6px);
+    }
+
+    .vacancy-cards .card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+      color: #1e293b;
+    }
+
+    .vacancy-cards .card p {
+      font-size: 1rem;
+      color: #64748b;
+      margin-bottom: 1.25rem;
+    }
+
+    .vacancy-cards .card a.btn-secondary {
+      align-self: start;
+      padding: 0.5rem 1.5rem;
+      background-color: transparent;
+      border: 2px solid #2563eb;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #2563eb;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .vacancy-cards .card a.btn-secondary:hover {
+      background-color: #2563eb;
+      color: white;
+    }
+
+    /* Testimonios */
+    section.testimonials {
+      background-color: #e0e7ff;
+      padding: 4rem 1rem 4rem;
+      max-width: 1000px;
+      margin: 0 auto 4rem;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgb(0 0 0 / 0.05);
+      text-align: center;
+    }
+
+    section.testimonials h2 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: #2563eb;
+      margin-bottom: 2.5rem;
+    }
+
+    .testimonial-cards {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .testimonial-cards .card {
+      background: white;
+      border-radius: 14px;
+      padding: 2rem;
+      width: 460px;
+      box-shadow: 0 6px 16px rgb(0 0 0 / 0.1);
+      font-style: italic;
+      color: #334155;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .testimonial-cards .card:hover {
+      box-shadow: 0 10px 28px rgb(0 0 0 / 0.18);
+    }
+
+    .testimonial-cards .card p:first-child {
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .testimonial-cards .card p:last-child {
+      font-weight: 700;
+      font-style: normal;
+      text-align: right;
+      color: #2563eb;
+    }
+
+    /* Formulario */
+    section.application-form {
+      max-width: 600px;
+      margin: 0 auto 6rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    section.application-form h2 {
+      font-size: 2.75rem;
+      color: #2563eb;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+
+    form {
+      background: white;
+      padding: 2rem 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgb(0 0 0 / 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #334155;
+      text-align: left;
+    }
+
+    input[type='text'],
+    input[type='email'],
+    input[type='file'],
+    textarea {
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      color: #1e293b;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type='text']:focus,
+    input[type='email']:focus,
+    input[type='file']:focus,
+    textarea:focus {
+      border-color: #2563eb;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button[type='submit'] {
+      background-color: #2563eb;
+      color: white;
+      padding: 1rem;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    button[type='submit']:hover {
+      background-color: #1e40af;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+
+      .benefit-cards,
+      .vacancy-cards,
+      .testimonial-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .vacancy-cards .card,
+      .benefit-cards .card,
+      .testimonial-cards .card {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
 
-<style>
-  /* Estilos Generales */
-  body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-
-  h1,
-  h2,
-  h3 {
-    color: #2c3e50;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  /* Botones */
-  .btn-primary,
-  .btn-secondary {
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-align: center;
-    display: inline-block;
-    cursor: pointer;
-  }
-
-  .btn-primary {
-    background-color: #3498db;
-    color: white;
-  }
-
-  .btn-primary:hover {
-    background-color: #2980b9;
-  }
-
-  .btn-secondary {
-    background-color: #ecf0f1;
-    color: #3498db;
-    border: 2px solid #3498db;
-  }
-
-  .btn-secondary:hover {
-    background-color: #3498db;
-    color: white;
-  }
-
-  /* Sección Hero */
-  .hero {
-    background: url('https://source.unsplash.com/1600x900/?team,office') no-repeat center center/cover;
-    color: rgb(28, 184, 219);
-    text-align: center;
-    padding: 100px 20px;
-  }
-
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-
-  .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-
-  /* Beneficios */
-  .benefits {
-    background-color: #ecf0f1;
-    padding: 50px 20px;
-    text-align: center;
-  }
-
-  .benefit-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-
-  .card {
-    background-color: white;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 22%;
-    text-align: center;
-  }
-
-  .card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-
-  .card p {
-    font-size: 1rem;
-  }
-
-  /* Vacantes */
-  .vacancies {
-    padding: 50px 20px;
-    text-align: center;
-  }
-
-  .vacancy-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-
-  .vacancy-cards .card {
-    background-color: white;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 22%;
-    text-align: center;
-  }
-
-  .vacancy-cards .card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-
-  .vacancy-cards .card p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-  }
-
-  /* Testimonios */
-  .testimonials {
-    background-color: #ecf0f1;
-    padding: 50px 20px;
-    text-align: center;
-  }
-
-  .testimonial-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-
-  .testimonial-cards .card {
-    background-color: white;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 45%;
-    text-align: center;
-  }
-
-  .testimonial-cards .card p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-  }
-
-  /* Formulario de Postulación */
-  .application-form {
-    padding: 50px 20px;
-    text-align: center;
-  }
-
-  .application-form form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .application-form label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-
-  .application-form input,
-  .application-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-
-  .application-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-
-  .application-form button:hover {
-    background-color: #2980b9;
-  }
-
-  /* Footer */
-  footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-  }
-
-
-  @media (max-width: 600px) {
-    .trabaja-banner {
-      flex-direction: column;
-      align-items: flex-start;
-      bottom: 15px;
-      right: 10px;
-      max-width: 90%;
-      padding: 12px 14px;
-      font-size: 0.85rem;
-    }
-
-    .trabaja-contenido {
-      flex-direction: row;
-      gap: 8px;
-      font-size: 0.85rem;
-    }
-
-    .trabaja-icono {
-      font-size: 1.4rem;
-    }
-
-    .trabaja-btn {
-      font-size: 0.8rem;
-      padding: 6px 10px;
-      margin-top: 8px;
-    }
-
-    .cerrar-banner {
-      align-self: flex-end;
-      font-size: 1rem;
-      margin-top: 5px;
-    }
-  }
-
-  /* Header/Navbar */
-  header {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-  }
-
-  .logo a {
-    font-size: 1.5rem;
-    color: #3498db;
-    font-weight: bold;
-  }
-
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-
-  .nav-links li a {
-    color: #2c3e50;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-
-  .nav-links li a:hover {
-    color: #3498db;
-  }
-
-  .logo-img {
-  height: 50px;
-  width: auto;
-}
-
-</style>
-
 <body>
-
-<header>
-  <nav class="navbar">
-    <div class="logo">
-      <a href="/">
-        <img src="assets/img/logo-1.png" alt="Logo TRN" class="logo-img">
-      </a>
-    </div>
-    <ul class="nav-links">
-      <li><a href="/">Inicio</a></li>
-      <li><a href="#beneficios">Beneficios</a></li>
-      <li><a href="#vacantes">Vacantes</a></li>
-      <li><a href="#testimonios">Testimonios</a></li>
-      <li><a href="#formulario">Postulación</a></li>
-    </ul>
-  </nav>
-</header>
-
-  <!-- Sección Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Únete a nuestro equipo</h1>
-      <p>Transforma el futuro del transporte con nosotros.</p>
-      <a href="#vacantes" class="btn-primary">Ver Vacantes</a>
-    </div>
-  </section>
-
-  <!-- Beneficios -->
-  <section class="benefits">
-    <h2>¿Por qué trabajar en TRN?</h2>
-    <div class="benefit-cards">
-      <div class="card">
-        <h3>🌍 Trabajo Remoto</h3>
-        <p>Flexibilidad para trabajar desde cualquier lugar.</p>
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="logo" aria-label="TRN Logo">
+        <img src="assets/img/logo-1.png" alt="Logo TRN" class="logo-img" />
+        <span style="font-weight:700; font-size:1.4rem; color:#2563eb;"></span>
       </div>
-      <div class="card">
-        <h3>📈 Crecimiento Profesional</h3>
-        <p>Oportunidades de desarrollo y capacitación continua.</p>
-      </div>
-      <div class="card">
-        <h3>💰 Beneficios Competitivos</h3>
-        <p>Salarios atractivos y beneficios adicionales.</p>
-      </div>
-      <div class="card">
-        <h3>👥 Cultura Inclusiva</h3>
-        <p>Un ambiente de trabajo diverso y colaborativo.</p>
-      </div>
-    </div>
-  </section>
+      <a href="index.html" class="btn-index" aria-label="Volver a Inicio">Volver al Inicio</a>
+    </nav>
+  </header>
 
-  <!-- Vacantes -->
-  <section id="vacantes" class="vacancies">
-    <h2>Vacantes Disponibles</h2>
-    <div class="vacancy-cards">
-      <div class="card">
-        <h3>Analista de Datos</h3>
-        <p>Ubicación: Remoto</p>
-        <p>Tipo: Tiempo Completo</p>
-        <a href="#" class="btn-secondary">Aplicar Ahora</a>
+  <main>
+    <section class="hero" role="banner" aria-label="Trabaja con Nosotros">
+      <h1>Únete al Equipo TRN y Construye tu Futuro</h1>
+      <p>En TRN valoramos el talento, la pasión y el compromiso. Descubre nuestras vacantes y beneficios.</p>
+      <a href="#application" class="btn-primary">Aplicar Ahora</a>
+    </section>
+
+    <section class="benefits" aria-labelledby="benefits-title">
+      <h2 id="benefits-title">Beneficios de Trabajar con Nosotros</h2>
+      <div class="benefit-cards">
+        <article class="card" role="region" aria-label="Ambiente laboral inclusivo y colaborativo">
+          <h3>Ambiente Inclusivo</h3>
+          <p>Fomentamos un entorno de trabajo diverso, respetuoso y colaborativo para que todos puedan crecer.</p>
+        </article>
+        <article class="card" role="region" aria-label="Desarrollo profesional continuo">
+          <h3>Desarrollo Profesional</h3>
+          <p>Capacitaciones constantes y oportunidades de crecimiento dentro de la empresa.</p>
+        </article>
+        <article class="card" role="region" aria-label="Flexibilidad horaria y trabajo remoto">
+          <h3>Flexibilidad</h3>
+          <p>Horarios adaptados a tus necesidades y opción de trabajo remoto para mejor balance vida-trabajo.</p>
+        </article>
       </div>
-      <div class="card">
-        <h3>Supervisor de Flota</h3>
-        <p>Ubicación: Santiago, Chile</p>
-        <p>Tipo: Híbrido</p>
-        <a href="#" class="btn-secondary">Aplicar Ahora</a>
+    </section>
+
+    <section class="vacancies" aria-labelledby="vacancies-title">
+      <h2 id="vacancies-title">Vacantes Disponibles</h2>
+      <div class="vacancy-cards" id="vacancy-cards"></div>
+      <p id="no-vacancies-message" style="display:none; color:#64748b; font-size:1.2rem; margin-top:2rem;">
+        No tenemos vacantes disponibles en este momento. Por favor, vuelve a visitar más tarde.
+      </p>
+    </section>
+
+    <section class="testimonials" aria-labelledby="testimonials-title">
+      <h2 id="testimonials-title">Lo que dicen nuestros colaboradores</h2>
+      <div class="testimonial-cards">
+        <blockquote class="card" aria-label="Testimonio de María">
+          <p>"Trabajar en TRN me ha permitido crecer profesionalmente y formar parte de un equipo increíble."</p>
+          <p>— Juan Cuadra.</p>
+        </blockquote>
+        <blockquote class="card" aria-label="Testimonio de Carlos">
+          <p>"La flexibilidad y el ambiente laboral hacen que cada día sea un placer venir a trabajar."</p>
+          <p>— Anggela Sepulveda.</p>
+        </blockquote>
       </div>
-      <div class="card">
-        <h3>Contador Auditor Senior</h3>
-        <p>Ubicación: Rengo, Chile</p>
-        <p>Tipo: Tiempo Completo</p>
-        <a href="#" class="btn-secondary">Aplicar Ahora</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Testimonios -->
-  <section class="testimonials">
-    <h2>Lo que dicen nuestros empleados</h2>
-    <div class="testimonial-cards">
-      <div class="card">
-        <p>"Trabajar en TRN ha sido una experiencia increíble. El ambiente es colaborativo y siempre hay oportunidades
-          para crecer."</p>
-        <p>- Juan Pérez, Desarrollador Backend</p>
-      </div>
-      <div class="card">
-        <p>"Me encanta la flexibilidad que me ofrece la empresa. Puedo equilibrar mi vida personal y profesional sin
-          problemas."</p>
-        <p>- María López, Diseñadora UX/UI</p>
-      </div>
-    </div>
-  </section>
+    <section class="application-form" id="application" aria-labelledby="application-title">
+      <h2 id="application-title">Envía tu solicitud</h2>
+      <form id="applicationForm" action="/php/submit_application.php" method="POST" enctype="multipart/form-data"
+        aria-describedby="form-instructions">
+        <p id="form-instructions">Completa tus datos y adjunta tu CV en formato PDF.</p>
+        <label for="name">Nombre Completo</label>
+        <input type="text" id="name" name="name" placeholder="Tu nombre completo" required />
 
-  <!-- Formulario de Postulación -->
-  <section class="application-form">
-    <h2>Postúlate Ahora</h2>
-    <form action="enviar_postulacion.php" method="POST">
-      <label for="nombre">Nombre Completo</label>
-      <input type="text" id="nombre" name="nombre" required>
+        <label for="email">Correo Electrónico</label>
+        <input type="email" id="email" name="email" placeholder="tu@email.com" required />
 
-      <label for="email">Correo Electrónico</label>
-      <input type="email" id="email" name="email" required>
+        <label for="phone">Teléfono</label>
+        <input type="text" id="phone" name="phone" placeholder="Ej. +56 9 11 123433 " required />
 
-      <label for="cv">Adjuntar CV</label>
-      <input type="file" id="cv" name="cv" required>
+        <label for="cv">Adjunta tu CV (PDF)</label>
+        <input type="file" id="cv" name="cv" accept=".pdf" required />
 
-      <label for="mensaje">Mensaje</label>
-      <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        <div class="g-recaptcha" data-sitekey="6LcicF4rAAAAAJl1bQGQ0BUb-mEiSSmu3yRjJyll"></div>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-      <button type="submit" class="btn-primary">Enviar Postulación</button>
-    </form>
-  </section>
+        <button type="submit" aria-label="Enviar solicitud">Enviar Solicitud</button>
+      </form>
+    </section>
+  </main>
 
-  <footer>
-    <p>&copy; 2025 TRN. Todos los derechos reservados.</p>
-  </footer>
+
+
+  <script>
+    // Aquí defines si tienes vacantes o no.
+    // Para vacantes disponibles, agrega objetos con título y descripción.
+    // Para no tener vacantes, usa un array vacío: const vacantes = [];
+    const vacantes = [
+
+    ];
+
+    const container = document.getElementById('vacancy-cards');
+    const noVacanciesMsg = document.getElementById('no-vacancies-message');
+
+    if (vacantes.length > 0) {
+      vacantes.forEach(vacante => {
+        const card = document.createElement('article');
+        card.classList.add('card');
+        card.setAttribute('role', 'region');
+        card.setAttribute('aria-label', `Vacante para ${vacante.titulo}`);
+
+        card.innerHTML = `
+        <h3>${vacante.titulo}</h3>
+        <p>${vacante.descripcion}</p>
+        <a href="#application" class="btn-secondary">Aplicar</a>
+      `;
+
+        container.appendChild(card);
+      });
+      noVacanciesMsg.style.display = 'none';
+    } else {
+      container.style.display = 'none';
+      noVacanciesMsg.style.display = 'block';
+    }
+
+
+
+
+
+    const form = document.getElementById('applicationForm');
+
+    form.addEventListener('submit', function (event) {
+      // Validar cada campo
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+      const cv = form.cv.files.length;
+
+      if (!name || !email || !phone || cv === 0) {
+        event.preventDefault(); // Evita que se envíe el formulario
+        alert('Por favor, completa todos los campos obligatorios y adjunta tu CV en formato PDF.');
+      }
+    });
+
+
+    /*
+
+      titulo: "Desarrollador Frontend Junior",
+      descripcion: "Buscamos talento con ganas de crecer y aprender tecnologías modernas como React y CSS avanzado."
+    },
+    {
+      titulo: "Analista de Datos",
+      descripcion: "Perfil con experiencia en análisis estadístico y herramientas de BI para proyectos innovadores."
+    },
+    {
+      titulo: "Coordinador de Marketing Digital",
+      descripcion: "Encargado de planificar campañas digitales, manejo de redes sociales y análisis de resultados."
+    }
+
+    */
+
+
+
+
+  </script>
+
+
 
 </body>
 

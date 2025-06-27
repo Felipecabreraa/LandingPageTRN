@@ -6,6 +6,24 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
     exit;
 }
 
+// Validar reCAPTCHA
+$recaptchaSecret = '6LcicF4rAAAAAJl1bQGQ0BUb-mEiSSmu3yRjJyll';
+$recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
+
+if (empty($recaptchaResponse)) {
+    echo json_encode(['status' => 'error', 'message' => 'Por favor verifica el reCAPTCHA.']);
+    exit;
+}
+
+$verifyResponse = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$recaptchaSecret}&response={$recaptchaResponse}");
+$responseData = json_decode($verifyResponse);
+
+if (!$responseData->success) {
+    echo json_encode(['status' => 'error', 'message' => 'reCAPTCHA inválido. Intenta nuevamente.']);
+    exit;
+}
+
+// Validar datos del formulario
 $nombre = strip_tags(trim($_POST['nombre'] ?? ''));
 $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
 $asunto = strip_tags(trim($_POST['asunto'] ?? ''));
@@ -21,7 +39,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-$destino = "luis.lagos@trn.cl";
+// Enviar email
+$destino = "contacto@trn.cl";
 $boundary = md5(uniqid(time()));
 
 $headers = "From: $nombre <$email>\r\n";
@@ -36,9 +55,6 @@ $contenido .= "Nombre: $nombre\n";
 $contenido .= "Correo: $email\n\n";
 $contenido .= "Asunto: $asunto\n\n";
 $contenido .= "Mensaje:\n$mensaje\n\n";
-
-// Si tienes adjuntos (opcional) - lo omito para simplificar aquí
-
 $contenido .= "--$boundary--";
 
 if (mail($destino, $asunto, $contenido, $headers)) {

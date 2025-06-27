@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Configura correo
-    $destinatario = "luis.lagos@trn.cl"; // <-- cámbialo
+    $destinatario = "denuncias@trn.cl"; // <-- cámbialo
     $asunto_correo = "Nueva denuncia: $asunto";
 
     $cuerpo = "Has recibido una nueva denuncia:\n\n";
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $cuerpo .= "Asunto: $asunto\n\n";
     $cuerpo .= "Mensaje:\n$mensaje\n";
 
-    $headers = "From: canal-denuncias@tudominio.com\r\n";
+    $headers = "From: denuncias@trn.cl\r\n";
     $headers .= "Reply-To: $email\r\n";
 
     if (mail($destinatario, $asunto_correo, $cuerpo, $headers)) {
