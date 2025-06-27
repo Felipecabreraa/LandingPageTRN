@@ -84,7 +84,7 @@ $message .= "Content-Type: text/html; charset=UTF-8\r\n";
 $message .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
 
 $message .= "<html><body>";
-$message .= "<h2 style='color:#2E86C1;'>Nueva Postulación</h2>";
+$message .= "<h2 style='color:#2E86C1;'>Nuevo Postulante</h2>";
 $message .= "<p><strong>Nombre:</strong> " . htmlspecialchars($name) . "</p>";
 $message .= "<p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>";
 $message .= "<p><strong>Teléfono:</strong> " . htmlspecialchars($phone) . "</p>";
