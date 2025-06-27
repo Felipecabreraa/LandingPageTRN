@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $to = 'rrhh@trn.com';
+    $to = 'postulaciones@trn.cl';
     $subject = 'Nueva Postulación - ' . $name;
     $message = "Nombre: $name\nCorreo: $email\nTeléfono: $phone\nCV: $fileName\n";
     $headers = "From: no-reply@trn.com\r\nReply-To: $email\r\n";
