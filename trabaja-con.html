@@ -450,6 +450,7 @@
       <form id="applicationForm" action="/php/submit_application.php" method="POST" enctype="multipart/form-data"
         aria-describedby="form-instructions">
         <p id="form-instructions">Completa tus datos y adjunta tu CV en formato PDF.</p>
+
         <label for="name">Nombre Completo</label>
         <input type="text" id="name" name="name" placeholder="Tu nombre completo" required />
 
@@ -458,6 +459,9 @@
 
         <label for="phone">Teléfono</label>
         <input type="text" id="phone" name="phone" placeholder="Ej. +56 9 11 123433 " required />
+
+        <label for="message">Mensaje (opcional)</label>
+        <textarea id="message" name="message" placeholder="Escribe un mensaje o comentario" rows="4"></textarea>
 
         <label for="cv">Adjunta tu CV (PDF)</label>
         <input type="file" id="cv" name="cv" accept=".pdf" required />
@@ -468,6 +472,7 @@
         <button type="submit" aria-label="Enviar solicitud">Enviar Solicitud</button>
       </form>
     </section>
+
   </main>
 
 

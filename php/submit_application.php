@@ -30,6 +30,7 @@ if (!$responseData->success) {
 $name = trim($_POST['name'] ?? '');
 $email = trim($_POST['email'] ?? '');
 $phone = trim($_POST['phone'] ?? '');
+$messageText = trim($_POST['message'] ?? '');
 
 if (empty($name) || empty($email) || empty($phone)) {
     echo json_encode(['success' => false, 'message' => 'Todos los campos son obligatorios.']);
@@ -87,6 +88,11 @@ $message .= "<h2 style='color:#2E86C1;'>Nueva Postulación</h2>";
 $message .= "<p><strong>Nombre:</strong> " . htmlspecialchars($name) . "</p>";
 $message .= "<p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>";
 $message .= "<p><strong>Teléfono:</strong> " . htmlspecialchars($phone) . "</p>";
+
+if (!empty($messageText)) {
+    $message .= "<p><strong>Mensaje:</strong><br>" . nl2br(htmlspecialchars($messageText)) . "</p>";
+}
+
 $message .= "<p>Adjunto se encuentra el CV en formato PDF.</p>";
 $message .= "</body></html>\r\n\r\n";
 
