@@ -4,12 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transportes Río Negro</title>
-    <!-- Agregar enlaces a los estilos -->
+    <title>Transportes Río Negro - Líder en Transporte Responsable</title>
+    <meta name="description" content="Transportes Río Negro: Comprometidos con el transporte responsable y el cuidado del medio ambiente. Servicios de transporte, disposición y aplicación de residuos orgánicos.">
+    
+    <!-- Fuentes modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Iconos y estilos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/img/logo-1.png" type="image/x-icon">
 
 
 
@@ -309,7 +319,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M16 12H8m8 0l-8 0m8 0v4m0-4l-8-4m0 0v8" />
                         </svg>
-                        <span>contacto@trn.cl</span>
+                        <span data-i18n="contact.email">contacto@trn.cl</span>
                     </div>
 
                     <!-- Trabaja con nosotros -->
@@ -319,76 +329,144 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2m8-10a4 4 0 100-8 4 4 0 000 8zm6 4h4m-2-2v4" />
                         </svg>
-                        <span>Trabaja con nosotros</span>
+                        <span data-i18n="header.work">Trabaja con nosotros</span>
                     </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Header principal -->
-    <header class="bg-white py-4 shadow-md sticky top-0 z-50">
+    <!-- Header principal moderno -->
+    <header class="header-modern bg-white py-4 shadow-md sticky top-0 z-50 transition-all duration-300">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <!-- Logo con efecto -->
+            <!-- Logo con efecto mejorado -->
             <a href="index.html" class="flex-shrink-0">
                 <img src="./assets/img/logo-1.png" alt="Transportes Río Negro"
-                    class="h-16 rounded-lg shadow-md hover:scale-110 transition-transform duration-300">
+                    class="h-16 rounded-lg shadow-lg hover:scale-110 transition-all duration-300 animate-float">
             </a>
 
-            <!-- Botón hamburguesa (solo en móviles) -->
-            <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Toggle Menu">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
+            <!-- Botón hamburguesa mejorado -->
+            <button id="menu-toggle" class="md:hidden focus:outline-none p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Toggle Menu">
+                <svg class="w-8 h-8 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
 
-            <!-- Navegación (visible solo en pantallas grandes) -->
-            <nav id="nav-menu" class="hidden md:flex space-x-6 text-lg text-blue-900 font-medium">
-                <a href="#nosotros" class="hover:text-yellow-400 transition">Nosotros</a>
-                <a href="#servicios" class="hover:text-yellow-400 transition">Servicios</a>
-                <a href="#infraestructura" class="hover:text-yellow-400 transition">Infraestructura</a>
-                <a href="#certificados" class="hover:text-yellow-400 transition">Certificados</a>
-                <a href="#clientes" class="hover:text-yellow-400 transition">Clientes</a>
-                <a href="#cobertura" class="hover:text-yellow-400 transition">Cobertura</a>
-                <a href="#contactanos" class="hover:text-yellow-400 transition">Contáctanos</a>
-                <a href="#canal-denuncia" class="hover:text-yellow-400 transition">Canal de Denuncia</a>
+            <!-- Navegación moderna -->
+            <nav id="nav-menu" class="hidden md:flex space-x-8 text-lg font-medium">
+                <a href="#nosotros" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300" data-i18n="nav.about">Nosotros</a>
+                <a href="#servicios" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300" data-i18n="nav.services">Servicios</a>
+                <a href="#infraestructura" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300" data-i18n="nav.infrastructure">Infraestructura</a>
+                <a href="#certificados" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300" data-i18n="nav.certificates">Certificados</a>
+                <a href="#clientes" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300" data-i18n="nav.clients">Clientes</a>
+                <a href="#cobertura" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300" data-i18n="nav.coverage">Cobertura</a>
+                <a href="#contactanos" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300" data-i18n="nav.contact">Contáctanos</a>
+                <a href="#canal-denuncia" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300" data-i18n="nav.whistleblower">Canal de Denuncia</a>
             </nav>
+
+            <!-- Selector de idioma y tema -->
+            <div class="hidden md:flex items-center space-x-4">
+                <!-- Selector de idioma -->
+                <div class="language-selector relative">
+                    <button id="language-toggle" class="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
+                        <span id="current-lang" class="text-sm font-medium" data-i18n="language.current">ES</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="language-dropdown" class="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 hidden z-50">
+                        <button class="language-option w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors" data-lang="es">
+                            <span class="flag">🇪🇸</span> <span data-i18n="language.spanish">Español</span>
+                        </button>
+                        <button class="language-option w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors" data-lang="en">
+                            <span class="flag">🇺🇸</span> <span data-i18n="language.english">English</span>
+                        </button>
+                    </div>
         </div>
 
-        <!-- Menú móvil (oculto por defecto) -->
-        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white">
-            <nav class="flex flex-col space-y-2 text-lg text-blue-900 font-medium">
-                <a href="#nosotros" class="hover:text-yellow-400 transition">Nosotros</a>
-                <a href="#servicios" class="hover:text-yellow-400 transition">Servicios</a>
+                <!-- Selector de tema -->
+                <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors" aria-label="Cambiar tema">
+                    <i id="theme-icon" class="fas fa-moon text-lg"></i>
+                </button>
+            </div>
+        </div>
 
-                <a href="#infraestructura" class="hover:text-yellow-400 transition">Infraestructura</a>
-                <a href="#certificados" class="hover:text-yellow-400 transition">Certificados</a>
-                <a href="#clientes" class="hover:text-yellow-400 transition">Clientes</a>
-                <a href="#cobertura" class="hover:text-yellow-400 transition">Cobertura</a>
-                <a href="#contactanos" class="hover:text-yellow-400 transition">Contáctanos</a>
+        <!-- Menú móvil mejorado -->
+        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white border-t border-gray-200">
+            <nav class="flex flex-col space-y-3 text-lg font-medium py-4">
+                <a href="#nosotros" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300 py-2" data-i18n="nav.about">Nosotros</a>
+                <a href="#servicios" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300 py-2" data-i18n="nav.services">Servicios</a>
+                <a href="#infraestructura" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300 py-2" data-i18n="nav.infrastructure">Infraestructura</a>
+                <a href="#certificados" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300 py-2" data-i18n="nav.certificates">Certificados</a>
+                <a href="#clientes" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300 py-2" data-i18n="nav.clients">Clientes</a>
+                <a href="#cobertura" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300 py-2" data-i18n="nav.coverage">Cobertura</a>
+                <a href="#contactanos" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300 py-2" data-i18n="nav.contact">Contáctanos</a>
+                <a href="#canal-denuncia" class="nav-link text-blue-900 hover:text-blue-600 transition-all duration-300 py-2" data-i18n="nav.whistleblower">Canal de Denuncia</a>
             </nav>
+            
+            <!-- Selectores móviles -->
+            <div class="flex items-center justify-center space-x-4 pt-4 border-t border-gray-200">
+                <!-- Selector de idioma móvil -->
+                <div class="language-selector-mobile">
+                    <button class="language-option-mobile px-3 py-2 rounded-lg bg-blue-100 text-blue-700 font-medium" data-lang="es">
+                        🇪🇸 <span data-i18n="language.short.es">ES</span>
+                    </button>
+                    <button class="language-option-mobile px-3 py-2 rounded-lg bg-gray-100 text-gray-600 font-medium" data-lang="en">
+                        🇺🇸 <span data-i18n="language.short.en">EN</span>
+                    </button>
+                </div>
+                
+                <!-- Selector de tema móvil -->
+                <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
+                    <i id="theme-icon-mobile" class="fas fa-moon text-lg"></i>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section (Portada) -->
-    <section class="relative w-full h-screen flex items-center justify-center text-center overflow-hidden">
-        <!-- Imagen de fondo con transiciones suaves -->
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 transform scale-95 animate-fade-in"
-            style="background-image: url('./assets/img/poortada.jpg');">
-            <!-- Degradado para mejorar la visibilidad del texto -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/80"></div>
+    <!-- Hero Section Moderno -->
+    <section class="hero-section relative w-full min-h-screen flex items-center justify-center text-center overflow-hidden">
+        <!-- Imagen de fondo con efecto parallax -->
+        <div class="hero-bg"></div>
+        
+        <!-- Overlay con gradiente moderno -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-blue-900/90"></div>
+        
+        <!-- Partículas flotantes decorativas -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
         </div>
 
-        <!-- Contenido de la portada -->
-        <div class="relative z-10 text-white px-6 animate-slide-up">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 shadow-lg">
-                Transportes Río Negro
+        <!-- Contenido principal -->
+        <div class="hero-content relative z-10 px-6 max-w-6xl mx-auto">
+            <div class="reveal animate-fade-in-up">
+                <h1 class="hero-title mb-6">
+                    <span class="text-gradient" data-i18n="hero.title">Transportes</span> <span data-i18n="hero.company">Río Negro</span>
             </h1>
-            <p class="text-lg md:text-2xl max-w-2xl mx-auto shadow-lg">
-                Comprometidos con el transporte responsable y el cuidado del medio ambiente.
-            </p>
+            </div>
+            
+            <div class="reveal animate-fade-in-up" style="animation-delay: 0.2s;">
+                <p class="hero-subtitle mb-8">
+                    <span data-i18n="hero.subtitle">Líderes en <strong>transporte responsable</strong> y <strong>cuidado del medio ambiente</strong></span>
+                </p>
+            </div>
+            
+            <div class="reveal animate-fade-in-up" style="animation-delay: 0.4s;">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#servicios" class="hero-cta group">
+                        <span data-i18n="hero.cta.services">Conoce Nuestros Servicios</span>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#contactanos" class="hero-cta bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-all duration-300">
+                        <span data-i18n="hero.cta.contact">Contáctanos</span>
+                        <i class="fas fa-phone ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+
         </div>
     </section>
 
@@ -411,67 +489,102 @@
 
 
 
-    <!-- Sección Nosotros -->
-    <section id="nosotros" class="bg-gray-100 py-20">
-        <div class="container mx-auto flex flex-col md:flex-row items-center">
+    <!-- Sección Nosotros Moderna -->
+    <section id="nosotros" class="section-modern bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-6">
+            <!-- Título de sección -->
+            <div class="text-center mb-16">
+                <h2 class="section-title reveal" data-i18n="about.title">Sobre Nosotros</h2>
+                <p class="section-subtitle reveal" data-i18n="about.subtitle">Comprometidos con la excelencia y la sostenibilidad ambiental</p>
+            </div>
 
-            <!-- Columna de texto -->
-            <div class="md:w-1/2 text-center md:text-left px-6">
-                <h2
-                    class="text-4xl font-semibold mb-6 text-blue-900 opacity-0 transform translate-y-10 transition duration-1000 ease-out animate-fade-up">
-                    Nosotros
-                </h2>
-                <p
-                    class="text-lg text-gray-700 mb-6 opacity-0 transform translate-y-10 transition duration-1000 ease-out animate-fade-up">
-                    Transportes Río Negro es una empresa dedicada al transporte de residuos y desechos orgánicos,
-                    comprometida con la sostenibilidad y el cuidado del medio ambiente.
-                </p>
-                <div class="mt-4 space-y-6">
-                    <div
-                        class="bg-white p-6 rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-xl">
-                        <h3 class="text-xl font-semibold text-blue-900">Misión</h3>
-                        <p class="text-gray-600 mt-2">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Columna de contenido -->
+                <div class="reveal-left">
+                    <div class="space-y-8">
+                        <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-leaf text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-blue-900" data-i18n="about.mission.title">Nuestra Misión</h3>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed" data-i18n="about.mission.description">
                             Proveer un servicio eficiente y seguro en el transporte de residuos, promoviendo prácticas
-                            ecológicas para el bienestar de la comunidad y el planeta.
+                                ecológicas para el bienestar de la comunidad y el planeta. Nos comprometemos a mantener
+                                los más altos estándares de calidad y responsabilidad ambiental.
                         </p>
                     </div>
-                    <div
-                        class="bg-white p-6 rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-xl">
-                        <h3 class="text-xl font-semibold text-blue-900">Visión</h3>
-                        <p class="text-gray-600 mt-2">
+
+                        <div class="bg-white rounded-2xl p-8 shadow-xl hover-lift">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-600 to-green-700 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-eye text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-blue-900" data-i18n="about.vision.title">Nuestra Visión</h3>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed" data-i18n="about.vision.description">
                             Ser la empresa líder en transporte de residuos en la región, ofreciendo soluciones
-                            innovadoras y contribuyendo activamente a la sostenibilidad ambiental.
+                                innovadoras y contribuyendo activamente a la sostenibilidad ambiental. Aspiramos a ser
+                                reconocidos como un referente en el sector por nuestra innovación y compromiso ecológico.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Columna de imagen con efecto -->
-            <div class="md:w-1/2 flex justify-center mt-10 md:mt-0 relative">
-                <div
-                    class="relative w-full md:w-4/5 overflow-hidden rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105">
+                <!-- Columna de imagen -->
+                <div class="reveal-right">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 rounded-3xl transform rotate-6 scale-105 opacity-20"></div>
+                        <div class="relative bg-white rounded-3xl p-4 shadow-2xl">
                     <img src="./assets/img/nosotros.png" alt="Nuestra empresa"
-                        class="w-full h-auto object-cover rounded-lg opacity-0 transform scale-90 transition-all duration-1000 ease-out animate-fade-in">
-                    <!-- Overlay para darle un efecto más llamativo -->
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-50">
+                                class="w-full h-auto object-cover rounded-2xl transform hover:scale-105 transition-transform duration-500">
                     </div>
+                        
+                        <!-- Elementos decorativos -->
+                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-yellow-400 rounded-full opacity-20 animate-pulse"></div>
+                        <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-400 rounded-full opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
                 </div>
             </div>
         </div>
 
         <!-- Historia -->
-        <div class="container mx-auto text-center mt-20 px-6">
-            <h3
-                class="text-2xl font-semibold text-blue-900 opacity-0 transform translate-y-10 transition duration-1000 ease-out animate-fade-up">
-                Nuestra Historia
-            </h3>
-            <p
-                class="text-gray-700 max-w-3xl mx-auto mt-4 opacity-0 transform translate-y-10 transition duration-1000 ease-out animate-fade-up">
-                Fundada hace 20 años, Transportes Río Negro comenzó como una pequeña empresa familiar con el objetivo de
-                ofrecer soluciones responsables para el manejo de residuos. Con el tiempo, nos hemos expandido y
-                mejorado nuestras tecnologías, pero siempre con el mismo compromiso con el medio ambiente.
-            </p>
+            <div class="mt-20 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <div class="reveal">
+                        <div class="bg-white rounded-3xl p-8 shadow-xl">
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-r from-purple-600 to-purple-700 rounded-2xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-history text-white text-2xl"></i>
+                                </div>
+                                <h3 class="text-3xl font-bold text-blue-900" data-i18n="about.history.title">Nuestra Historia</h3>
+                            </div>
+                            <p class="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto" data-i18n="about.history.description">
+                                Fundada hace más de 20 años, Transportes Río Negro comenzó como una pequeña empresa familiar 
+                                con el objetivo de ofrecer soluciones responsables para el manejo de residuos. Con el tiempo, 
+                                nos hemos expandido y mejorado nuestras tecnologías, pero siempre manteniendo el mismo 
+                                compromiso inquebrantable con el medio ambiente y la excelencia en el servicio.
+                            </p>
+                            
+                            <!-- Estadísticas -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-blue-600 mb-2">20+</div>
+                                    <div class="text-gray-600" data-i18n="about.stats.experience">Años de Experiencia</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-blue-600 mb-2">1000+</div>
+                                    <div class="text-gray-600" data-i18n="about.stats.clients">Clientes Satisfechos</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+                                    <div class="text-gray-600" data-i18n="about.stats.service">Servicio Disponible</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -489,78 +602,115 @@
         }
     </style>
 
-    <!-- Sección SERVICIOS -->
-    <section id="servicios" class="py-20 bg-gray-50">
-        <div class="container mx-auto text-center px-4">
-            <h2 class="text-4xl font-semibold mb-12 text-blue-900">Servicios</h2>
+    <!-- Sección SERVICIOS Moderna -->
+    <section id="servicios" class="section-modern bg-white">
+        <div class="container mx-auto px-6">
+            <!-- Título de sección -->
+            <div class="text-center mb-16">
+                <h2 class="section-title reveal" data-i18n="services.title">Nuestros Servicios</h2>
+                <p class="section-subtitle reveal" data-i18n="services.subtitle">Soluciones integrales para el manejo responsable de residuos</p>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Servicio 1: TRANSPORTE -->
-                <div
-                    class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center transform transition-transform duration-300 hover:-translate-y-3 hover:shadow-2xl">
-
-                    <!-- Icono moderno y limpio de Camión -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-blue-700 mb-6" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                        <rect x="3" y="9" width="13" height="6" rx="1" ry="1" stroke-linejoin="round"
-                            stroke-linecap="round" />
-                        <path stroke-linejoin="round" stroke-linecap="round" d="M16 9l4 0 0 5" />
-                        <circle cx="7.5" cy="16.5" r="1.5" />
-                        <circle cx="18" cy="16.5" r="1.5" />
-                        <path stroke-linejoin="round" stroke-linecap="round" d="M3 15v-3" />
-                    </svg>
-
-                    <!-- Imagen opcional
-        <img src="ruta-a-tu-imagen.jpg" alt="Transporte" class="w-24 h-24 object-cover rounded-full mb-6 shadow-md">
-        -->
-
-                    <h3 class="text-xl font-semibold mb-4 text-gray-900">TRANSPORTE</h3>
-                    <p class="text-gray-600">Contamos con una flota moderna y eficiente para el transporte seguro de
-                        residuos y materiales.</p>
+                <div class="service-card reveal" style="animation-delay: 0.1s;">
+                    <div class="service-icon">
+                        <i class="fas fa-truck text-3xl"></i>
+                    </div>
+                    <h3 class="service-title" data-i18n="services.transport.title">Transporte Especializado</h3>
+                    <p class="service-description" data-i18n="services.transport.description">
+                        Contamos con una flota moderna y eficiente para el transporte seguro de residuos y materiales. 
+                        Nuestros vehículos están equipados con la última tecnología para garantizar la seguridad y 
+                        eficiencia en cada viaje.
+                    </p>
+                    <div class="mt-6">
+                        <ul class="text-sm text-gray-600 space-y-2">
+                                                         <li class="flex items-center">
+                                 <i class="fas fa-check text-green-500 mr-2"></i>
+                                 <span data-i18n="services.transport.features.0">Flota moderna y certificada</span>
+                             </li>
+                             <li class="flex items-center">
+                                 <i class="fas fa-check text-green-500 mr-2"></i>
+                                 <span data-i18n="services.transport.features.1">Personal capacitado</span>
+                             </li>
+                             <li class="flex items-center">
+                                 <i class="fas fa-check text-green-500 mr-2"></i>
+                                 <span data-i18n="services.transport.features.2">Seguimiento GPS en tiempo real</span>
+                             </li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Servicio 2: DISPOSICIÓN -->
-                <div
-                    class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center transform transition-transform duration-300 hover:-translate-y-3 hover:shadow-2xl">
-
-                    <!-- Icono Heroicon (Basura) -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-600 mb-6" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-4h4a1 1 0 011 1v1H9V4a1 1 0 011-1z" />
-                    </svg>
-
-                    <!-- Imagen opcional
-        <img src="ruta-a-tu-imagen.jpg" alt="Aplicación residuos orgánicos" class="w-24 h-24 object-cover rounded-full mb-6 shadow-md">
-        -->
-
-                    <h3 class="text-xl font-semibold mb-4 text-gray-900">DISPOSICIÓN</h3>
-                    <p class="text-gray-600">Realizamos la disposición final adecuada, cumpliendo con las normativas
-                        ambientales vigentes.</p>
+                <div class="service-card reveal" style="animation-delay: 0.2s;">
+                    <div class="service-icon">
+                        <i class="fas fa-recycle text-3xl"></i>
+                    </div>
+                    <h3 class="service-title" data-i18n="services.disposal.title">Disposición Responsable</h3>
+                    <p class="service-description" data-i18n="services.disposal.description">
+                        Realizamos la disposición final adecuada de residuos, cumpliendo con todas las normativas 
+                        ambientales vigentes. Nuestros procesos están certificados y auditados regularmente para 
+                        garantizar el cumplimiento de los más altos estándares.
+                    </p>
+                    <div class="mt-6">
+                        <ul class="text-sm text-gray-600 space-y-2">
+                                                         <li class="flex items-center">
+                                 <i class="fas fa-check text-green-500 mr-2"></i>
+                                 <span data-i18n="services.disposal.features.0">Cumplimiento normativo</span>
+                             </li>
+                             <li class="flex items-center">
+                                 <i class="fas fa-check text-green-500 mr-2"></i>
+                                 <span data-i18n="services.disposal.features.1">Certificaciones ambientales</span>
+                             </li>
+                             <li class="flex items-center">
+                                 <i class="fas fa-check text-green-500 mr-2"></i>
+                                 <span data-i18n="services.disposal.features.2">Auditorías regulares</span>
+                             </li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Servicio 3: APLICACIÓN DE RESIDUOS ORGÁNICOS -->
-                <div
-                    class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center transform transition-transform duration-300 hover:-translate-y-3 hover:shadow-2xl">
-
-                    <!-- Icono moderno de Hoja / planta -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-emerald-600 mb-6" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 2c4 3 5 6 5 9a5 5 0 01-5 5 5 5 0 01-5-5c0-3 1-6 5-9z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 12v7" />
-                    </svg>
-
-                    <!-- Imagen opcional
-        <img src="ruta-a-tu-imagen.jpg" alt="Aplicación residuos orgánicos" class="w-24 h-24 object-cover rounded-full mb-6 shadow-md">
-        -->
-
-                    <h3 class="text-xl font-semibold mb-4 text-gray-900">APLICACIÓN DE RESIDUOS ORGÁNICOS EN SUELO</h3>
-                    <p class="text-gray-600">Aplicamos residuos orgánicos transformados como abono para mejorar la
-                        calidad y fertilidad del suelo.</p>
+                <div class="service-card reveal" style="animation-delay: 0.3s;">
+                    <div class="service-icon">
+                        <i class="fas fa-seedling text-3xl"></i>
+                    </div>
+                    <h3 class="service-title" data-i18n="services.organic.title">Aplicación de Residuos Orgánicos</h3>
+                    <p class="service-description" data-i18n="services.organic.description">
+                        Aplicamos residuos orgánicos transformados como abono para mejorar la calidad y fertilidad 
+                        del suelo. Nuestro proceso de compostaje es natural y sostenible, contribuyendo a la 
+                        regeneración de suelos agrícolas.
+                    </p>
+                    <div class="mt-6">
+                        <ul class="text-sm text-gray-600 space-y-2">
+                                                         <li class="flex items-center">
+                                 <i class="fas fa-check text-green-500 mr-2"></i>
+                                 <span data-i18n="services.organic.features.0">Proceso natural de compostaje</span>
+                             </li>
+                             <li class="flex items-center">
+                                 <i class="fas fa-check text-green-500 mr-2"></i>
+                                 <span data-i18n="services.organic.features.1">Mejora de suelos agrícolas</span>
+                             </li>
+                             <li class="flex items-center">
+                                 <i class="fas fa-check text-green-500 mr-2"></i>
+                                 <span data-i18n="services.organic.features.2">Certificación orgánica</span>
+                             </li>
+                        </ul>
+                    </div>
+                </div>
                 </div>
 
+            <!-- CTA adicional -->
+            <div class="text-center mt-16">
+                <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-3xl p-8 text-white">
+                                         <h3 class="text-2xl font-bold mb-4" data-i18n="services.cta.title">¿Necesitas un servicio personalizado?</h3>
+                     <p class="text-lg mb-6 opacity-90" data-i18n="services.cta.subtitle">
+                         Contáctanos para obtener una cotización personalizada según tus necesidades específicas
+                     </p>
+                     <a href="#contactanos" class="inline-block bg-yellow-400 text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105">
+                         <span data-i18n="services.cta.button">Solicitar Cotización</span>
+                     </a>
+                </div>
             </div>
         </div>
     </section>
@@ -571,7 +721,7 @@
     <!-- Sección Infraestructura -->
     <section id="infraestructura" class="py-20">
         <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-semibold mb-6 text-blue-900">Infraestructura</h2>
+            <h2 class="text-4xl font-semibold mb-6 text-blue-900" data-i18n="infrastructure.title">Infraestructura</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -582,8 +732,8 @@
                         <img src="/assets/img/ampliroll.jpeg" alt="Camión de Transporte"
                             class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xl font-semibold mt-4">Camión Ampliroll</h3>
-                    <p class="text-gray-600 mt-2 flex-grow">Nuestros camiones están equipados con la última tecnología
+                    <h3 class="text-xl font-semibold mt-4" data-i18n="infrastructure.ampliroll.title">Camión Ampliroll</h3>
+                    <p class="text-gray-600 mt-2 flex-grow" data-i18n="infrastructure.ampliroll.description">Nuestros camiones están equipados con la última tecnología
                         Versátil y robusto, ideal para el transporte de contenedores de gran volumen. Facilita la carga
                         y descarga rápida de residuos industriales.
                     </p>
@@ -597,8 +747,8 @@
                         <img src="/assets/img/cama-baja.jpeg" alt="Camión de Transporte"
                             class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xl font-semibold mt-4">Camión Cama Baja</h3>
-                    <p class="text-gray-600 mt-2 flex-grow">
+                    <h3 class="text-xl font-semibold mt-4" data-i18n="infrastructure.lowbed.title">Camión Cama Baja</h3>
+                    <p class="text-gray-600 mt-2 flex-grow" data-i18n="infrastructure.lowbed.description">
                         Especializado en el traslado de maquinaria pesada y equipos de gran tamaño, asegurando un
                         transporte eficiente y seguro en ruta.</p>
                 </div>
@@ -610,8 +760,8 @@
                         <img src="assets/img/limpia-fosa-Photoroom.png" alt="Remediación de Suelos"
                             class="max-h-48 object-contain">
                     </div>
-                    <h3 class="text-xl font-semibold mt-4">Camión Limpia Fosas</h3>
-                    <p class="text-gray-600 mt-2 flex-grow"> Diseñado para el mantenimiento de fosas sépticas y redes de
+                    <h3 class="text-xl font-semibold mt-4" data-i18n="infrastructure.septic.title">Camión Limpia Fosas</h3>
+                    <p class="text-gray-600 mt-2 flex-grow" data-i18n="infrastructure.septic.description"> Diseñado para el mantenimiento de fosas sépticas y redes de
                         alcantarillado. Garantiza una operación higiénica, rápida y profesional.</p>
                 </div>
 
@@ -624,7 +774,7 @@
     <!-- Sección Certificados -->
     <section id="certificados" class="bg-gray-100 py-20">
         <div class="container mx-auto text-center px-4 max-w-xl">
-            <h2 class="text-4xl font-semibold mb-12 text-blue-900">Certificados</h2>
+            <h2 class="text-4xl font-semibold mb-12 text-blue-900" data-i18n="certificates.title">Certificados</h2>
 
             <div
                 class="bg-white rounded-xl shadow-2xl p-8 flex flex-col items-center transform transition-transform duration-300 hover:scale-105">
@@ -634,9 +784,9 @@
                     <img src="./assets/img/iso.jpg" alt="Certificado ISO" class="object-contain w-full h-full">
                 </div>
 
-                <h3 class="text-3xl font-bold mb-4 text-gray-900">Certificación ISO 9001</h3>
+                <h3 class="text-3xl font-bold mb-4 text-gray-900" data-i18n="certificates.iso.title">Certificación ISO 9001</h3>
 
-                <p class="text-gray-700 text-lg max-w-md">
+                <p class="text-gray-700 text-lg max-w-md" data-i18n="certificates.iso.description">
                     Cumplimos con los más altos estándares de calidad en el transporte de residuos, garantizando
                     seguridad y confianza en cada servicio.
                 </p>
@@ -649,7 +799,7 @@
     <!-- Sección Clientes -->
     <section id="clientes" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-10 text-blue-900">Nuestros Clientes</h2>
+            <h2 class="text-4xl font-bold mb-10 text-blue-900" data-i18n="clients.title">Nuestros Clientes</h2>
 
             <div class="relative overflow-hidden">
                 <div id="slider" class="flex space-x-8 w-max animate-marquee-right" style="will-change: transform;">
@@ -710,8 +860,8 @@
     <!-- Sección Cobertura - Versión Mobile Mejorada -->
     <section id="cobertura" class="py-12 md:py-20 bg-gray-100">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-blue-900">Cobertura</h2>
-            <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-blue-900" data-i18n="coverage.title">Cobertura</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto" data-i18n="coverage.subtitle">
                 Operamos desde la Región de Valparaíso hasta La Araucanía
             </p>
 
@@ -1010,19 +1160,19 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                 <!-- Formulario de contacto -->
                 <div class="bg-white p-8 rounded-2xl shadow-xl">
-                    <h2 class="text-4xl font-bold text-blue-900 mb-8">Contáctanos</h2>
+                    <h2 class="text-4xl font-bold text-blue-900 mb-8" data-i18n="contact.title">Contáctanos</h2>
                     <form action="/php/contacto.php" method="POST" enctype="multipart/form-data" id="contact-form"
                         class="space-y-6">
-                        <input type="text" name="nombre" placeholder="Tu Nombre" required
+                        <input type="text" name="nombre" placeholder="Tu Nombre" required data-i18n-placeholder="contact.form.name"
                             class="px-5 py-4 w-full border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 transition hover:shadow-md">
 
-                        <input type="email" name="email" placeholder="Tu Correo" required
+                        <input type="email" name="email" placeholder="Tu Correo" required data-i18n-placeholder="contact.form.email"
                             class="px-5 py-4 w-full border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 transition hover:shadow-md">
 
-                        <input type="text" name="asunto" placeholder="Asunto" required
+                        <input type="text" name="asunto" placeholder="Asunto" required data-i18n-placeholder="contact.form.subject"
                             class="px-5 py-4 w-full border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 transition hover:shadow-md">
 
-                        <textarea name="mensaje" placeholder="Tu Mensaje" required
+                        <textarea name="mensaje" placeholder="Tu Mensaje" required data-i18n-placeholder="contact.form.message"
                             class="px-5 py-4 w-full border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 transition resize-none h-40 hover:shadow-md"></textarea>
 
                         <!-- Aquí va reCAPTCHA -->
@@ -1030,7 +1180,7 @@
 
                         <button type="submit"
                             class="w-full px-6 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-lg shadow-md hover:bg-yellow-500 transition transform hover:scale-105 focus:outline-none">
-                            Enviar
+                            <span data-i18n="contact.form.send">Enviar</span>
                         </button>
                     </form>
 
@@ -1039,7 +1189,7 @@
 
                 <!-- Mapa de ubicación -->
                 <div class="space-y-6">
-                    <h3 class="text-3xl font-semibold text-blue-900">Nuestra Ubicación</h3>
+                    <h3 class="text-3xl font-semibold text-blue-900" data-i18n="contact.location">Nuestra Ubicación</h3>
                     <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4053.2553753010134!2d-70.91016471100657!3d-34.348589374561094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9663610046283559%3A0xd7dcc7ea2a37419c!2sTransportes%20R%C3%ADo%20Negro%20S.A!5e1!3m2!1ses!2scl!4v1749221387957!5m2!1ses!2scl"
@@ -1052,69 +1202,53 @@
     </section>
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
 
 
     <!-- Sección Canal de Denuncia -->
     <section id="canal-denuncia" class="py-20 bg-white">
         <div class="container mx-auto max-w-3xl px-6">
-            <h2 class="text-4xl font-semibold text-blue-900 mb-6 text-center">Canal de Denuncia</h2>
-            <p class="text-gray-700 text-lg mb-8 text-center">
+            <h2 class="text-4xl font-semibold text-blue-900 mb-6 text-center" data-i18n="whistleblower.title">Canal de Denuncia</h2>
+            <p class="text-gray-700 text-lg mb-8 text-center" data-i18n="whistleblower.description">
                 Este canal está disponible para reportar actos que puedan infringir la ley, violar el código de ética o
                 poner en riesgo a la organización. La denuncia puede ser anónima y se manejará con estricta
                 confidencialidad.
             </p>
 
-            <form id="form-denuncia" class="space-y-6 bg-gray-100 p-8 rounded-xl shadow-lg">
-                <input type="text" name="nombre" placeholder="Tu nombre"
+            <form id="form-denuncia" action="/php/canal_denuncia.php" method="POST" class="space-y-6 bg-gray-100 p-8 rounded-xl shadow-lg">
+                <input type="text" name="nombre" placeholder="Tu nombre" data-i18n-placeholder="whistleblower.form.name"
                     class="w-full px-5 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-yellow-500 shadow-sm">
 
-                <input type="email" name="email" placeholder="Tu correo"
+                <input type="email" name="email" placeholder="Tu correo" data-i18n-placeholder="whistleblower.form.email"
                     class="w-full px-5 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-yellow-500 shadow-sm">
 
-                <input type="text" name="asunto" placeholder="Asunto de la denuncia" required
+                <input type="text" name="asunto" placeholder="Asunto de la denuncia" required data-i18n-placeholder="whistleblower.form.subject"
                     class="w-full px-5 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-yellow-500 shadow-sm">
 
-                <textarea name="mensaje" placeholder="Describe los hechos" required
+                <textarea name="mensaje" placeholder="Describe los hechos" required data-i18n-placeholder="whistleblower.form.message"
                     class="w-full px-5 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-yellow-500 shadow-sm h-40 resize-none"></textarea>
 
                 <!-- reCAPTCHA -->
                 <div class="g-recaptcha" data-sitekey="6LcicF4rAAAAAKP_rL_enSzaVzj0YfSPx-81hhbN"></div>
 
-                <button type="button" onclick="enviarDenuncia()"
+                <button type="submit"
                     class="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-md shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
-                    Enviar Denuncia
+                    <span data-i18n="whistleblower.form.send">Enviar Denuncia</span>
                 </button>
             </form>
 
             <p class="text-sm text-gray-500 mt-4 text-center">
-                Toda información será tratada con confidencialidad y conforme a la ley.
+                <span data-i18n="whistleblower.disclaimer">Toda información será tratada con confidencialidad y conforme a la ley.</span>
             </p>
         </div>
     </section>
 
 
 
-    <!-- Botón flotante WhatsApp -->
-    <button id="chat-toggle" aria-label="Abrir chat WhatsApp" style="
-        position: fixed;
-        bottom: 24px;
-        right: 24px;
-        background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-        border: none;
-        border-radius: 50%;
-        width: 64px;
-        height: 64px;
-        cursor: pointer;
-        box-shadow: 0 6px 12px rgba(37, 211, 102, 0.4);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: box-shadow 0.3s ease, transform 0.3s ease;
-        z-index: 10000;
-    " onmouseover="this.style.boxShadow='0 10px 20px rgba(37, 211, 102, 0.6)'; this.style.transform='scale(1.1)';"
-        onmouseout="this.style.boxShadow='0 6px 12px rgba(37, 211, 102, 0.4)'; this.style.transform='scale(1)';">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
-            style="width: 32px; height: 32px;" />
+    <!-- Botón flotante WhatsApp moderno -->
+    <button id="chat-toggle" class="whatsapp-float" aria-label="Abrir chat WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
     </button>
 
     <!-- Caja de chat oculta inicialmente -->
@@ -1179,207 +1313,78 @@
 
 
 
-    <!-- Footer (Pie de Página) -->
-    <footer class="bg-blue-900 text-white py-6">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Transportes Río Negro. Todos los derechos reservados.</p>
-            <div class="space-x-6">
-                <a href="#" class="text-yellow-400 hover:text-yellow-500">Facebook</a>
-                <a href="#" class="text-yellow-400 hover:text-yellow-500">Instagram</a>
-                <a href="https://www.linkedin.com/company/transportes-rio-negro-s-a/"
-                    class="text-yellow-400 hover:text-yellow-500">LinkedIn</a>
+    <!-- Footer Moderno -->
+    <footer class="footer-modern">
+        <div class="container mx-auto px-6">
+            <div class="footer-content">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <!-- Información de la empresa -->
+                    <div class="text-center md:text-left">
+                        <img src="./assets/img/logo-1.png" alt="Transportes Río Negro" class="h-16 mx-auto md:mx-0 mb-4">
+                                                 <p class="text-white/80 mb-4" data-i18n="footer.description">
+                             Líderes en transporte responsable y cuidado del medio ambiente desde hace más de 20 años.
+                         </p>
+                        <div class="flex justify-center md:justify-start space-x-4">
+                            <a href="#" class="text-white/60 hover:text-white transition-colors">
+                                <i class="fab fa-facebook text-xl"></i>
+                            </a>
+                            <a href="#" class="text-white/60 hover:text-white transition-colors">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/transportes-rio-negro-s-a/" class="text-white/60 hover:text-white transition-colors">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+            </div>
+        </div>
+
+                    <!-- Enlaces rápidos -->
+                    <div class="text-center">
+                                                 <h4 class="text-white font-semibold mb-4" data-i18n="footer.quickLinks">Enlaces Rápidos</h4>
+                        <div class="space-y-2">
+                            <a href="#servicios" class="footer-link block">Servicios</a>
+                            <a href="#infraestructura" class="footer-link block">Infraestructura</a>
+                            <a href="#cobertura" class="footer-link block">Cobertura</a>
+                            <a href="#contactanos" class="footer-link block">Contacto</a>
+                        </div>
+                    </div>
+
+                    <!-- Información de contacto -->
+                    <div class="text-center md:text-right">
+                                                 <h4 class="text-white font-semibold mb-4" data-i18n="footer.contact">Contacto</h4>
+                        <div class="space-y-2 text-white/80">
+                            <p class="flex items-center justify-center md:justify-end">
+                                <i class="fas fa-phone mr-2"></i>
+                                +56 9 9736 7760
+                            </p>
+                            <p class="flex items-center justify-center md:justify-end">
+                                <i class="fas fa-envelope mr-2"></i>
+                                contacto@trn.cl
+                            </p>
+                            <p class="flex items-center justify-center md:justify-end">
+                                                                 <i class="fas fa-clock mr-2"></i>
+                                 <span data-i18n="footer.available">24/7 Disponible</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Línea divisoria -->
+                <div class="border-t border-white/20 pt-6">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                                                 <p class="text-white/60 text-sm">
+                             &copy; 2025 Transportes Río Negro. <span data-i18n="footer.copyright">Todos los derechos reservados.</span>
+                         </p>
+                        <div class="mt-4 md:mt-0">
+                            <a href="#canal-denuncia" class="footer-link text-sm">Canal de Denuncia</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
 
-    <script>
 
-        // ================================
-        // 📱 Toggle Menú Móvil
-        // ================================
-        // Seleccionamos el botón hamburguesa y el menú móvil
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        // Añadimos un evento al botón para mostrar u ocultar el menú
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');  // Activa o desactiva la clase 'active' para mostrar u ocultar el menú
-        });
-
-
-        // ================================
-        // ❌ Cerrar Banner de Trabajo
-        // ================================
-
-
-        /*
-        function cerrarBanner() {
-            const banner = document.getElementById("trabajaBanner");
-            if (banner) {
-                banner.style.display = "none";
-            }
-        }
-
-        */
-
-
-
-        //CONTACTANOS
-        //
-
-
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault(); // evitar recarga
-
-            const form = this;
-            const formData = new FormData(form);
-            const submitBtn = form.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Enviando...';
-
-            fetch(form.action, {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    alert(data.message);
-                    if (data.status === 'success') {
-                        form.reset();
-                        // Redirigir a index.html y ancla #contactanos (puedes ajustar la ruta si usas otra)
-                        window.location.href = '/';
-                    }
-                })
-                .catch(error => {
-                    alert("Error al enviar el mensaje. Intenta más tarde.");
-                    console.error(error);
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Enviar';
-                });
-        });
-
-
-
-
-
-        // ================================
-        // 📨 Enviar Formulario de Denuncia
-        // ================================
-        function enviarDenuncia() {
-            const form = document.getElementById('form-denuncia');
-            const formData = new FormData(form);
-
-            fetch('/php/canal_denuncia.php', {
-                method: 'POST',
-                body: formData
-            })
-                .then(res => res.text())
-                .then(data => {
-                    if (data.includes("Denuncia enviada correctamente")) {
-                        alert("Denuncia enviada correctamente. Gracias por tu reporte.");
-                        form.reset();
-                        grecaptcha.reset();
-                        window.location.href = '/';
-                    } else {
-                        alert("Error: " + data);
-                        grecaptcha.reset();
-                    }
-                })
-                .catch(error => {
-                    alert("Error al enviar la denuncia. Intenta más tarde.");
-                    console.error(error);
-                });
-        }
-
-
-
-
-
-        let lastScrollTop = 0;
-        const subheader = document.getElementById('subheader');
-        const header = document.getElementById('header');
-
-        window.addEventListener('scroll', function () {
-            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (currentScroll === 0) {
-                // En la parte superior, mostramos solo el subheader y header abajo
-                subheader.style.transition = 'top 0.3s ease';
-                subheader.style.top = '0';
-                header.style.transition = 'top 0.3s ease';
-                header.style.top = '40px'; // justo debajo del subheader
-            } else if (currentScroll > lastScrollTop) {
-                // Scroll hacia abajo → ocultamos subheader, header va arriba
-                subheader.style.transition = 'top 0.3s ease';
-                subheader.style.top = '-60px'; // oculta el subheader
-                header.style.transition = 'top 0.3s ease';
-                header.style.top = '0';
-            } else {
-                // Scroll hacia arriba → mostramos subheader y header abajo
-                subheader.style.transition = 'top 0.3s ease';
-                subheader.style.top = '0';
-                header.style.transition = 'top 0.3s ease';
-                header.style.top = '40px';
-            }
-
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-        });
-
-
-
-        // Ajustar la animación al cambiar el tamaño de la pantalla
-        window.addEventListener('resize', function () {
-            const truck = document.querySelector('.truck-animation');
-            truck.style.animation = 'none';
-            void truck.offsetWidth; /* trigger reflow */
-            truck.style.animation = null;
-        });
-
-
-
-        function showTooltip(id) {
-            const tooltip = document.getElementById(id);
-            if (tooltip) {
-                tooltip.classList.remove("hidden");
-            }
-        }
-
-        function hideTooltip(id) {
-            const tooltip = document.getElementById(id);
-            if (tooltip) {
-                tooltip.classList.add("hidden");
-            }
-        }
-
-
-        const chatToggle = document.getElementById("chat-toggle");
-        const chatBox = document.getElementById("whatsapp-chat");
-        const closeChat = document.getElementById("close-chat");
-
-        chatToggle.addEventListener("click", () => {
-            const isOpen = chatBox.style.opacity === '1';
-            if (isOpen) {
-                chatBox.style.opacity = '0';
-                chatBox.style.pointerEvents = 'none';
-                chatBox.style.transform = 'translateY(20px)';
-            } else {
-                chatBox.style.opacity = '1';
-                chatBox.style.pointerEvents = 'auto';
-                chatBox.style.transform = 'translateY(0)';
-            }
-        });
-
-        closeChat.addEventListener("click", () => {
-            chatBox.style.opacity = '0';
-            chatBox.style.pointerEvents = 'none';
-            chatBox.style.transform = 'translateY(20px)';
-        });
-
-
-    </script>
 
 
 

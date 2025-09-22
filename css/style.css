@@ -1,0 +1,1228 @@
+/* ========================================
+   TRANSPORTES RÍO NEGRO - ESTILOS MODERNOS
+   ======================================== */
+
+/* Variables CSS personalizadas */
+:root {
+  --primary-blue: #1e40af;
+  --secondary-blue: #3b82f6;
+  --accent-gold: #fbbf24;
+  --accent-gold-dark: #f59e0b;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --bg-light: #f8fafc;
+  --bg-white: #ffffff;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  --gradient-gold: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-dark) 100%);
+}
+
+/* Configuración base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* Tipografía mejorada */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ========================================
+   ANIMACIONES PERSONALIZADAS
+   ======================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Clases de animación */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ========================================
+   HEADER Y NAVEGACIÓN MEJORADA
+   ======================================== */
+
+.header-modern {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+  transition: all 0.3s ease;
+}
+
+.header-modern.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: var(--shadow-lg);
+}
+
+.nav-link {
+  position: relative;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-gold);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--accent-gold);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   HERO SECTION MEJORADO
+   ======================================== */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, rgba(59, 130, 246, 0.8) 100%);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/img/poortada.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--gradient-gold);
+  color: var(--text-dark);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+  color: var(--text-dark);
+}
+
+/* ========================================
+   SECCIONES MEJORADAS
+   ======================================== */
+
+.section-modern {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========================================
+   TARJETAS DE SERVICIOS MEJORADAS
+   ======================================== */
+
+.service-card {
+  background: var(--bg-white);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl);
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.service-description {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ========================================
+   INFRAESTRUCTURA MEJORADA
+   ======================================== */
+
+.infrastructure-card {
+  background: var(--bg-white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.infrastructure-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.infrastructure-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+.infrastructure-card:hover .infrastructure-image {
+  transform: scale(1.05);
+}
+
+.infrastructure-content {
+  padding: 1.5rem;
+}
+
+.infrastructure-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.infrastructure-description {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ========================================
+   CERTIFICADOS MEJORADOS
+   ======================================== */
+
+.certificate-section {
+  background: var(--gradient-primary);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.certificate-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+.certificate-content {
+  position: relative;
+  z-index: 2;
+}
+
+.certificate-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 8px solid rgba(255, 255, 255, 0.2);
+  margin: 0 auto 2rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  transition: all 0.3s ease;
+}
+
+.certificate-image:hover {
+  transform: scale(1.05);
+  border-color: var(--accent-gold);
+}
+
+/* ========================================
+   CLIENTES MEJORADOS
+   ======================================== */
+
+.clients-section {
+  background: var(--bg-light);
+}
+
+.client-logo {
+  background: var(--bg-white);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.client-logo:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   COBERTURA MEJORADA
+   ======================================== */
+
+.coverage-section {
+  background: var(--bg-white);
+  position: relative;
+}
+
+.coverage-map {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(90deg, var(--secondary-blue) 0%, var(--primary-blue) 50%, var(--secondary-blue) 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.coverage-point {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--accent-gold);
+  border: 4px solid white;
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.coverage-point:hover {
+  transform: scale(1.2);
+  box-shadow: var(--shadow-lg);
+}
+
+.coverage-tooltip {
+  position: absolute;
+  background: var(--bg-white);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.coverage-point:hover .coverage-tooltip {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+/* ========================================
+   FORMULARIOS MEJORADOS
+   ======================================== */
+
+.contact-form {
+  background: var(--bg-white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-xl);
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--bg-white);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--secondary-blue);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-button {
+  background: var(--gradient-gold);
+  color: var(--text-dark);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.form-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ========================================
+   WHATSAPP FLOTANTE MEJORADO
+   ======================================== */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  animation: float 3s ease-in-out infinite;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(37, 211, 102, 0.4);
+}
+
+/* ========================================
+   FOOTER MEJORADO
+   ======================================== */
+
+.footer-modern {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 3rem 0 1rem;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.footer-link {
+  color: var(--accent-gold);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .service-card {
+    margin-bottom: 2rem;
+  }
+  
+  .coverage-map {
+    height: 150px;
+  }
+  
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .section-modern {
+    padding: 3rem 0;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
+  }
+}
+
+/* ========================================
+   UTILIDADES ADICIONALES
+   ======================================== */
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.border-gradient {
+  border: 2px solid;
+  border-image: var(--gradient-primary) 1;
+}
+
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* ========================================
+   PARTÍCULAS FLOTANTES
+   ======================================== */
+
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float-particle 6s ease-in-out infinite;
+}
+
+.particle-1 {
+  width: 20px;
+  height: 20px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.particle-2 {
+  width: 15px;
+  height: 15px;
+  top: 60%;
+  right: 15%;
+  animation-delay: 1s;
+}
+
+.particle-3 {
+  width: 25px;
+  height: 25px;
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 2s;
+}
+
+.particle-4 {
+  width: 12px;
+  height: 12px;
+  top: 40%;
+  left: 80%;
+  animation-delay: 3s;
+}
+
+.particle-5 {
+  width: 18px;
+  height: 18px;
+  bottom: 20%;
+  right: 10%;
+  animation-delay: 4s;
+}
+
+@keyframes float-particle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+/* ========================================
+   ANIMACIONES DE SCROLL
+   ======================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease;
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ========================================
+   EFECTOS ADICIONALES
+   ======================================== */
+
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--accent-gold), var(--secondary-blue), var(--accent-gold));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-effect:hover::before {
+  opacity: 1;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ========================================
+   SELECTORES DE IDIOMA Y TEMA
+   ======================================== */
+
+.language-selector {
+  position: relative;
+}
+
+.language-selector button {
+  transition: all 0.3s ease;
+}
+
+.language-selector button:hover {
+  transform: translateY(-1px);
+}
+
+.language-dropdown {
+  min-width: 150px;
+  animation: fadeInDown 0.3s ease;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.language-option .flag {
+  font-size: 16px;
+}
+
+.language-option:hover {
+  background-color: var(--bg-light);
+}
+
+.language-option.active {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.language-selector-mobile {
+  display: flex;
+  gap: 8px;
+}
+
+.language-option-mobile {
+  transition: all 0.3s ease;
+}
+
+.language-option-mobile.active {
+  background-color: var(--primary-blue) !important;
+  color: white !important;
+}
+
+/* ========================================
+   MODO OSCURO
+   ======================================== */
+
+/* Variables para modo oscuro */
+[data-theme="dark"] {
+  --primary-blue: #3b82f6;
+  --secondary-blue: #60a5fa;
+  --accent-gold: #fbbf24;
+  --accent-gold-dark: #f59e0b;
+  --text-dark: #f8fafc;
+  --text-light: #cbd5e1;
+  --bg-light: #1e293b;
+  --bg-white: #0f172a;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+/* Transiciones suaves para cambio de tema */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Header en modo oscuro */
+[data-theme="dark"] .header-modern {
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+[data-theme="dark"] .header-modern.scrolled {
+  background: rgba(15, 23, 42, 0.98);
+}
+
+/* Navegación en modo oscuro */
+[data-theme="dark"] .nav-link {
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .nav-link:hover {
+  color: var(--accent-gold);
+}
+
+/* Hero section en modo oscuro */
+[data-theme="dark"] .hero-section {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%);
+}
+
+/* Secciones en modo oscuro */
+[data-theme="dark"] .section-modern {
+  background: var(--bg-white);
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: var(--bg-light);
+}
+
+[data-theme="dark"] .bg-gray-50 {
+  background-color: var(--bg-white);
+}
+
+[data-theme="dark"] .bg-gray-100 {
+  background-color: var(--bg-light);
+}
+
+/* Tarjetas en modo oscuro */
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .bg-white {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Mejorar distinción de divs en modo oscuro */
+[data-theme="dark"] .bg-gray-100 {
+  background-color: var(--bg-white) !important;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+[data-theme="dark"] .bg-gray-50 {
+  background-color: var(--bg-light) !important;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+/* Formularios en modo oscuro mejorados */
+[data-theme="dark"] .bg-white.p-8.rounded-2xl.shadow-xl {
+  background-color: var(--bg-light) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] .bg-gray-100.p-8.rounded-xl.shadow-lg {
+  background-color: var(--bg-white) !important;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Secciones con mejor contraste */
+[data-theme="dark"] .py-20.bg-gray-100 {
+  background-color: var(--bg-white) !important;
+}
+
+[data-theme="dark"] .py-20.bg-gray-50 {
+  background-color: var(--bg-light) !important;
+}
+
+[data-theme="dark"] .py-12.md\\:py-20.bg-gray-100 {
+  background-color: var(--bg-white) !important;
+}
+
+/* Imágenes con mejor contraste */
+[data-theme="dark"] .bg-gray-100.rounded-t-lg {
+  background-color: var(--bg-light) !important;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Contenedores de certificados */
+[data-theme="dark"] .bg-white.rounded-xl.shadow-2xl {
+  background-color: var(--bg-light) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Contenedor del mapa */
+[data-theme="dark"] .bg-white.rounded-2xl.shadow-xl {
+  background-color: var(--bg-light) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Mejorar contraste general en modo oscuro */
+[data-theme="dark"] .bg-white {
+  background-color: var(--bg-light) !important;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+[data-theme="dark"] .bg-gray-100 {
+  background-color: var(--bg-white) !important;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+/* Sombras más pronunciadas en modo oscuro */
+[data-theme="dark"] .shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .shadow-xl {
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] .shadow-2xl {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Bordes más visibles en modo oscuro */
+[data-theme="dark"] .border-gray-200 {
+  border-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+[data-theme="dark"] .border-gray-300 {
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Mejorar visibilidad de imágenes en modo oscuro */
+[data-theme="dark"] .bg-white.rounded-t-lg {
+  background-color: var(--bg-light) !important;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Contenedores específicos con mejor contraste */
+[data-theme="dark"] .bg-white.p-6.rounded-lg.shadow-lg {
+  background-color: var(--bg-light) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] .bg-white.rounded-3xl.p-4.shadow-2xl {
+  background-color: var(--bg-light) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] .service-title {
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .service-description {
+  color: var(--text-light);
+}
+
+/* Mejorar visibilidad de texto en modo oscuro */
+[data-theme="dark"] .text-gray-700 {
+  color: var(--text-light) !important;
+}
+
+[data-theme="dark"] .text-gray-600 {
+  color: var(--text-light) !important;
+}
+
+[data-theme="dark"] .text-gray-900 {
+  color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] .text-blue-900 {
+  color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] .text-blue-600 {
+  color: var(--secondary-blue) !important;
+}
+
+/* Títulos de sección en modo oscuro */
+[data-theme="dark"] .section-title {
+  color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] .section-subtitle {
+  color: var(--text-light) !important;
+}
+
+/* Hero section en modo oscuro */
+[data-theme="dark"] .hero-title {
+  color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] .hero-subtitle {
+  color: var(--text-light) !important;
+}
+
+/* Listas en modo oscuro */
+[data-theme="dark"] ul li {
+  color: var(--text-light) !important;
+}
+
+/* Estadísticas en modo oscuro */
+[data-theme="dark"] .text-3xl.font-bold.text-blue-600 {
+  color: var(--secondary-blue) !important;
+}
+
+/* Sección de clientes en modo oscuro */
+[data-theme="dark"] .client-logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .client-logo:hover {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Títulos de secciones en modo oscuro */
+[data-theme="dark"] h2.text-4xl.font-semibold {
+  color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] h3.text-2xl.font-semibold {
+  color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] h3.text-xl.font-semibold {
+  color: var(--text-dark) !important;
+}
+
+/* Formularios en modo oscuro */
+[data-theme="dark"] .form-input {
+  background-color: var(--bg-light);
+  border-color: #374151;
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .form-input:focus {
+  border-color: var(--secondary-blue);
+  background-color: var(--bg-white);
+}
+
+[data-theme="dark"] .form-input::placeholder {
+  color: var(--text-light);
+}
+
+/* Footer en modo oscuro */
+[data-theme="dark"] .footer-modern {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+/* WhatsApp en modo oscuro */
+[data-theme="dark"] #whatsapp-chat {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* Selectores en modo oscuro */
+[data-theme="dark"] .language-selector button,
+[data-theme="dark"] #theme-toggle {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .language-selector button:hover,
+[data-theme="dark"] #theme-toggle:hover {
+  background-color: #374151;
+}
+
+[data-theme="dark"] .language-dropdown {
+  background-color: var(--bg-light);
+  border-color: #374151;
+}
+
+[data-theme="dark"] .language-option {
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .language-option:hover {
+  background-color: #374151;
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Iconos de tema */
+#theme-icon,
+#theme-icon-mobile {
+  transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] #theme-icon,
+[data-theme="dark"] #theme-icon-mobile {
+  transform: rotate(180deg);
+}
+
+
